@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 바램 (BAREM) 공식 웹사이트
 
-## Getting Started
+Next.js 15 (App Router) + Tailwind CSS 정적 사이트입니다.  
+Google Play 조직 인증·App Store/Play 개인정보처리방침 URL·랜딩 페이지로 사용합니다.
 
-First, run the development server:
+**공개 URL (배포 후):** https://hoon-chang.github.io/barem-site/
+
+---
+
+## 설정 수정
+
+편집 가능한 값은 모두 [`site.config.ts`](./site.config.ts)에 있습니다.
+
+| 항목 | 필드 |
+|------|------|
+| 사이트 URL / basePath | `siteUrl`, `basePath` |
+| Google Search Console | `googleSiteVerification` |
+| 대표자·사업자번호 | `business.*` |
+| 이메일 | `contact.email` |
+| 스토어 링크 | `stores.appStoreUrl`, `stores.playStoreUrl` |
+
+사업자등록번호 등 플레이스홀더(`000-00-00000`)는 실제 값으로 교체하세요.
+
+---
+
+## 로컬 실행
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+정적 빌드:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build
+# 결과물: out/
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## GitHub Pages 배포 (이 저장소 기본)
 
-To learn more about Next.js, take a look at the following resources:
+1. `main`에 push하면 `.github/workflows/deploy-pages.yml`이 `out/`을 Pages에 배포합니다.
+2. 저장소 **Settings → Pages → Build and deployment → Source: GitHub Actions** 로 설정되어 있어야 합니다.
+3. 프로젝트 사이트이므로 `site.config.ts`의 `basePath`는 `"/barem-site"` 입니다.
+4. 커스텀 도메인을 쓰면 `basePath`를 `""`로 바꾸고 `siteUrl`을 도메인으로 맞춘 뒤 다시 배포하세요.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 다른 호스팅
 
-## Deploy on Vercel
+### Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. `site.config.ts`에서 `basePath: ""`, `siteUrl`을 Vercel 도메인으로 변경
+2. Import Git repository → Framework: Next.js → Deploy  
+   (`output: "export"`이므로 정적 산출물로 배포됩니다)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Cloudflare Pages
+
+1. `basePath: ""`로 변경
+2. Build command: `npm run build`
+3. Output directory: `out`
+
+---
+
+## 페이지
+
+| 경로 | 설명 |
+|------|------|
+| `/` | 랜딩 (기능·보안·스토어 CTA) |
+| `/privacy/` | 개인정보처리방침 (KO + EN 헤딩) |
+| `/terms/` | 이용약관 |
+| `/robots.txt` | 크롤러 허용 |
+| `/sitemap.xml` | 사이트맵 |
+
+문의: skywing090809@gmail.com
