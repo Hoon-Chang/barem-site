@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import { siteConfig } from "../../site.config";
+import { SiteImage } from "./site-image";
 
 export function SiteFooter() {
   const { brand, business, contact } = siteConfig;
@@ -10,7 +10,7 @@ export function SiteFooter() {
       <div className="mx-auto grid max-w-5xl gap-10 px-5 py-12 sm:px-8 md:grid-cols-[1.2fr_1fr]">
         <div>
           <div className="inline-flex items-center gap-3">
-            <Image
+            <SiteImage
               src="/brand/barem_icon.png"
               alt=""
               width={40}

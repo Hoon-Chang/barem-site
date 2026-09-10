@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { siteConfig } from "../../site.config";
+import { SiteImage } from "./site-image";
 
 type BrandLogoProps = {
   size?: number;
@@ -18,7 +18,7 @@ export function BrandLogo({
 }: BrandLogoProps) {
   return (
     <span className={`inline-flex items-center gap-2.5 ${className}`}>
-      <Image
+      <SiteImage
         src="/brand/barem_icon.png"
         alt=""
         width={size}

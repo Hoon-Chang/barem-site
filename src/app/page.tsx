@@ -1,4 +1,3 @@
-import Image from "next/image";
 import {
   Activity,
   CalendarDays,
@@ -12,6 +11,7 @@ import {
   Utensils,
 } from "lucide-react";
 import { PhoneShot } from "../components/phone-shot";
+import { SiteImage } from "../components/site-image";
 import { StoreButtons } from "../components/store-buttons";
 import { siteConfig } from "../../site.config";
 
@@ -159,7 +159,7 @@ export default function HomePage() {
         <div className="relative mx-auto grid max-w-5xl items-center gap-12 px-5 pb-16 pt-12 sm:px-8 sm:pb-20 sm:pt-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10">
           <div>
             <div className="inline-flex items-center gap-3">
-              <Image
+              <SiteImage
                 src="/brand/barem_icon_lg.png"
                 alt="바램 앱 아이콘"
                 width={72}
@@ -347,7 +347,7 @@ export default function HomePage() {
       <section className="border-t border-line">
         <div className="mx-auto flex max-w-5xl flex-col items-start gap-6 px-5 py-16 sm:px-8 sm:py-20 md:flex-row md:items-center md:justify-between">
           <div className="flex items-start gap-4">
-            <Image
+            <SiteImage
               src="/brand/barem_icon.png"
               alt=""
               width={48}

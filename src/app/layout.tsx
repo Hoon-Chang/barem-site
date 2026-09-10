@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Noto_Sans_KR, Outfit } from "next/font/google";
 import { SiteFooter } from "../components/site-footer";
 import { SiteHeader } from "../components/site-header";
-import { absoluteUrl, siteConfig } from "../../site.config";
+import { absoluteUrl, siteConfig, withBase } from "../../site.config";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -60,8 +60,8 @@ export const metadata: Metadata = {
     images: [absoluteUrl("/brand/barem_icon_lg.png")],
   },
   icons: {
-    icon: "/brand/barem_icon.png",
-    apple: "/brand/barem_icon.png",
+    icon: withBase("/brand/barem_icon.png"),
+    apple: withBase("/brand/barem_icon.png"),
   },
   robots: { index: true, follow: true },
   ...(siteConfig.googleSiteVerification
