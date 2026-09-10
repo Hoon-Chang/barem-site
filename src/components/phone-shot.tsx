@@ -22,7 +22,7 @@ export function PhoneShot({
       <SiteImage
         src={src}
         alt={alt}
-        width={416}
+        width={414}
         height={900}
         className="block h-auto w-full"
         sizes="(max-width: 768px) 70vw, 280px"
