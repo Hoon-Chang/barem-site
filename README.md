@@ -41,20 +41,18 @@ npm run build
 
 ## GitHub Pages 배포 (이 저장소 기본)
 
-현재는 **`gh-pages` 브랜치**에 `out/` 정적 파일을 올려 배포합니다.
+Pages 소스: **`main` 브랜치 `/docs` 폴더**.
 
 ```bash
-npm run build
-# out/ → gh-pages 브랜치로 게시 (아래 스크립트 또는 수동)
-npx --yes gh-pages@6 -d out -t true
+npm run deploy
+git add docs && git commit -m "Deploy site" && git push origin main
 ```
 
-1. 저장소 **Settings → Pages → Build and deployment → Source: Deploy from a branch**
-2. Branch: `gh-pages` / folder: `/ (root)`
+1. 저장소 **Settings → Pages → Deploy from a branch**
+2. Branch: `main` / folder: `/docs`
 3. 프로젝트 사이트이므로 `site.config.ts`의 `basePath`는 `"/barem-site"` 입니다.
-4. 커스텀 도메인을 쓰면 `basePath`를 `""`로 바꾸고 `siteUrl`을 도메인으로 맞춘 뒤 다시 배포하세요.
-
-> GitHub Actions로 자동 배포하려면 계정 토큰에 `workflow` 스코프가 필요합니다.
+4. Google Search Console HTML 파일 인증: `public/google*.html` → 빌드 시 `docs/`에 복사됩니다.
+5. 커스텀 도메인을 쓰면 `basePath`를 `""`로 바꾸고 `siteUrl`을 도메인으로 맞춘 뒤 다시 배포하세요.
 
 ---
 
