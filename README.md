@@ -41,10 +41,20 @@ npm run build
 
 ## GitHub Pages 배포 (이 저장소 기본)
 
-1. `main`에 push하면 `.github/workflows/deploy-pages.yml`이 `out/`을 Pages에 배포합니다.
-2. 저장소 **Settings → Pages → Build and deployment → Source: GitHub Actions** 로 설정되어 있어야 합니다.
+현재는 **`gh-pages` 브랜치**에 `out/` 정적 파일을 올려 배포합니다.
+
+```bash
+npm run build
+# out/ → gh-pages 브랜치로 게시 (아래 스크립트 또는 수동)
+npx --yes gh-pages@6 -d out -t true
+```
+
+1. 저장소 **Settings → Pages → Build and deployment → Source: Deploy from a branch**
+2. Branch: `gh-pages` / folder: `/ (root)`
 3. 프로젝트 사이트이므로 `site.config.ts`의 `basePath`는 `"/barem-site"` 입니다.
 4. 커스텀 도메인을 쓰면 `basePath`를 `""`로 바꾸고 `siteUrl`을 도메인으로 맞춘 뒤 다시 배포하세요.
+
+> GitHub Actions로 자동 배포하려면 계정 토큰에 `workflow` 스코프가 필요합니다.
 
 ---
 
