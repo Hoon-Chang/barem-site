@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /
+
+Sitemap: https://hoon-chang.github.io/barem-site/sitemap.xml
