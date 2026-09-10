@@ -6,9 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "npx serve out",
-    "deploy": "npm run build && npx --yes gh-pages@6 --dist out --dotfiles --nojekyll",
+    "deploy": "bash scripts/deploy-docs.sh",
     "lint": "eslint",
-    "lint": "eslint"
   },
   "dependencies": {
     "lucide-react": "^1.43.0",
