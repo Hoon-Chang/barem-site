@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { siteConfig } from "../../site.config";
 
@@ -8,12 +9,23 @@ export function SiteFooter() {
     <footer id="contact" className="border-t border-line bg-green-deep text-white">
       <div className="mx-auto grid max-w-5xl gap-10 px-5 py-12 sm:px-8 md:grid-cols-[1.2fr_1fr]">
         <div>
-          <p className="font-[family-name:var(--font-display)] text-2xl font-semibold tracking-tight">
-            {brand.shortNameKo}
-          </p>
-          <p className="mt-1 text-sm tracking-[0.18em] text-white/70">
-            {brand.legalNameEn}
-          </p>
+          <div className="inline-flex items-center gap-3">
+            <Image
+              src="/brand/barem_icon.png"
+              alt=""
+              width={40}
+              height={40}
+              className="rounded-[22%] ring-1 ring-white/20"
+            />
+            <div>
+              <p className="font-[family-name:var(--font-display)] text-2xl font-semibold tracking-tight">
+                {brand.shortNameKo}
+              </p>
+              <p className="text-sm tracking-[0.18em] text-white/70">
+                {brand.legalNameEn}
+              </p>
+            </div>
+          </div>
           <p className="mt-4 max-w-md text-sm leading-relaxed text-white/75">
             {brand.appNameKo} — 온디바이스로 안전하게 기록하는 건강 다이어리.
           </p>

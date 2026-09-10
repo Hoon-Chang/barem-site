@@ -3,10 +3,11 @@
 import Link from "next/link";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import { siteConfig } from "../../site.config";
+import { BrandLogo } from "./brand-logo";
 
 const nav = [
   { href: "/#features", label: "기능 소개" },
+  { href: "/#tour", label: "앱 둘러보기" },
   { href: "/#security", label: "데이터 보안" },
   { href: "/privacy/", label: "개인정보처리방침" },
   { href: "/#contact", label: "고객 문의" },
@@ -18,18 +19,11 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b border-line/80 bg-cream/90 backdrop-blur-md">
       <div className="mx-auto flex h-14 max-w-5xl items-center justify-between gap-4 px-5 sm:h-16 sm:px-8">
-        <Link
-          href="/"
-          className="font-[family-name:var(--font-display)] text-lg font-semibold tracking-tight text-green-deep sm:text-xl"
-          onClick={() => setOpen(false)}
-        >
-          {siteConfig.brand.shortNameKo}
-          <span className="ml-2 text-sm font-medium tracking-[0.14em] text-muted">
-            {siteConfig.brand.legalNameEn}
-          </span>
+        <Link href="/" onClick={() => setOpen(false)} aria-label="바램 홈">
+          <BrandLogo size={32} wordmarkClassName="text-base sm:text-lg" />
         </Link>
 
-        <nav className="hidden items-center gap-6 text-sm text-muted md:flex">
+        <nav className="hidden items-center gap-5 text-sm text-muted lg:flex">
           {nav.map((item) => (
             <Link
               key={item.href}
@@ -50,7 +44,7 @@ export function SiteHeader() {
           </Link>
           <button
             type="button"
-            className="inline-flex rounded-md p-2 text-muted md:hidden"
+            className="inline-flex rounded-md p-2 text-muted lg:hidden"
             aria-label={open ? "메뉴 닫기" : "메뉴 열기"}
             onClick={() => setOpen((v) => !v)}
           >
@@ -60,7 +54,7 @@ export function SiteHeader() {
       </div>
 
       {open ? (
-        <nav className="border-t border-line bg-cream px-5 py-3 md:hidden">
+        <nav className="border-t border-line bg-cream px-5 py-3 lg:hidden">
           <ul className="flex flex-col gap-1">
             {nav.map((item) => (
               <li key={item.href}>

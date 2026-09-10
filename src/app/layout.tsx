@@ -44,11 +44,24 @@ export const metadata: Metadata = {
     siteName: siteConfig.brand.legalNameEn,
     title: siteConfig.seo.titleKo,
     description: siteConfig.seo.descriptionKo,
+    images: [
+      {
+        url: absoluteUrl("/brand/barem_icon_lg.png"),
+        width: 512,
+        height: 512,
+        alt: "바램 (BAREM) 앱 아이콘",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: siteConfig.seo.titleKo,
     description: siteConfig.seo.descriptionKo,
+    images: [absoluteUrl("/brand/barem_icon_lg.png")],
+  },
+  icons: {
+    icon: "/brand/barem_icon.png",
+    apple: "/brand/barem_icon.png",
   },
   robots: { index: true, follow: true },
   ...(siteConfig.googleSiteVerification
