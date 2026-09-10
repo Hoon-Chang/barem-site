@@ -7,7 +7,10 @@ type PhoneShotProps = {
   priority?: boolean;
 };
 
-/** Device-style frame for App Store screenshots */
+/**
+ * Store screenshots already include device chrome (status bar / island).
+ * Do not wrap them in another phone bezel.
+ */
 export function PhoneShot({
   src,
   alt,
@@ -16,9 +19,8 @@ export function PhoneShot({
 }: PhoneShotProps) {
   return (
     <div
-      className={`relative mx-auto w-[min(100%,280px)] overflow-hidden rounded-[2rem] border-[5px] border-[#1a2a22] bg-[#1a2a22] shadow-[0_28px_60px_-24px_rgba(15,61,44,0.55)] ${className}`}
+      className={`relative mx-auto w-[min(100%,280px)] overflow-hidden rounded-[1.75rem] shadow-[0_28px_60px_-24px_rgba(15,61,44,0.45)] ${className}`}
     >
-      <div className="absolute left-1/2 top-2 z-10 h-5 w-24 -translate-x-1/2 rounded-full bg-black/80" />
       <SiteImage
         src={src}
         alt={alt}
