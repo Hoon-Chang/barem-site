@@ -56,14 +56,13 @@ export const siteConfig = {
   stores: {
     /**
      * App Store 링크. 심사 전이면 "" → 버튼이 안내 문구로 표시됩니다.
-     * 예: https://apps.apple.com/kr/app/idXXXXXXXX
      */
-    appStoreUrl: "",
+    appStoreUrl: "https://apps.apple.com/kr/app/id6804392885",
     /**
      * Google Play 링크. 출시 전이면 "" → Coming Soon / 출시 알림.
-     * 예: https://play.google.com/store/apps/details?id=com.barem.barem
      */
-    playStoreUrl: "",
+    playStoreUrl:
+      "https://play.google.com/store/apps/details?id=com.barem.barem",
     playComingSoonLabelKo: "Google Play 출시 예정",
     playComingSoonLabelEn: "Google Play — Coming Soon",
   },

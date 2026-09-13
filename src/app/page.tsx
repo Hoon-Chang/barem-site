@@ -359,8 +359,7 @@ export default function HomePage() {
                 지금 바로 시작하세요
               </h2>
               <p className="mt-2 text-muted">
-                App Store에서 다운로드하거나, Google Play 출시 소식을 기다려
-                주세요.
+                App Store와 Google Play에서 바로 다운로드할 수 있어요.
               </p>
             </div>
           </div>
