@@ -18,7 +18,7 @@ When updating homepage / marketing-site screenshots for new features, **match th
 
 ## How the phone look is made
 
-`PhoneShot` composites each PNG into **`public/brand/iphone-16-pro-frame.png`** (iPhone 16 Pro Black Titanium; transparent screen hole; side buttons + continuous corners). The frame’s baked Dynamic Island pixels are cleared — island comes from the screenshot only (avoids a second island sitting too low). Screen placement comes from `iphone-16-pro-template.json` (`x=102 y=100 w=1206 h=2622` in `1406×2822`). **Do not** add CSS pill borders or a second SVG chassis. **Do not** bake the bezel into the screenshot PNG (double frame).
+`PhoneShot` composites each PNG into **`public/brand/iphone-16-pro-frame-v2.png`** (iPhone 16 Pro Black Titanium with **hardware Dynamic Island kept**). Capture islands are **erased from screenshot PNGs** (cream fill); status bar time/icons remain. Screen placement from `iphone-16-pro-template.json` (`x=102 y=100 w=1206 h=2622` in `1406×2822`). Bump the frame filename (`-v2`, `-v3`, …) when replacing the asset so browsers don’t keep a cached island. **Do not** add CSS pill borders. **Do not** bake the bezel into the screenshot PNG.
 
 Source note: frame from [device-frames-media](https://github.com/jonnyjackson26/device-frames-media) (Apple iPhone 16 Pro / Black Titanium).
 

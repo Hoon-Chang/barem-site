@@ -9,15 +9,16 @@ type PhoneShotProps = {
 
 /**
  * App screenshot composited into a real iPhone 16 Pro frame PNG
- * (Black Titanium, from device-frames-media — screen hole is transparent).
+ * (Black Titanium — hardware Dynamic Island kept on the frame).
  *
- * PNG screenshots stay UI-only 414×900 (status bar + Dynamic Island).
- * Do not also draw a CSS bezel — the frame image owns the silhouette.
+ * Screenshot PNGs are UI-only 414×900 with the *capture* island erased
+ * (cream fill) so only the frame island shows. Status bar time/icons remain.
  *
  * Screen rect from template.json: x=102 y=100 w=1206 h=2622 in 1406×2822.
+ * Filename suffix `-v2` busts CDN/browser cache when the frame asset changes.
  */
 const FRAME = {
-  src: "/brand/iphone-16-pro-frame.png",
+  src: "/brand/iphone-16-pro-frame-v2.png",
   w: 1406,
   h: 2822,
   screen: { x: 102, y: 100, w: 1206, h: 2622 },

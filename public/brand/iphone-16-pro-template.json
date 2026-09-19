@@ -1,7 +1,7 @@
 {
   "source": "https://github.com/jonnyjackson26/device-frames-media",
   "device": "Apple iPhone 16 Pro / Black Titanium",
-  "frame": "iphone-16-pro-frame.png",
+  "frame": "iphone-16-pro-frame-v2.png",
   "screen": {
     "x": 102,
     "y": 100,
@@ -13,5 +13,5 @@
     "height": 2822
   },
   "hexColor": "#272727",
-  "note": "Hardware Dynamic Island pixels cleared from frame.png \u2014 screenshots already include island."
+  "note": "Frame keeps hardware Dynamic Island. Screenshot PNGs have capture-island erased (cream). Cache-bust via -v2 filename."
 }
