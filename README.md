@@ -48,7 +48,7 @@ npm run build
 | 파일 | `public/screenshots/01_home.png` … `07_profile.png` |
 | 내용 | **앱 UI만** (상태바·Dynamic Island 포함). 기기 베젤·스토어 헤드라인·면책 문구 **없음** |
 | 크기 | **414 × 900** PNG |
-| 기기 프레임 | `PhoneShot` CSS 베젤(`border-[#1a2a22]`, 모서리 ≈프레임 너비의 12% `cqw`)이 그림. PNG에 베젤을 넣지 않음 |
+| 기기 프레임 | `PhoneShot` CSS 베젤(`border-[#1a2a22]`, 모서리 ≈프레임 너비의 8% `cqw`)이 그림. PNG에 베젤을 넣지 않음 |
 | 원본 | 형제 저장소 `barem/store_assets/screenshots/raw/ios/` (1320×2868) |
 
 ```bash

@@ -13,8 +13,9 @@ type PhoneShotProps = {
  * Screenshots already include status bar / Dynamic Island — do not draw a second notch.
  * Refresh: ../barem/tool/export_site_screenshots.sh (see README 「스크린샷」).
  *
- * Corner radius uses container query units (~12% of frame width) so hero
- * side phones (narrower) stay iPhone-proportioned instead of looking pill-shaped.
+ * Radius uses container query units so hero side phones stay proportional.
+ * ~8% of width (not 12%+) — CSS circular corners read rounder than Apple’s
+ * continuous curve, so a lower % matches real iPhone silhouette better.
  */
 export function PhoneShot({
   src,
@@ -26,7 +27,7 @@ export function PhoneShot({
     <div
       className={`@container relative mx-auto w-[min(100%,280px)] ${className}`}
     >
-      <div className="overflow-hidden rounded-[12cqw] border-[length:max(4px,2.15cqw)] border-solid border-[#1a2a22] bg-[#1a2a22] shadow-[0_28px_60px_-24px_rgba(15,61,44,0.55)]">
+      <div className="overflow-hidden rounded-[8cqw] border-[length:max(3px,1.55cqw)] border-solid border-[#1a2a22] bg-[#1a2a22] shadow-[0_28px_60px_-24px_rgba(15,61,44,0.55)]">
         <SiteImage
           src={src}
           alt={alt}

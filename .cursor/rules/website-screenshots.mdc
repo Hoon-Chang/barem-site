@@ -18,7 +18,7 @@ When updating homepage / marketing-site screenshots for new features, **match th
 
 ## How the phone look is made
 
-`PhoneShot` (`src/components/phone-shot.tsx`) draws a thin even CSS bezel (`border-[#1a2a22]`, corner ≈`12cqw` of frame width, bezel ≈`2.15cqw`) + shadow around these raw UI images. Radius **scales with phone width** (hero side phones stay proportional). **Do not** bake a second bezel into the PNG (that double-frames). Dynamic Island in the PNG must be a full pill (rounded top and bottom) with cream margin above the tip so it does not merge into the bezel—do not paste a truncated status band.
+`PhoneShot` (`src/components/phone-shot.tsx`) draws a thin even CSS bezel (`border-[#1a2a22]`, corner ≈`8cqw` of frame width, bezel ≈`1.55cqw`) + shadow around these raw UI images. Radius **scales with phone width** (hero side phones stay proportional). Keep ~8% — higher values read as pill-shaped vs real iPhone continuous corners. **Do not** bake a second bezel into the PNG (that double-frames). Dynamic Island in the PNG must be a full pill (rounded top and bottom) with cream margin above the tip so it does not merge into the bezel—do not paste a truncated status band.
 
 ## Source → site
 
