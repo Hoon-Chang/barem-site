@@ -39,6 +39,35 @@ npm run build
 
 ---
 
+## 스크린샷 (홈페이지 기준 포맷)
+
+기능이 바뀌어 스크린샷을 갈아끼울 때도 **지금 라이브와 같은 형태**를 유지합니다.
+
+| 항목 | 규칙 |
+|------|------|
+| 파일 | `public/screenshots/01_home.png` … `07_profile.png` |
+| 내용 | **앱 UI만** (상태바·Dynamic Island 포함). 기기 베젤·스토어 헤드라인·면책 문구 **없음** |
+| 크기 | **414 × 900** PNG |
+| 기기 프레임 | `PhoneShot` CSS 베젤(`border-[#1a2a22]`, `rounded-[2.1rem]`)이 그림. PNG에 베젤을 넣지 않음 |
+| 원본 | 형제 저장소 `barem/store_assets/screenshots/raw/ios/` (1320×2868) |
+
+```bash
+# barem에서 raw → 사이트용 414×900 내보내기
+cd ../barem
+./tool/export_site_screenshots.sh
+# → barem-site/public/screenshots/
+
+cd ../barem-site
+npm run deploy
+git add public/screenshots docs && git commit && git push
+```
+
+**쓰지 말 것:** 스토어 마케팅 합성본(`screenshots/ios/`), PNG에 베젤을 구운 뒤 CSS 프레임까지 쓰는 이중 프레임.
+
+에이전트용 규칙: [`.cursor/rules/website-screenshots.mdc`](./.cursor/rules/website-screenshots.mdc)
+
+---
+
 ## GitHub Pages 배포 (이 저장소 기본)
 
 Pages 소스: **`main` 브랜치 `/docs` 폴더**.

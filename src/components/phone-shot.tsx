@@ -8,8 +8,10 @@ type PhoneShotProps = {
 };
 
 /**
- * Device bezel around raw app screenshots.
+ * Device bezel around raw app screenshots (canonical site format).
+ * PNG must be app UI only at 414×900 — no baked chassis.
  * Screenshots already include status bar / Dynamic Island — do not draw a second notch.
+ * Refresh: ../barem/tool/export_site_screenshots.sh (see README 「스크린샷」).
  */
 export function PhoneShot({
   src,

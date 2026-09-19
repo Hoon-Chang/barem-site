@@ -1,0 +1,39 @@
+---
+description: barem-site homepage screenshot format (raw UI + CSS PhoneShot bezel)
+globs: public/screenshots/**,src/components/phone-shot.tsx,src/app/page.tsx,docs/screenshots/**
+alwaysApply: false
+---
+
+# Website screenshots (canonical format)
+
+When updating homepage / marketing-site screenshots for new features, **match the currently live format**. Do not invent a new framing style.
+
+## Canonical asset
+
+- **Path:** `public/screenshots/*.png` (deployed copy: `docs/screenshots/`)
+- **Content:** App UI only — status bar + Dynamic Island included in the capture
+- **Not in the PNG:** device chassis/bezel, store headlines, disclaimers, cream marketing canvas
+- **Size:** **414 × 900** PNG (RGBA), ~ same aspect as iPhone raw `1320×2868`
+- **Background:** app cream (`#F7F6F3`), full-bleed screen capture
+
+## How the phone look is made
+
+`PhoneShot` (`src/components/phone-shot.tsx`) draws the dark green CSS bezel + shadow around these raw UI images. **Do not** bake a second bezel into the PNG (that double-frames).
+
+## Source → site
+
+1. Capture / refresh `barem/store_assets/screenshots/raw/ios/` (full-res)
+2. Export site size into `public/screenshots/` (same filenames `01_home.png` … `07_profile.png`):
+
+```bash
+# from barem-site, or see README 「스크린샷」
+../barem/tool/export_site_screenshots.sh
+```
+
+3. `npm run deploy` → commit `public/screenshots` + `docs`
+
+## Rejected formats (do not use on the site)
+
+- Store marketing composites (`barem/store_assets/screenshots/ios/` with headlines)
+- Bezel-only Pillow frames pasted as the site PNG while also using CSS PhoneShot
+- Dropping raw 1320×2868 without resizing (oversized; break `PhoneShot` width/height contract)
