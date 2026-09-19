@@ -1,6 +1,6 @@
 ---
 description: barem-site homepage screenshot format (raw UI + real iPhone frame PNG)
-globs: public/screenshots/**,public/brand/iphone-16-pro-frame.png,src/components/phone-shot.tsx,src/app/page.tsx,docs/screenshots/**,docs/brand/**
+globs: public/screenshots/**,public/brand/iphone-16-pro-frame-v2.png,src/components/phone-shot.tsx,src/app/page.tsx,docs/screenshots/**,docs/brand/**
 alwaysApply: false
 ---
 
