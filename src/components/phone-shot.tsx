@@ -14,16 +14,16 @@ type PhoneShotProps = {
  * Refresh screenshots: ../barem/tool/export_site_screenshots.sh
  *
  * Screen hole matches public/brand/iphone-pro-frame.svg (viewBox -4 0 398 816):
- * inset (11,11) size 368×794, corner 45.
+ * inset (12,12) size 366×792, corner 38.
  */
 const FRAME = {
   vbW: 398,
   vbH: 816,
-  screenX: 11 - -4,
-  screenY: 11,
-  screenW: 368,
-  screenH: 794,
-  screenR: 45,
+  screenX: 12 - -4,
+  screenY: 12,
+  screenW: 366,
+  screenH: 792,
+  screenR: 38,
 } as const;
 
 export function PhoneShot({
