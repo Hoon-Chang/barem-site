@@ -3,11 +3,12 @@ import {
   CalendarDays,
   Camera,
   FileSpreadsheet,
+  LayoutGrid,
   Lock,
-  Pill,
   ShieldCheck,
   Smartphone,
   Stethoscope,
+  Target,
   Utensils,
 } from "lucide-react";
 import { PhoneShot } from "../components/phone-shot";
@@ -17,19 +18,24 @@ import { siteConfig } from "../../site.config";
 
 const highlights = [
   {
+    icon: LayoutGrid,
+    title: "맞춤 홈 화면",
+    body: "치료·건강·보호자 목적에 맞춰 시작하고, 홈에 보일 항목을 켜고 끄며 순서까지 바꿀 수 있습니다.",
+  },
+  {
     icon: Camera,
     title: "검사결과 OCR",
     body: "결과지를 촬영하거나 앨범에서 고르면, 기기 안에서 글자를 인식한 뒤 직접 검토·저장합니다.",
   },
   {
     icon: Activity,
-    title: "바이탈·추이",
-    body: "혈압·혈당·체온·체중을 빠르게 남기고, 주간·월간 차트로 변화를 한눈에 봅니다.",
+    title: "바이탈·기간 비교",
+    body: "혈압·혈당·체온·체중을 남기고, 7일·30일 추이와 직전 기간 비교로 변화를 파악합니다.",
   },
   {
-    icon: Pill,
-    title: "복약·컨디션",
-    body: "약 복용과 증상·수분·컨디션을 큰 버튼으로 기록해 치료·회복 일상을 정리합니다.",
+    icon: Target,
+    title: "건강 목표",
+    body: "목표 체중·혈당을 정해 두면 오늘 기록과 비교해 보여 줍니다. 치료 차수도 홈에서 바로 수정할 수 있습니다.",
   },
   {
     icon: Utensils,
@@ -38,13 +44,18 @@ const highlights = [
   },
   {
     icon: CalendarDays,
-    title: "치료·진료 일정",
-    body: "항암·외래·채혈 일정을 관리하고, 원하면 기기 캘린더와 연동합니다.",
+    title: "일정·로컬 알림",
+    body: "항암·외래·채혈 일정을 관리하고, 원하면 기기 캘린더와 일정 미리 알림을 사용합니다.",
   },
   {
     icon: FileSpreadsheet,
-    title: "PDF 리포트",
-    body: "병원 방문 전 로컬에서 PDF를 만들어 인쇄·공유할 수 있습니다. 서버 업로드 없음.",
+    title: "PDF·백업",
+    body: "로컬 PDF 리포트와 데이터 백업·삭제를 기기 안에서 처리합니다. 서버 업로드 없음.",
+  },
+  {
+    icon: Lock,
+    title: "잠금·프라이버시",
+    body: "Face ID·지문·기기 암호 잠금과 앱 전환 시 화면 가림으로 민감한 기록을 지킵니다.",
   },
 ];
 
@@ -52,11 +63,12 @@ const deepFeatures = [
   {
     eyebrow: "홈",
     title: "오늘 해야 할 건강 기록이 한눈에",
-    body: "홈에서 최근 수치·컨디션·다음 일정을 바로 확인합니다. 치료 중이든 일상 관리든, 복잡한 메뉴 없이 시작점 하나로 모읍니다.",
+    body: "케어 목적에 맞는 홈으로 시작하고, 보고 싶은 블록만 골라 순서를 바꿉니다. 목표 대비 체중·혈당과 미니 추이까지 한 화면에서 확인합니다.",
     points: [
-      "검사·바이탈·식단·일정을 한 흐름으로 진입",
+      "홈 항목 표시·순서 직접 편집",
+      "건강 목표와 오늘 기록 비교",
+      "치료 진행·항암 차수 빠른 수정",
       "보호자 모드로 가족 기록도 정리 가능",
-      "앱 잠금(Face ID / 지문 / 기기 암호) 지원",
     ],
     src: "/screenshots/01_home.png",
     alt: "바램 홈 화면",
@@ -77,24 +89,24 @@ const deepFeatures = [
   },
   {
     eyebrow: "바이탈",
-    title: "혈압·혈당 추이를 차분하게",
-    body: "측정값을 남기면 추이 그래프로 이어집니다. 병원 전 며칠간의 패턴을 스스로 파악하는 데 도움이 됩니다.",
+    title: "추이를 보고, 이전 기간과 비교",
+    body: "측정값을 남기면 추이 그래프로 이어집니다. 최근 7일·30일을 고르고 직전 기간과 겹쳐 보며 평균 변화까지 확인합니다.",
     points: [
-      "혈압·혈당 등 핵심 바이탈 기록",
-      "기간별 추이 시각화",
-      "민감 화면 전환 시 가림으로 프라이버시 보호",
+      "혈압·혈당·체온·체중·걸음 추이",
+      "7일 / 30일 / 전체 기간 선택",
+      "이전 기간 비교와 평균 변화 요약",
     ],
     src: "/screenshots/02_vital_trend.png",
     alt: "바램 바이탈 추이 화면",
   },
   {
     eyebrow: "투데이",
-    title: "컨디션·식단·복약을 빠르게",
+    title: "컨디션·식단을 빠르게",
     body: "체온·체중·수분·증상·식사를 큰 터치로 남깁니다. 식단은 자연어로 적고, 칼로리·단백질 목표는 참고용으로 둡니다.",
     points: [
       "하루 컨디션을 빠르게 체크",
-      "자연어 식단 기록 (참고용 영양 계산)",
-      "Apple Health 걸음·활동 반영(선택)",
+      "자연어 식단 기록과 메뉴 매칭 개선",
+      "Apple Health·Health Connect 걸음·활동(선택)",
     ],
     src: "/screenshots/05_today.png",
     alt: "바램 투데이·컨디션 화면",
@@ -102,23 +114,23 @@ const deepFeatures = [
   {
     eyebrow: "일정",
     title: "항암·외래·채혈 일정을 놓치지 않게",
-    body: "치료·진료 일정을 앱에서 관리하고, 필요하면 기기 캘린더에 등록합니다. 다음 방문 전에 할 일을 미리 정리할 수 있습니다.",
+    body: "치료·진료 일정을 앱에서 관리하고, 필요하면 기기 캘린더와 로컬 미리 알림을 켭니다. 서버 푸시 없이 기기에서만 알려 드립니다.",
     points: [
       "치료·외래·채혈 일정 관리",
       "기기 캘린더 연동(선택)",
-      "홈·일정 화면에서 다가오는 일정 확인",
+      "일정 1시간 전 로컬 알림(선택)",
     ],
     src: "/screenshots/06_schedule.png",
     alt: "바램 일정 화면",
   },
   {
     eyebrow: "내 정보",
-    title: "프로필·잠금·내보내기를 한곳에서",
-    body: "질환·병원 메모, 앱 버전, 보안 설정, 데이터 관리를 프로필에서 다룹니다. 계정 로그인 없이 기기 안의 기록만 사용합니다.",
+    title: "프로필·목표·잠금·내보내기를 한곳에서",
+    body: "케어 경로·건강 목표·보안·백업을 프로필에서 다룹니다. 계정 로그인 없이 기기 안의 기록만 사용합니다.",
     points: [
+      "건강 목표·치료 경로 설정",
       "Face ID / 생체 / 기기 암호 잠금",
-      "로컬 PDF 리포트·데이터 관리",
-      "외부 서버 계정·클라우드 동기화 없음",
+      "로컬 PDF·백업·데이터 삭제",
     ],
     src: "/screenshots/07_profile.png",
     alt: "바램 프로필 화면",
@@ -180,15 +192,16 @@ export default function HomePage() {
               매일의 건강을 기록하는 가장 편안하고 안전한 습관
             </h1>
             <p className="mt-4 max-w-lg text-base leading-relaxed text-muted sm:text-lg">
-              검사결과·바이탈·복약·식단·일정까지 — 복잡함 없이, 온전히 내 기기에
-              암호화되어 보관되는 건강 다이어리.
+              검사결과·바이탈·식단·일정까지 — 홈을 내 목적에 맞게 구성하고,
+              민감한 기록은 온전히 내 기기에 암호화되어 보관됩니다.
             </p>
             <ul className="mt-6 flex flex-wrap gap-2 text-xs text-green-deep sm:text-sm">
               {[
-                "온디바이스",
+                "맞춤 홈",
+                "건강 목표",
+                "기간 비교 추이",
                 "OCR 검사결과",
-                "추이 차트",
-                "PDF 리포트",
+                "온디바이스",
                 "Face ID 잠금",
               ].map((tag) => (
                 <li
@@ -243,7 +256,7 @@ export default function HomePage() {
             치료·회복 중에도, 일상 건강 관리에도. 바램은 기록을 한곳에 모으고
             민감한 데이터는 기기 밖으로 보내지 않습니다.
           </p>
-          <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {highlights.map(({ icon: Icon, title, body }) => (
               <li key={title} className="space-y-3 rounded-2xl border border-line/80 p-5">
                 <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-green-soft text-green">
