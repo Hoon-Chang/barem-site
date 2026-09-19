@@ -11,20 +11,22 @@ When updating homepage / marketing-site screenshots for new features, **match th
 ## Canonical asset
 
 - **Path:** `public/screenshots/*.png` (deployed copy: `docs/screenshots/`)
-- **Content:** App UI only — status bar + Dynamic Island included in the capture
-- **Not in the PNG:** device chassis/bezel, store headlines, disclaimers, cream marketing canvas
+- **Content:** App UI only — status bar + UI. **No Dynamic Island in the PNG** (simulator / real screenshots lack hardware island)
+- **Not in the PNG:** device chassis/bezel, Dynamic Island paste/erase edits, store headlines, disclaimers, cream marketing canvas
 - **Size:** **414 × 900** PNG (RGBA), ~ same aspect as iPhone raw `1320×2868`
 - **Background:** app cream (`#F7F6F3`), full-bleed screen capture
 
 ## How the phone look is made
 
-`PhoneShot` composites each PNG into **`public/brand/iphone-16-pro-frame-v2.png`** (iPhone 16 Pro Black Titanium with **hardware Dynamic Island kept**). Capture islands are **erased from screenshot PNGs** (cream fill); status bar time/icons remain. Screen placement from `iphone-16-pro-template.json` (`x=102 y=100 w=1206 h=2622` in `1406×2822`). Bump the frame filename (`-v2`, `-v3`, …) when replacing the asset so browsers don’t keep a cached island. **Do not** add CSS pill borders. **Do not** bake the bezel into the screenshot PNG.
+`PhoneShot` composites each PNG into **`public/brand/iphone-16-pro-frame-v2.png`** (iPhone 16 Pro Black Titanium). The **frame supplies the only Dynamic Island**. Screenshot PNGs are **resize-only** — do **not** paste or erase an island. Screen placement from `iphone-16-pro-template.json` (`x=102 y=100 w=1206 h=2622` in `1406×2822`). Bump the frame filename (`-v2`, `-v3`, …) when replacing the asset so browsers don’t keep a cached island. **Do not** add CSS pill borders. **Do not** bake the bezel into the screenshot PNG.
 
 Source note: frame from [device-frames-media](https://github.com/jonnyjackson26/device-frames-media) (Apple iPhone 16 Pro / Black Titanium).
 
 ## Source → site
 
-1. Capture / refresh `barem/store_assets/screenshots/raw/ios/` (full-res)
+Prefer **iOS Simulator + `STORE_SCREENSHOTS` demo seed** when there is no personal device data. Capture full-res UI (no island paste), then resize only.
+
+1. Capture / refresh `barem/store_assets/screenshots/raw/ios/` (or site_preview raw without finalize island paste)
 2. Export site size into `public/screenshots/` (same filenames `01_home.png` … `07_profile.png`):
 
 ```bash
@@ -32,12 +34,13 @@ Source note: frame from [device-frames-media](https://github.com/jonnyjackson26/
 ../barem/tool/export_site_screenshots.sh
 ```
 
-3. `npm run deploy` → commit `public/screenshots` + `docs` (+ frame PNG if changed)
+3. Preview composites in the frame **before** deploy; then `npm run deploy` → commit `public/screenshots` + `docs` (+ frame PNG if changed)
 
 ## Rejected formats (do not use on the site)
 
 - Store marketing composites (`barem/store_assets/screenshots/ios/` with headlines)
 - Baking a bezel into the site PNG **and** also drawing CSS/`PhoneShot` chassis (double frame)
+- Pasting or erasing a Dynamic Island into site PNGs (frame already has the hardware island)
 - Hand-drawn “looks like phone” SVG with mismatched screen radius
 - Dropping raw 1320×2868 without resizing (oversized; break `PhoneShot` width/height contract)
 - Scraped Apple marketing composites used as the screenshot itself

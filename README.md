@@ -46,10 +46,10 @@ npm run build
 | 항목 | 규칙 |
 |------|------|
 | 파일 | `public/screenshots/01_home.png` … `07_profile.png` |
-| 내용 | **앱 UI만** (상태바·Dynamic Island 포함). 기기 베젤·스토어 헤드라인·면책 문구 **없음** |
+| 내용 | **앱 UI만** (상태바 포함). PNG에 Dynamic Island·기기 베젤·스토어 헤드라인·면책 문구 **없음** |
 | 크기 | **414 × 900** PNG |
-| 기기 프레임 | `PhoneShot`이 `public/brand/iphone-16-pro-frame-v2.png`(실기 프레임·하드웨어 아일랜드)에 PNG를 합성. 스크린샷의 캡처 아일랜드는 제거. PNG에 베젤을 넣지 않음 |
-| 원본 | 형제 저장소 `barem/store_assets/screenshots/raw/ios/` (1320×2868) |
+| 기기 프레임 | `PhoneShot`이 `public/brand/iphone-16-pro-frame-v2.png`에 합성. **아일랜드는 프레임만** 사용 (샷은 리사이즈만, 아일랜드 붙이기/지우기 금지) |
+| 원본 | 시뮬레이터 `STORE_SCREENSHOTS` 데모 캡처 권장 → `barem/store_assets/screenshots/raw/ios/` (또는 동일 포맷 raw) |
 
 ```bash
 # barem에서 raw → 사이트용 414×900 내보내기

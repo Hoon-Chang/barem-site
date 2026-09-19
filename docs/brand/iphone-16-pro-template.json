@@ -13,5 +13,5 @@
     "height": 2822
   },
   "hexColor": "#272727",
-  "note": "Frame keeps hardware Dynamic Island. Screenshot PNGs have capture-island erased (cream). Cache-bust via -v2 filename."
+  "note": "Frame supplies the only Dynamic Island. Screenshot PNGs are resize-only (no island paste/erase). Cache-bust via -v2 filename."
 }

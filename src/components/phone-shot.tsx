@@ -11,8 +11,8 @@ type PhoneShotProps = {
  * App screenshot composited into a real iPhone 16 Pro frame PNG
  * (Black Titanium — hardware Dynamic Island kept on the frame).
  *
- * Screenshot PNGs are UI-only 414×900 with the *capture* island erased
- * (cream fill) so only the frame island shows. Status bar time/icons remain.
+ * Screenshot PNGs are UI-only 414×900 (status bar + UI, no island in the
+ * shot). The frame PNG supplies the only Dynamic Island.
  *
  * Screen rect from template.json: x=102 y=100 w=1206 h=2622 in 1406×2822.
  * Filename suffix `-v2` busts CDN/browser cache when the frame asset changes.
