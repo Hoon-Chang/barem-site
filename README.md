@@ -39,30 +39,44 @@ npm run build
 
 ---
 
-## 스크린샷 (홈페이지 기준 포맷)
+## 스크린샷 (홈페이지 기준 포맷 · 2026-09)
 
-기능이 바뀌어 스크린샷을 갈아끼울 때도 **지금 라이브와 같은 형태**를 유지합니다.
+기능이 바뀌어 스크린샷을 갈아끼울 때도 **이 포맷을 기준**으로 유지합니다. (라이브: https://hoon-chang.github.io/barem-site/)
 
 | 항목 | 규칙 |
 |------|------|
 | 파일 | `public/screenshots/01_home.png` … `07_profile.png` |
-| 내용 | **앱 UI만** (상태바 포함). PNG에 Dynamic Island·기기 베젤·스토어 헤드라인·면책 문구 **없음** |
 | 크기 | **414 × 900** PNG |
-| 기기 프레임 | `PhoneShot`이 `public/brand/iphone-16-pro-frame-v2.png`에 합성. **아일랜드는 프레임만** 사용 (샷은 리사이즈만, 아일랜드 붙이기/지우기 금지) |
-| 원본 | 시뮬레이터 `STORE_SCREENSHOTS` 데모 캡처 권장 → `barem/store_assets/screenshots/raw/ios/` (또는 동일 포맷 raw) |
+| 내용 | **앱 UI만** (상태바 포함). PNG에 Dynamic Island·기기 베젤·스토어 헤드라인·면책 문구 **없음** |
+| 기기 프레임 | `PhoneShot` → `public/brand/iphone-16-pro-frame-v2.png` 합성. **아일랜드는 프레임 PNG만** |
+| 샷 가공 | **리사이즈만**. 아일랜드 붙이기·지우기 금지 (이중 아일랜드 / 상태바 어긋남 원인) |
+| 원본 | 실기 데이터 없을 때 → **시뮬레이터 + `STORE_SCREENSHOTS` 데모 시드** 캡처 권장 |
+
+### 작업 순서
+
+1. barem에서 시뮬 캡처 (`STORE_SCREENSHOTS=true`). 아일랜드 paste 금지:
 
 ```bash
-# barem에서 raw → 사이트용 414×900 내보내기
 cd ../barem
-./tool/export_site_screenshots.sh
-# → barem-site/public/screenshots/
+SKIP_ISLAND_FINALIZE=1 ./tool/capture_ios_site_preview.sh
+```
 
+2. raw를 `store_assets/screenshots/raw/ios/` 등에 두고 사이트 크기로 내보내기:
+
+```bash
+./tool/export_site_screenshots.sh
+# → barem-site/public/screenshots/ (414×900)
+```
+
+3. 프레임 합성 **프리뷰**를 보고 확인한 뒤 배포:
+
+```bash
 cd ../barem-site
 npm run deploy
 git add public/screenshots docs && git commit && git push
 ```
 
-**쓰지 말 것:** 스토어 마케팅 합성본(`screenshots/ios/`), PNG에 베젤을 구운 뒤 프레임 PNG까지 쓰는 이중 프레임, 손으로 그린 알약형 SVG 섀시.
+**쓰지 말 것:** 스토어 마케팅 합성본(`screenshots/ios/`), PNG에 베젤을 구운 뒤 프레임까지 쓰는 이중 프레임, 아일랜드 paste/erase, CSS·손그림 SVG “가짜 아이폰” 섀시.
 
 에이전트용 규칙: [`.cursor/rules/website-screenshots.mdc`](./.cursor/rules/website-screenshots.mdc)
 
