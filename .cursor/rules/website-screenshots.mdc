@@ -1,6 +1,6 @@
 ---
-description: barem-site homepage screenshot format (raw UI + SVG PhoneShot frame)
-globs: public/screenshots/**,public/brand/iphone-pro-frame.svg,src/components/phone-shot.tsx,src/app/page.tsx,docs/screenshots/**
+description: barem-site homepage screenshot format (raw UI + real iPhone frame PNG)
+globs: public/screenshots/**,public/brand/iphone-16-pro-frame.png,src/components/phone-shot.tsx,src/app/page.tsx,docs/screenshots/**,docs/brand/**
 alwaysApply: false
 ---
 
@@ -18,7 +18,9 @@ When updating homepage / marketing-site screenshots for new features, **match th
 
 ## How the phone look is made
 
-`PhoneShot` (`src/components/phone-shot.tsx`) composites each PNG into an **inline** original SVG Pro-style chassis (same geometry as `public/brand/iphone-pro-frame.svg` — not an Apple marketing asset). The **SVG owns the silhouette**; do not add CSS pill borders on the chassis. Outer corner ≈7% of width. Dynamic Island stays in the PNG only. Island must be a full pill with cream margin above the tip so it does not merge into the chassis lip.
+`PhoneShot` composites each PNG into **`public/brand/iphone-16-pro-frame.png`** (iPhone 16 Pro Black Titanium; transparent screen hole; side buttons + continuous corners). Screen placement comes from `iphone-16-pro-template.json` (`x=102 y=100 w=1206 h=2622` in `1406×2822`). **Do not** add CSS pill borders or a second SVG chassis. **Do not** bake the bezel into the screenshot PNG (double frame).
+
+Source note: frame from [device-frames-media](https://github.com/jonnyjackson26/device-frames-media) (Apple iPhone 16 Pro / Black Titanium).
 
 ## Source → site
 
@@ -30,11 +32,12 @@ When updating homepage / marketing-site screenshots for new features, **match th
 ../barem/tool/export_site_screenshots.sh
 ```
 
-3. `npm run deploy` → commit `public/screenshots` + `docs` (+ frame SVG if changed)
+3. `npm run deploy` → commit `public/screenshots` + `docs` (+ frame PNG if changed)
 
 ## Rejected formats (do not use on the site)
 
 - Store marketing composites (`barem/store_assets/screenshots/ios/` with headlines)
 - Baking a bezel into the site PNG **and** also drawing CSS/`PhoneShot` chassis (double frame)
+- Hand-drawn “looks like phone” SVG with mismatched screen radius
 - Dropping raw 1320×2868 without resizing (oversized; break `PhoneShot` width/height contract)
-- Scraped Apple marketing device PNGs
+- Scraped Apple marketing composites used as the screenshot itself

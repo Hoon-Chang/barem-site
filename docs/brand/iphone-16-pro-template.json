@@ -1,0 +1,8 @@
+{
+  "source": "https://github.com/jonnyjackson26/device-frames-media",
+  "device": "Apple iPhone 16 Pro / Black Titanium",
+  "frame": "iphone-16-pro-frame.png",
+  "screen": { "x": 102, "y": 100, "width": 1206, "height": 2622 },
+  "frameSize": { "width": 1406, "height": 2822 },
+  "hexColor": "#272727"
+}
