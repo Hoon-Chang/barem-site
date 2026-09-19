@@ -18,7 +18,7 @@ When updating homepage / marketing-site screenshots for new features, **match th
 
 ## How the phone look is made
 
-`PhoneShot` (`src/components/phone-shot.tsx`) draws the dark green CSS bezel + shadow around these raw UI images. **Do not** bake a second bezel into the PNG (that double-frames).
+`PhoneShot` (`src/components/phone-shot.tsx`) draws the black iPhone-like CSS bezel (`#161617`, continuous corners ≈`3.25rem` / inner `2.75rem`, `8px` border) + shadow around these raw UI images. **Do not** bake a second bezel into the PNG (that double-frames). Dynamic Island in the PNG must be a full pill (rounded top and bottom) with cream margin above the tip so it does not merge into the black bezel—do not paste a truncated status band.
 
 ## Source → site
 
