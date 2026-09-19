@@ -8,8 +8,8 @@ type PhoneShotProps = {
 };
 
 /**
- * Device bezel around raw app screenshots.
- * Screenshots already include status bar / Dynamic Island — do not draw a second notch.
+ * App screenshot with device bezel baked into the PNG.
+ * Do not add a second CSS chassis — that double-frames the phone.
  */
 export function PhoneShot({
   src,
@@ -19,19 +19,17 @@ export function PhoneShot({
 }: PhoneShotProps) {
   return (
     <div
-      className={`relative mx-auto w-[min(100%,280px)] overflow-hidden rounded-[2.1rem] border-[6px] border-[#1a2a22] bg-[#1a2a22] shadow-[0_28px_60px_-24px_rgba(15,61,44,0.55)] ${className}`}
+      className={`relative mx-auto w-[min(100%,280px)] drop-shadow-[0_28px_60px_rgba(15,61,44,0.35)] ${className}`}
     >
-      <div className="overflow-hidden rounded-[1.55rem] bg-cream">
-        <SiteImage
-          src={src}
-          alt={alt}
-          width={414}
-          height={900}
-          className="block h-auto w-full"
-          sizes="(max-width: 768px) 70vw, 280px"
-          priority={priority}
-        />
-      </div>
+      <SiteImage
+        src={src}
+        alt={alt}
+        width={560}
+        height={1186}
+        className="block h-auto w-full"
+        sizes="(max-width: 768px) 70vw, 280px"
+        priority={priority}
+      />
     </div>
   );
 }
