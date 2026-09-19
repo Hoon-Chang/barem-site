@@ -1,3 +1,4 @@
+import { withBase } from "../../site.config";
 import { SiteImage } from "./site-image";
 
 type PhoneShotProps = {
@@ -15,6 +16,7 @@ type PhoneShotProps = {
  *
  * Screen hole matches public/brand/iphone-pro-frame.svg (viewBox -4 0 398 816):
  * inset (12,12) size 366×792, corner 38.
+ * Frame uses a plain <img> — next/image often breaks SVG overlays.
  */
 const FRAME = {
   vbW: 398,
@@ -64,13 +66,14 @@ export function PhoneShot({
           priority={priority}
         />
       </div>
-      <SiteImage
-        src="/brand/iphone-pro-frame.svg"
+      {/* eslint-disable-next-line @next/next/no-img-element -- SVG chassis must stay a raw img */}
+      <img
+        src={withBase("/brand/iphone-pro-frame.svg")}
         alt=""
         width={FRAME.vbW}
         height={FRAME.vbH}
         className="pointer-events-none absolute inset-0 h-full w-full select-none drop-shadow-[0_28px_60px_rgba(15,61,44,0.45)]"
-        sizes="(max-width: 768px) 70vw, 280px"
+        draggable={false}
         aria-hidden
       />
     </div>
