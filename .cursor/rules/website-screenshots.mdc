@@ -18,7 +18,7 @@ When updating homepage / marketing-site screenshots for new features, **match th
 
 ## How the phone look is made
 
-`PhoneShot` (`src/components/phone-shot.tsx`) composites each PNG into the open screen cutout of `public/brand/iphone-pro-frame.svg` (original Pro-style chassis — not an Apple marketing asset; load via plain `<img>`, not `next/image`). The **SVG owns the silhouette**; do not add CSS pill borders on the chassis. Outer corner ≈9% of width (circular SVG arcs read rounder than Apple continuous corners). Dynamic Island stays in the PNG only. Island must be a full pill with cream margin above the tip so it does not merge into the chassis lip.
+`PhoneShot` (`src/components/phone-shot.tsx`) composites each PNG into an **inline** original SVG Pro-style chassis (same geometry as `public/brand/iphone-pro-frame.svg` — not an Apple marketing asset). The **SVG owns the silhouette**; do not add CSS pill borders on the chassis. Outer corner ≈7% of width. Dynamic Island stays in the PNG only. Island must be a full pill with cream margin above the tip so it does not merge into the chassis lip.
 
 ## Source → site
 

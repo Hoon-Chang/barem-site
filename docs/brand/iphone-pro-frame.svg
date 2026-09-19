@@ -1,12 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="-4 0 398 816" fill="none">
-  <!-- Original barem-site Pro-style chassis. Outer r=36 (~9.2%); screen inset 16, r=24. -->
+  <!-- Original barem-site Pro-style chassis (same path as PhoneShot inline SVG). Outer r=28 (~7.2%). -->
   <rect x="-3" y="150" width="3" height="26" rx="1.2" fill="#1a2a22"/>
   <rect x="-3" y="200" width="3" height="52" rx="1.2" fill="#1a2a22"/>
   <rect x="-3" y="262" width="3" height="52" rx="1.2" fill="#1a2a22"/>
   <rect x="390" y="220" width="3" height="80" rx="1.2" fill="#1a2a22"/>
-  <path
-    fill="#1a2a22"
-    fill-rule="evenodd"
-    d="M36 0H354A36 36 0 0 1 390 36V780A36 36 0 0 1 354 816H36A36 36 0 0 1 0 780V36A36 36 0 0 1 36 0ZM40 16H350A24 24 0 0 1 374 40V776A24 24 0 0 1 350 800H40A24 24 0 0 1 16 776V40A24 24 0 0 1 40 16Z"
-  />
+  <path fill="#1a2a22" fill-rule="evenodd" d="M28 0H362A28 28 0 0 1 390 28V788A28 28 0 0 1 362 816H28A28 28 0 0 1 0 788V28A28 28 0 0 1 28 0ZM35 17H355A18 18 0 0 1 373 35V781A18 18 0 0 1 355 799H35A18 18 0 0 1 17 781V35A18 18 0 0 1 35 17Z"/>
 </svg>
