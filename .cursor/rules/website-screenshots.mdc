@@ -1,6 +1,6 @@
 ---
-description: barem-site homepage screenshot format (raw UI + CSS PhoneShot bezel)
-globs: public/screenshots/**,src/components/phone-shot.tsx,src/app/page.tsx,docs/screenshots/**
+description: barem-site homepage screenshot format (raw UI + SVG PhoneShot frame)
+globs: public/screenshots/**,public/brand/iphone-pro-frame.svg,src/components/phone-shot.tsx,src/app/page.tsx,docs/screenshots/**
 alwaysApply: false
 ---
 
@@ -18,7 +18,7 @@ When updating homepage / marketing-site screenshots for new features, **match th
 
 ## How the phone look is made
 
-`PhoneShot` (`src/components/phone-shot.tsx`) draws a thin CSS chassis (`#1a2a22`, outer corner ≈`5.5cqw`, bezel ≈`0.85cqw`, concentric screen clip) + shadow around these raw UI images. Radius **scales with phone width**. Keep outer ≤~6% — CSS circular arcs read much rounder than Apple continuous corners; 8–12% looks pill-shaped. **Do not** bake a second bezel into the PNG (that double-frames). Dynamic Island in the PNG must be a full pill (rounded top and bottom) with cream margin above the tip so it does not merge into the bezel—do not paste a truncated status band.
+`PhoneShot` (`src/components/phone-shot.tsx`) composites each PNG into the open screen cutout of `public/brand/iphone-pro-frame.svg` (original Pro-style chassis — not an Apple marketing asset). The **SVG owns the silhouette**; do not add CSS pill `border-radius` / thick borders on top (that double-frames or reintroduces the stadium look). Dynamic Island must remain in the PNG only — the frame has no second notch. Island in the PNG must be a full pill with cream margin above the tip so it does not merge into the chassis lip.
 
 ## Source → site
 
@@ -30,10 +30,11 @@ When updating homepage / marketing-site screenshots for new features, **match th
 ../barem/tool/export_site_screenshots.sh
 ```
 
-3. `npm run deploy` → commit `public/screenshots` + `docs`
+3. `npm run deploy` → commit `public/screenshots` + `docs` (+ frame SVG if changed)
 
 ## Rejected formats (do not use on the site)
 
 - Store marketing composites (`barem/store_assets/screenshots/ios/` with headlines)
-- Bezel-only Pillow frames pasted as the site PNG while also using CSS PhoneShot
+- Baking a bezel into the site PNG **and** also drawing CSS/`PhoneShot` chassis (double frame)
 - Dropping raw 1320×2868 without resizing (oversized; break `PhoneShot` width/height contract)
+- Scraped Apple marketing device PNGs

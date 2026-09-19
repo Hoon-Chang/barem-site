@@ -8,40 +8,71 @@ type PhoneShotProps = {
 };
 
 /**
- * Thin CSS chassis around raw app screenshots (canonical site format).
- * PNG must be app UI only at 414×900 — no baked device bezel.
- * Screenshots already include status bar / Dynamic Island — do not draw a second notch.
- * Refresh: ../barem/tool/export_site_screenshots.sh (see README 「스크린샷」).
+ * App screenshot composited into an original SVG iPhone Pro–style chassis.
+ * PNG must be app UI only at 414×900 (status bar + Dynamic Island) — no baked bezel.
+ * Frame owns the silhouette; do not also apply CSS pill borders.
+ * Refresh screenshots: ../barem/tool/export_site_screenshots.sh
  *
- * Proportions (container-query % of frame width):
- * - Outer chassis ≈ 5.5cqw — CSS circular arcs read rounder than Apple’s
- *   continuous corner, so keep this well below the physical ~12–14%.
- * - Bezel ≈ 0.85cqw (min 2px) — modern edge-to-edge look, not a thick picture frame.
- * - Screen radius = outer − bezel so curves stay concentric.
+ * Screen hole matches public/brand/iphone-pro-frame.svg (viewBox -4 0 398 816):
+ * inset (11,11) size 368×794, corner 45.
  */
+const FRAME = {
+  vbW: 398,
+  vbH: 816,
+  screenX: 11 - -4,
+  screenY: 11,
+  screenW: 368,
+  screenH: 794,
+  screenR: 45,
+} as const;
+
 export function PhoneShot({
   src,
   alt,
   className = "",
   priority = false,
 }: PhoneShotProps) {
+  const left = (FRAME.screenX / FRAME.vbW) * 100;
+  const top = (FRAME.screenY / FRAME.vbH) * 100;
+  const width = (FRAME.screenW / FRAME.vbW) * 100;
+  const height = (FRAME.screenH / FRAME.vbH) * 100;
+  const radiusX = (FRAME.screenR / FRAME.screenW) * 100;
+  const radiusY = (FRAME.screenR / FRAME.screenH) * 100;
+
   return (
     <div
-      className={`@container relative mx-auto w-[min(100%,280px)] ${className}`}
+      className={`relative mx-auto w-[min(100%,280px)] ${className}`}
+      style={{ aspectRatio: `${FRAME.vbW} / ${FRAME.vbH}` }}
     >
-      <div className="rounded-[5.5cqw] bg-[#1a2a22] p-[max(2px,0.85cqw)] shadow-[0_28px_60px_-24px_rgba(15,61,44,0.55)]">
-        <div className="overflow-hidden rounded-[calc(5.5cqw-max(2px,0.85cqw))] bg-[#F7F6F3]">
-          <SiteImage
-            src={src}
-            alt={alt}
-            width={414}
-            height={900}
-            className="block h-auto w-full"
-            sizes="(max-width: 768px) 70vw, 280px"
-            priority={priority}
-          />
-        </div>
+      <div
+        className="absolute overflow-hidden bg-[#F7F6F3]"
+        style={{
+          left: `${left}%`,
+          top: `${top}%`,
+          width: `${width}%`,
+          height: `${height}%`,
+          borderRadius: `${radiusX}% / ${radiusY}%`,
+        }}
+      >
+        <SiteImage
+          src={src}
+          alt={alt}
+          width={414}
+          height={900}
+          className="block h-full w-full object-cover object-top"
+          sizes="(max-width: 768px) 70vw, 280px"
+          priority={priority}
+        />
       </div>
+      <SiteImage
+        src="/brand/iphone-pro-frame.svg"
+        alt=""
+        width={FRAME.vbW}
+        height={FRAME.vbH}
+        className="pointer-events-none absolute inset-0 h-full w-full select-none drop-shadow-[0_28px_60px_rgba(15,61,44,0.45)]"
+        sizes="(max-width: 768px) 70vw, 280px"
+        aria-hidden
+      />
     </div>
   );
 }

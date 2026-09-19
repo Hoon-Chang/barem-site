@@ -48,7 +48,7 @@ npm run build
 | 파일 | `public/screenshots/01_home.png` … `07_profile.png` |
 | 내용 | **앱 UI만** (상태바·Dynamic Island 포함). 기기 베젤·스토어 헤드라인·면책 문구 **없음** |
 | 크기 | **414 × 900** PNG |
-| 기기 프레임 | `PhoneShot` CSS 섀시(`#1a2a22`, 모서리 ≈프레임 너비의 5.5% `cqw`, 얇은 베젤)가 그림. PNG에 베젤을 넣지 않음 |
+| 기기 프레임 | `PhoneShot`이 `public/brand/iphone-pro-frame.svg` 컷아웃에 PNG를 합성. PNG에 베젤을 넣지 않음(이중 프레임 금지) |
 | 원본 | 형제 저장소 `barem/store_assets/screenshots/raw/ios/` (1320×2868) |
 
 ```bash
@@ -62,7 +62,7 @@ npm run deploy
 git add public/screenshots docs && git commit && git push
 ```
 
-**쓰지 말 것:** 스토어 마케팅 합성본(`screenshots/ios/`), PNG에 베젤을 구운 뒤 CSS 프레임까지 쓰는 이중 프레임.
+**쓰지 말 것:** 스토어 마케팅 합성본(`screenshots/ios/`), PNG에 베젤을 구운 뒤 SVG/`PhoneShot` 프레임까지 쓰는 이중 프레임, Apple 마케팅 기기 PNG 무단 사용.
 
 에이전트용 규칙: [`.cursor/rules/website-screenshots.mdc`](./.cursor/rules/website-screenshots.mdc)
 

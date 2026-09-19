@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-4 0 398 816" fill="none" aria-hidden="true">
+  <!--
+    Original barem-site iPhone Pro–style chassis (not an Apple asset).
+    Aspect ? physical Pro. Open screen cutout — Dynamic Island stays in the PNG.
+    Screen hole in viewBox space: x=11 y=11 w=368 h=794 (rx=ry=45)
+  -->
+  <defs>
+    <path
+      id="chassis"
+      d="M 58 0
+         H 332
+         C 364 0 390 26 390 58
+         V 758
+         C 390 790 364 816 332 816
+         H 58
+         C 26 816 0 790 0 758
+         V 58
+         C 0 26 26 0 58 0
+         Z"
+    />
+    <mask id="screen-cut">
+      <use href="#chassis" fill="#fff"/>
+      <rect x="11" y="11" width="368" height="794" rx="45" ry="45" fill="#000"/>
+    </mask>
+  </defs>
+
+  <!-- Hardware buttons -->
+  <rect x="-3.2" y="148" width="3.2" height="28" rx="1.4" fill="#1a2a22"/>
+  <rect x="-3.2" y="198" width="3.2" height="54" rx="1.4" fill="#1a2a22"/>
+  <rect x="-3.2" y="262" width="3.2" height="54" rx="1.4" fill="#1a2a22"/>
+  <rect x="390" y="218" width="3.2" height="82" rx="1.4" fill="#1a2a22"/>
+
+  <use href="#chassis" fill="#1a2a22" mask="url(#screen-cut)"/>
+
+  <!-- Glass lip -->
+  <rect
+    x="11" y="11" width="368" height="794" rx="45" ry="45"
+    fill="none" stroke="#0d1612" stroke-width="1.2" opacity="0.5"
+  />
+</svg>
