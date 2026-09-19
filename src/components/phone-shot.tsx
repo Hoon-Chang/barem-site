@@ -9,23 +9,20 @@ type PhoneShotProps = {
 };
 
 /**
- * App screenshot composited into an original SVG iPhone Pro–style chassis.
- * PNG must be app UI only at 414×900 (status bar + Dynamic Island) — no baked bezel.
- * Frame owns the silhouette; do not also apply CSS pill borders.
- * Refresh screenshots: ../barem/tool/export_site_screenshots.sh
+ * App screenshot inside original SVG iPhone Pro–style chassis.
+ * PNG: app UI only 414×900 (status bar + Dynamic Island). No baked bezel.
+ * Frame SVG owns silhouette — no CSS pill borders on the chassis.
  *
- * Screen hole matches public/brand/iphone-pro-frame.svg (viewBox -4 0 398 816):
- * inset (12,12) size 366×792, corner 38.
- * Frame uses a plain <img> — next/image often breaks SVG overlays.
+ * Screen hole (viewBox -4 0 398 816): inset (16,16) size 358×784, r=24.
  */
 const FRAME = {
   vbW: 398,
   vbH: 816,
-  screenX: 12 - -4,
-  screenY: 12,
-  screenW: 366,
-  screenH: 792,
-  screenR: 38,
+  screenX: 16 - -4,
+  screenY: 16,
+  screenW: 358,
+  screenH: 784,
+  screenR: 24,
 } as const;
 
 export function PhoneShot({
@@ -66,13 +63,13 @@ export function PhoneShot({
           priority={priority}
         />
       </div>
-      {/* eslint-disable-next-line @next/next/no-img-element -- SVG chassis must stay a raw img */}
+      {/* eslint-disable-next-line @next/next/no-img-element -- raw SVG chassis */}
       <img
         src={withBase("/brand/iphone-pro-frame.svg")}
         alt=""
         width={FRAME.vbW}
         height={FRAME.vbH}
-        className="pointer-events-none absolute inset-0 h-full w-full select-none drop-shadow-[0_28px_60px_rgba(15,61,44,0.45)]"
+        className="pointer-events-none absolute inset-0 z-10 h-full w-full select-none drop-shadow-[0_28px_60px_rgba(15,61,44,0.45)]"
         draggable={false}
         aria-hidden
       />
