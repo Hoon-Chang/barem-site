@@ -31,7 +31,7 @@ export default function PrivacyPage() {
         <p className="mt-2 text-sm leading-relaxed text-muted">
           본 방침은 모바일 앱 「{brand.appNameKo}」(이하 &quot;바램&quot;)에
           적용됩니다. 바램은 개인 건강·치료 관련 기록을 기기 안에서만
-          저장·처리하는 온디바이스 앱이며, 의료기기가 아니며 진단·처방·치료를
+          저장·처리하는 앱이며, 의료기기가 아니며 진단·처방·치료를
           대체하지 않습니다.
         </p>
       </header>

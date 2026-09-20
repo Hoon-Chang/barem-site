@@ -43,7 +43,7 @@ const guideSteps: {
   {
     step: "01",
     title: "목적 고르기",
-    body: "홈을 내 목적에 맞추면, 매일 볼 것만 남습니다. 온보딩에서 치료·건강·보호자 중 고르고 홈 뼈대를 잡습니다.",
+    body: "홈을 내 목적에 맞추면, 매일 볼 것만 남습니다. 온보딩에서 치료·건강·보호자 중 고르고 홈 구성을 잡습니다.",
     src: "/screenshots/08_onboarding_care_focus.png",
     alt: "바램 온보딩 — 지금 어떤 상황인가요 목적 선택",
   },
@@ -213,8 +213,8 @@ const securityPoints = [
   },
   {
     icon: Lock,
-    title: "온디바이스 암호화",
-    body: "로컬 DB와 OS 키체인/키스토어를 활용합니다. 광고·마케팅용 판매·공유를 하지 않습니다.",
+    title: "내 기기에서 암호화",
+    body: "기기에 저장된 기록과 시스템 보안 저장소를 활용합니다. 광고·마케팅용 판매·공유를 하지 않습니다.",
   },
   {
     icon: Smartphone,
@@ -260,8 +260,8 @@ export default function HomePage() {
               치료 기록을, 혼자 안 맡기도록
             </h1>
             <p className="mt-4 max-w-lg text-base leading-relaxed text-muted sm:text-lg">
-              암 치료·회복을 위해 만든 온디바이스 건강 기록. 검사·일정·컨디션을
-              내 기기에만 암호화해 둡니다.
+              암 치료·회복을 위해 만든 건강 기록 앱. 검사·일정·컨디션을 서버가
+              아니라 내 기기에만 암호화해 둡니다.
             </p>
             <div id="download" className="mt-8 scroll-mt-24">
               <StoreButtons />
@@ -360,7 +360,7 @@ export default function HomePage() {
                   앱으로 시작하기
                 </Link>
                 <p className="mt-3 text-sm text-muted">
-                  설치 후 목적만 고르면 홈 뼈대가 잡힙니다.
+                  설치 후 목적만 고르면 바로 쓸 수 있습니다.
                 </p>
               </div>
             </div>
@@ -384,7 +384,7 @@ export default function HomePage() {
             첫 주에 이것만
           </h2>
           <p className="mt-3 max-w-2xl text-muted">
-            설치 후 10분이면 뼈대가 잡힙니다.
+            설치만 하면, 목적 고르기부터 바로 시작할 수 있습니다.
           </p>
 
           <div className="mt-14 space-y-16 sm:space-y-20">
@@ -413,14 +413,14 @@ export default function HomePage() {
                     <div
                       className={
                         hasSecondary
-                          ? "w-[42%] max-w-[240px] sm:w-[min(100%,240px)]"
+                          ? "w-[min(46%,220px)]"
                           : "w-[min(100%,280px)]"
                       }
                     >
                       <PhoneShot src={item.src} alt={item.alt} />
                     </div>
                     {item.secondarySrc ? (
-                      <div className="w-[38%] max-w-[220px] translate-y-4 sm:w-[min(100%,220px)] sm:translate-y-6">
+                      <div className="w-[min(46%,220px)]">
                         <PhoneShot
                           src={item.secondarySrc}
                           alt={item.secondaryAlt || ""}
@@ -512,13 +512,21 @@ export default function HomePage() {
                     </ul>
                   </div>
                   <div
-                    className={`flex items-end justify-center gap-4 ${
+                    className={`flex items-end justify-center gap-3 sm:gap-4 ${
                       feature.secondarySrc ? "sm:justify-center" : ""
                     }`}
                   >
-                    <PhoneShot src={feature.src} alt={feature.alt} />
+                    <div
+                      className={
+                        feature.secondarySrc
+                          ? "w-[min(46%,220px)]"
+                          : "w-[min(100%,280px)]"
+                      }
+                    >
+                      <PhoneShot src={feature.src} alt={feature.alt} />
+                    </div>
                     {feature.secondarySrc ? (
-                      <div className="hidden w-[min(100%,240px)] translate-y-6 sm:block">
+                      <div className="hidden w-[min(46%,220px)] sm:block">
                         <PhoneShot
                           src={feature.secondarySrc}
                           alt={feature.secondaryAlt || ""}
@@ -539,8 +547,8 @@ export default function HomePage() {
             데이터 보안
           </h2>
           <p className="mt-3 max-w-2xl text-muted">
-            광고·마케팅을 위한 건강 데이터 판매·공유는 하지 않습니다. 원칙은
-            온디바이스입니다.
+            광고·마케팅을 위한 건강 데이터 판매·공유는 하지 않습니다. 원칙은 내
+            기기에만 두는 것입니다.
           </p>
           <ul className="mt-10 grid gap-5 sm:grid-cols-2">
             {securityPoints.map(({ icon: Icon, title, body }) => (

@@ -34,7 +34,7 @@ export function PhoneShot({
 
   return (
     <div
-      className={`relative mx-auto w-[min(100%,280px)] ${className}`}
+      className={`relative mx-auto w-full max-w-[280px] ${className}`}
       style={{ aspectRatio: `${FRAME.w} / ${FRAME.h}` }}
     >
       <div

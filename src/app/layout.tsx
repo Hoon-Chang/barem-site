@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     "혈압",
     "혈당",
     "복약",
-    "온디바이스",
+    "내 기기",
     "개인정보",
   ],
   openGraph: {
