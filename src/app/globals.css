@@ -40,6 +40,23 @@ body {
   background: color-mix(in srgb, var(--green) 28%, white);
 }
 
+@keyframes fade-rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-\[fade-rise_0\.7s_ease-out_both\] {
+    animation: none !important;
+  }
+}
+
 .prose-legal h2 {
   font-size: 1.15rem;
   font-weight: 700;

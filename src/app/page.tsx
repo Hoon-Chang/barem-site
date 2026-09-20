@@ -3,7 +3,6 @@ import {
   CalendarDays,
   Camera,
   FileSpreadsheet,
-  HeartPulse,
   LayoutGrid,
   Lock,
   ShieldCheck,
@@ -19,27 +18,16 @@ import { SiteImage } from "../components/site-image";
 import { StoreButtons } from "../components/store-buttons";
 import { siteConfig } from "../../site.config";
 
-const forWhom = [
-  {
-    icon: HeartPulse,
-    label: "치료 중",
-    title: "항암·수술·외래가 이어지는 분",
-    body: "차수·검사·컨디션을 한곳에 모아 스스로 정리합니다.",
-    uses: "치료 진행 · 랩/ANC · 일정 · 투데이",
-  },
+const forWhomAlso = [
   {
     icon: Users,
     label: "보호자",
-    title: "가족을 대신 기록하는 분",
-    body: "컨디션이 좋지 않거나 앱 조작이 어려울 때, 외래·채혈 동행하며 검사·일정·컨디션을 대신 남깁니다.",
-    uses: "보호자 모드 · 검사·일정 · 컨디션·치료 진행",
+    body: "컨디션이 좋지 않거나 앱 조작이 어려울 때, 외래·채혈 동행하며 대신 남깁니다.",
   },
   {
     icon: Activity,
     label: "회복·일상",
-    title: "치료 후·만성·평소 건강 관리",
-    body: "같은 습관으로 바이탈·식단·목표를 이어 갑니다.",
-    uses: "건강 목표 · 추이 비교 · 식단",
+    body: "치료 이후에도, 만성·평소 건강 관리에도 같은 습관으로 이어 갑니다.",
   },
 ];
 
@@ -269,32 +257,23 @@ export default function HomePage() {
               </div>
             </div>
             <h1 className="mt-8 max-w-xl text-2xl font-semibold leading-snug tracking-tight text-ink sm:text-3xl">
-              매일의 건강을 기록하는 가장 편안하고 안전한 습관
+              치료 기록을, 혼자 안 맡기도록
             </h1>
             <p className="mt-4 max-w-lg text-base leading-relaxed text-muted sm:text-lg">
-              검사결과·바이탈·식단·일정까지 — 홈을 내 목적에 맞게 구성하고,
-              민감한 기록은 온전히 내 기기에 암호화되어 보관됩니다.
+              암 치료·회복을 위해 만든 온디바이스 건강 기록. 검사·일정·컨디션을
+              내 기기에만 암호화해 둡니다.
             </p>
-            <ul className="mt-6 flex flex-wrap gap-2 text-xs text-green-deep sm:text-sm">
-              {[
-                "맞춤 홈",
-                "건강 목표",
-                "기간 비교 추이",
-                "OCR 검사결과",
-                "온디바이스",
-                "Face ID 잠금",
-              ].map((tag) => (
-                <li
-                  key={tag}
-                  className="rounded-full border border-green/25 bg-white/70 px-3 py-1 font-medium"
-                >
-                  {tag}
-                </li>
-              ))}
-            </ul>
             <div id="download" className="mt-8 scroll-mt-24">
               <StoreButtons />
             </div>
+            <p className="mt-5 text-sm text-muted">
+              <Link
+                href="/#for-whom"
+                className="font-medium text-green underline-offset-4 transition hover:text-green-deep hover:underline"
+              >
+                이런 분께 →
+              </Link>
+            </p>
           </div>
 
           <div className="relative mx-auto w-full max-w-md">
@@ -329,39 +308,73 @@ export default function HomePage() {
 
       <section id="for-whom" className="scroll-mt-20 border-t border-line">
         <div className="mx-auto max-w-5xl px-5 py-16 sm:px-8 sm:py-20">
-          <h2 className="text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
-            치료 기록을 혼자 맡기지 않게
-          </h2>
-          <p className="mt-3 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
-            암 치료·회복을 위해 만들었고, 보호자와 일상 건강 관리에도 그대로
-            씁니다.
+          <p className="text-xs font-semibold tracking-[0.18em] text-green uppercase">
+            이런 분께
           </p>
-          <ul className="mt-12 divide-y divide-line border-y border-line">
-            {forWhom.map(({ icon: Icon, label, title, body, uses }) => (
-              <li
-                key={label}
-                className="grid gap-4 py-8 sm:grid-cols-[7rem_1fr] sm:gap-8 sm:py-9"
-              >
-                <div className="flex items-center gap-2.5 sm:flex-col sm:items-start sm:gap-3">
-                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-green-soft text-green">
-                    <Icon size={20} aria-hidden />
-                  </span>
-                  <p className="text-xs font-semibold tracking-[0.16em] text-green uppercase">
-                    {label}
-                  </p>
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold tracking-tight text-ink sm:text-xl">
-                    {title}
-                  </h3>
-                  <p className="mt-2 text-base leading-relaxed text-muted">
-                    {body}
-                  </p>
-                  <p className="mt-3 text-sm text-green-deep">{uses}</p>
-                </div>
-              </li>
-            ))}
-          </ul>
+          <h2 className="mt-3 max-w-2xl text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
+            항암·수술·외래가 이어질 때,
+            <br className="hidden sm:block" />
+            차수·검사·컨디션을 한곳에
+          </h2>
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
+            바램은 암 치료·회복 중 스스로 기록을 정리하려고 만들었습니다.
+            민감한 데이터는 서버로 보내지 않고, 쓰는 사람 기기에만 둡니다.
+          </p>
+
+          <div className="mt-12 grid items-center gap-10 lg:grid-cols-[1fr_0.85fr] lg:gap-14">
+            <div className="space-y-8">
+              <div>
+                <p className="text-xs font-semibold tracking-[0.16em] text-green uppercase">
+                  치료 중
+                </p>
+                <p className="mt-2 text-lg font-semibold tracking-tight text-ink sm:text-xl">
+                  오늘 해야 할 기록이 홈에 모여 있습니다
+                </p>
+                <p className="mt-2 text-base leading-relaxed text-muted">
+                  치료 진행·검사 수치·일정·컨디션을 목적에 맞게 구성하고, 매일
+                  볼 것만 남깁니다.
+                </p>
+              </div>
+
+              <ul className="divide-y divide-line border-y border-line">
+                {forWhomAlso.map(({ icon: Icon, label, body }) => (
+                  <li key={label} className="flex gap-4 py-5">
+                    <span className="mt-0.5 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-green-soft text-green">
+                      <Icon size={18} aria-hidden />
+                    </span>
+                    <div>
+                      <p className="text-sm font-semibold text-ink">{label}</p>
+                      <p className="mt-1 text-sm leading-relaxed text-muted">
+                        {body}
+                      </p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+
+              <div>
+                <Link
+                  href="/#download"
+                  className="inline-flex rounded-full bg-green px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-green-deep"
+                >
+                  앱으로 시작하기
+                </Link>
+                <p className="mt-3 text-sm text-muted">
+                  설치 후 목적만 고르면 홈 뼈대가 잡힙니다.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex justify-center lg:justify-end">
+              <div className="w-[min(100%,280px)] animate-[fade-rise_0.7s_ease-out_both]">
+                <PhoneShot
+                  src="/screenshots/01_home.png"
+                  alt="바램 홈 — 치료 중 맞춤 화면"
+                  priority
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -441,7 +454,7 @@ export default function HomePage() {
             무엇을 할 수 있나요
           </h2>
           <p className="mt-3 max-w-2xl text-muted">
-            기록을 한곳에 모으고, 민감한 데이터는 기기 밖으로 보내지 않습니다.
+            설치 후에 쓰는 기능들입니다. 필요한 것만 보면 됩니다.
           </p>
           <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {highlights.map(({ icon: Icon, title, body }) => (
