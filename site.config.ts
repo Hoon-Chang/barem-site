@@ -70,9 +70,9 @@ export const siteConfig = {
   seo: {
     titleKo: "바램 - 건강 기록 | BAREM",
     descriptionKo:
-      "맞춤 홈·건강 목표·기간 비교 추이·검사 OCR·식단까지. 민감 정보는 기기 안에만 암호화 보관되는 온디바이스 건강 다이어리.",
+      "암 치료·회복과 보호자, 일상 건강까지. 맞춤 홈·검사 OCR·추이 비교·식단을 기기 안에만 암호화 보관하는 온디바이스 건강 기록.",
     descriptionEn:
-      "BAREM is an on-device health tracker with a customizable home, health goals, period-compare trends, and lab OCR — data stays encrypted on your device.",
+      "On-device health journal for cancer treatment and recovery, caregivers, and daily tracking — customizable home, lab OCR, trends; data stays encrypted on your device.",
     ogLocale: "ko_KR",
   },
 } as const;

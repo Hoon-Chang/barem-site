@@ -3,18 +3,95 @@ import {
   CalendarDays,
   Camera,
   FileSpreadsheet,
+  HeartPulse,
   LayoutGrid,
   Lock,
   ShieldCheck,
   Smartphone,
   Stethoscope,
   Target,
+  Users,
   Utensils,
 } from "lucide-react";
+import Link from "next/link";
 import { PhoneShot } from "../components/phone-shot";
 import { SiteImage } from "../components/site-image";
 import { StoreButtons } from "../components/store-buttons";
 import { siteConfig } from "../../site.config";
+
+const forWhom = [
+  {
+    icon: HeartPulse,
+    label: "치료 중",
+    title: "항암·수술·외래가 이어지는 분",
+    body: "차수·검사·컨디션을 한곳에 모아 스스로 정리합니다.",
+    uses: "치료 진행 · 랩/ANC · 일정 · 투데이",
+  },
+  {
+    icon: Users,
+    label: "보호자",
+    title: "가족을 대신 기록하는 분",
+    body: "환자가 컨디션이 좋지 않거나, 부모님처럼 앱 조작이 어려울 때 — 외래·채혈 동행하면서 검사 결과·일정·컨디션을 보호자 폰에 대신 남깁니다. 계정 공유 없이, 기록하는 사람 기기에만 저장됩니다.",
+    uses: "보호자 모드 · 검사·일정 대신 입력 · 컨디션·치료 진행",
+  },
+  {
+    icon: Activity,
+    label: "회복·일상",
+    title: "치료 후·만성·평소 건강 관리",
+    body: "같은 습관으로 바이탈·식단·목표를 이어 갑니다.",
+    uses: "건강 목표 · 추이 비교 · 식단",
+  },
+];
+
+const guideSteps: {
+  step: string;
+  title: string;
+  body: string;
+  src: string;
+  alt: string;
+  secondarySrc?: string;
+  secondaryAlt?: string;
+}[] = [
+  {
+    step: "01",
+    title: "목적 고르기",
+    body: "홈을 내 목적에 맞추면, 매일 볼 것만 남습니다. 온보딩에서 치료·건강·보호자 중 고르고 홈 뼈대를 잡습니다.",
+    src: "/screenshots/08_onboarding_care_focus.png",
+    alt: "바램 온보딩 — 지금 어떤 상황인가요 목적 선택",
+  },
+  {
+    step: "02",
+    title: "치료·일정 넣기",
+    body: "다음 외래·항암 날짜만 먼저 넣어도 불안이 줄어듭니다. 해당될 때 채혈·치료 일정을 추가합니다.",
+    src: "/screenshots/06_schedule.png",
+    alt: "바램 일정 화면",
+  },
+  {
+    step: "03",
+    title: "검사 한 장",
+    body: "결과지는 촬영 후 직접 확인하고 저장합니다. 인식은 기기 안에서만 이뤄지며 서버로 보내지 않습니다.",
+    src: "/screenshots/03_labs.png",
+    alt: "바램 검사 결과 목록",
+    secondarySrc: "/screenshots/04_lab_chart.png",
+    secondaryAlt: "바램 검사 수치 추이 차트",
+  },
+  {
+    step: "04",
+    title: "오늘 컨디션",
+    body: "컨디션은 완벽하게가 아니라, 남기는 게 목표입니다. 체온·증상과 함께, 식사도 문장으로 남기면 칼로리·단백질이 분석됩니다.",
+    src: "/screenshots/05_today.png",
+    alt: "바램 투데이·컨디션 화면",
+    secondarySrc: "/screenshots/09_meal_analysis.png",
+    secondaryAlt: "바램 식사 기록 후 영양 분석 화면",
+  },
+  {
+    step: "05",
+    title: "잠금·백업",
+    body: "민감한 기록은 잠그고, 가끔 백업만 하세요. Face ID·지문·기기 암호와 로컬 백업을 프로필에서 설정합니다.",
+    src: "/screenshots/07_profile.png",
+    alt: "바램 프로필·잠금·백업 화면",
+  },
+];
 
 const highlights = [
   {
@@ -103,14 +180,16 @@ const deepFeatures = [
   {
     eyebrow: "투데이",
     title: "컨디션·식단을 빠르게",
-    body: "체온·체중·수분·증상·식사를 큰 터치로 남깁니다. 식단은 자연어로 적고, 칼로리·단백질 목표는 참고용으로 둡니다.",
+    body: "체온·체중·수분·증상·식사를 큰 터치로 남깁니다. 식단은 자연어로 적으면 칼로리·단백질이 분석되고, 목표는 참고용으로 둡니다.",
     points: [
       "하루 컨디션을 빠르게 체크",
-      "자연어 식단 기록과 메뉴 매칭 개선",
+      "자연어 식단 기록과 영양 분석",
       "Apple Health·Health Connect 걸음·활동(선택)",
     ],
     src: "/screenshots/05_today.png",
     alt: "바램 투데이·컨디션 화면",
+    secondarySrc: "/screenshots/09_meal_analysis.png",
+    secondaryAlt: "바램 식사 기록 후 영양 분석 화면",
   },
   {
     eyebrow: "일정",
@@ -248,14 +327,121 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="features" className="scroll-mt-20 border-t border-line bg-surface">
+      <section id="for-whom" className="scroll-mt-20 border-t border-line">
+        <div className="mx-auto max-w-5xl px-5 py-16 sm:px-8 sm:py-20">
+          <h2 className="text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
+            치료 기록을 혼자 맡기지 않게
+          </h2>
+          <p className="mt-3 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
+            암 치료·회복을 위해 만들었고, 보호자와 일상 건강 관리에도 그대로
+            씁니다.
+          </p>
+          <ul className="mt-12 divide-y divide-line border-y border-line">
+            {forWhom.map(({ icon: Icon, label, title, body, uses }) => (
+              <li
+                key={label}
+                className="grid gap-4 py-8 sm:grid-cols-[7rem_1fr] sm:gap-8 sm:py-9"
+              >
+                <div className="flex items-center gap-2.5 sm:flex-col sm:items-start sm:gap-3">
+                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-green-soft text-green">
+                    <Icon size={20} aria-hidden />
+                  </span>
+                  <p className="text-xs font-semibold tracking-[0.16em] text-green uppercase">
+                    {label}
+                  </p>
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold tracking-tight text-ink sm:text-xl">
+                    {title}
+                  </h3>
+                  <p className="mt-2 text-base leading-relaxed text-muted">
+                    {body}
+                  </p>
+                  <p className="mt-3 text-sm text-green-deep">{uses}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section id="guide" className="scroll-mt-20 border-t border-line bg-surface">
+        <div className="mx-auto max-w-5xl px-5 py-16 sm:px-8 sm:py-20">
+          <h2 className="text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
+            첫 주에 이것만
+          </h2>
+          <p className="mt-3 max-w-2xl text-muted">
+            설치 후 10분이면 뼈대가 잡힙니다.
+          </p>
+
+          <div className="mt-14 space-y-16 sm:space-y-20">
+            {guideSteps.map((item, index) => {
+              const reverse = index % 2 === 1;
+              const hasSecondary = Boolean(item.secondarySrc);
+              return (
+                <div
+                  key={item.step}
+                  className={`grid items-center gap-10 lg:grid-cols-2 lg:gap-14 ${
+                    reverse ? "lg:[&>*:first-child]:order-2" : ""
+                  }`}
+                >
+                  <div>
+                    <p className="text-xs font-semibold tracking-[0.2em] text-green">
+                      STEP {item.step}
+                    </p>
+                    <h3 className="mt-2 text-xl font-semibold tracking-tight text-ink sm:text-2xl">
+                      {item.title}
+                    </h3>
+                    <p className="mt-3 text-base leading-relaxed text-muted">
+                      {item.body}
+                    </p>
+                  </div>
+                  <div className="flex items-end justify-center gap-3 sm:gap-4">
+                    <div
+                      className={
+                        hasSecondary
+                          ? "w-[42%] max-w-[240px] sm:w-[min(100%,240px)]"
+                          : "w-[min(100%,280px)]"
+                      }
+                    >
+                      <PhoneShot src={item.src} alt={item.alt} />
+                    </div>
+                    {item.secondarySrc ? (
+                      <div className="w-[38%] max-w-[220px] translate-y-4 sm:w-[min(100%,220px)] sm:translate-y-6">
+                        <PhoneShot
+                          src={item.secondarySrc}
+                          alt={item.secondaryAlt || ""}
+                        />
+                      </div>
+                    ) : null}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="mt-14 flex flex-col items-start gap-4 border-t border-line pt-10 sm:flex-row sm:items-center sm:justify-between">
+            <p className="max-w-xl text-sm leading-relaxed text-muted">
+              바램은 의료기기가 아닙니다. 기록·추이는 참고용이며, 치료와 식이는
+              의료진과 상의하세요.
+            </p>
+            <Link
+              href="/#download"
+              className="shrink-0 rounded-full bg-green px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-green-deep"
+            >
+              앱 받기
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section id="features" className="scroll-mt-20 border-t border-line">
         <div className="mx-auto max-w-5xl px-5 py-16 sm:px-8 sm:py-20">
           <h2 className="text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
             무엇을 할 수 있나요
           </h2>
           <p className="mt-3 max-w-2xl text-muted">
-            치료·회복 중에도, 일상 건강 관리에도. 바램은 기록을 한곳에 모으고
-            민감한 데이터는 기기 밖으로 보내지 않습니다.
+            기록을 한곳에 모으고, 민감한 데이터는 기기 밖으로 보내지 않습니다.
           </p>
           <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {highlights.map(({ icon: Icon, title, body }) => (
@@ -271,7 +457,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="tour" className="scroll-mt-20 border-t border-line">
+      <section id="tour" className="scroll-mt-20 border-t border-line bg-surface">
         <div className="mx-auto max-w-5xl px-5 py-16 sm:px-8 sm:py-20">
           <h2 className="text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
             앱 둘러보기
@@ -334,7 +520,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="security" className="scroll-mt-20 border-t border-line bg-surface">
+      <section id="security" className="scroll-mt-20 border-t border-line">
         <div className="mx-auto max-w-5xl px-5 py-16 sm:px-8 sm:py-20">
           <h2 className="text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
             데이터 보안

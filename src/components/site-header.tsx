@@ -6,10 +6,11 @@ import { Menu, X } from "lucide-react";
 import { BrandLogo } from "./brand-logo";
 
 const nav = [
+  { href: "/#for-whom", label: "이런 분께" },
+  { href: "/#guide", label: "시작 가이드" },
   { href: "/#features", label: "기능 소개" },
   { href: "/#tour", label: "앱 둘러보기" },
   { href: "/#security", label: "데이터 보안" },
-  { href: "/privacy/", label: "개인정보처리방침" },
   { href: "/#contact", label: "고객 문의" },
 ];
 
@@ -23,7 +24,7 @@ export function SiteHeader() {
           <BrandLogo size={32} wordmarkClassName="text-base sm:text-lg" />
         </Link>
 
-        <nav className="hidden items-center gap-5 text-sm text-muted lg:flex">
+        <nav className="hidden items-center gap-3.5 text-sm text-muted xl:gap-5 lg:flex">
           {nav.map((item) => (
             <Link
               key={item.href}

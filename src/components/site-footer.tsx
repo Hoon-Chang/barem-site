@@ -45,6 +45,12 @@ export function SiteFooter() {
         <div className="flex flex-col gap-3 border-t border-white/10 pt-5 text-xs text-white/55 sm:flex-row sm:items-center sm:justify-between">
           <p>© 2026 {brand.legalNameEn}</p>
           <div className="flex flex-wrap gap-4">
+            <Link href="/#for-whom" className="hover:text-white">
+              이런 분께
+            </Link>
+            <Link href="/#guide" className="hover:text-white">
+              시작 가이드
+            </Link>
             <Link href="/privacy/" className="hover:text-white">
               개인정보처리방침
             </Link>
