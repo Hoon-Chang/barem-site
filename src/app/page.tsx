@@ -4,7 +4,6 @@ import {
   Camera,
   FileSpreadsheet,
   GitCompareArrows,
-  HandHeart,
   LayoutGrid,
   Lock,
   ShieldCheck,
@@ -22,11 +21,6 @@ import { StoreButtons } from "../components/store-buttons";
 import { siteConfig } from "../../site.config";
 
 const forWhomAlso = [
-  {
-    icon: HandHeart,
-    label: "어르신·큰 글씨",
-    body: "손쉬움 화면으로 글씨와 버튼을 키우고, 오늘 할 일만 크게 남깁니다. 시스템 글씨가 크면 안내도 보여 드립니다.",
-  },
   {
     icon: Users,
     label: "보호자",
@@ -50,27 +44,20 @@ const guideSteps: {
 }[] = [
   {
     step: "01",
-    title: "손쉬움으로 시작",
-    body: "글씨가 크거나 조작이 부담스러우면 손쉬움 화면을 켜세요. 홈에 큰 버튼만 남고, 체온·체중·혈당·식사를 눌러 바로 기록합니다.",
-    src: "/screenshots/01_home.png",
-    alt: "바램 손쉬움 홈 — 큰 기록 버튼",
-  },
-  {
-    step: "02",
     title: "목적 고르기",
-    body: "치료·건강·보호자 중 고르면 홈이 맞춰집니다. 어르신과 보호자가 함께 쓸 때도 같은 앱에서 이어집니다.",
+    body: "홈을 내 목적에 맞추면, 매일 볼 것만 남습니다. 온보딩에서 치료·건강·보호자 중 고르고 홈 구성을 잡습니다.",
     src: "/screenshots/08_onboarding_care_focus.png",
     alt: "바램 온보딩 — 지금 어떤 상황인가요 목적 선택",
   },
   {
-    step: "03",
+    step: "02",
     title: "치료·일정 넣기",
-    body: "다음 외래·항암 날짜만 먼저 넣어도 불안이 줄어듭니다. 알림으로 기록·진료를 놓치지 않게 돕습니다.",
+    body: "다음 외래·항암 날짜만 먼저 넣어도 불안이 줄어듭니다. 차수별 투여일을 남기면 나중에 수치·체중·식사를 차수끼리 비교할 수 있습니다.",
     src: "/screenshots/06_schedule.png",
     alt: "바램 일정 화면",
   },
   {
-    step: "04",
+    step: "03",
     title: "검사 한 장",
     body: "결과지는 촬영 후 직접 확인하고 저장합니다. 인식은 기기 안에서만 이뤄지며 서버로 보내지 않습니다.",
     src: "/screenshots/03_labs.png",
@@ -79,31 +66,38 @@ const guideSteps: {
     secondaryAlt: "바램 검사 수치 추이 차트",
   },
   {
-    step: "05",
+    step: "04",
     title: "오늘 컨디션",
-    body: "큰 터치로 체온·식사만 남겨도 됩니다. 식사는 문장으로 적어도 칼로리·단백질 참고값을 보여 줍니다.",
+    body: "컨디션은 완벽하게가 아니라, 남기는 게 목표입니다. 체온·증상과 함께, 식사도 문장으로 남기면 칼로리·단백질이 분석됩니다.",
     src: "/screenshots/05_today.png",
     alt: "바램 투데이·컨디션 화면",
     secondarySrc: "/screenshots/09_meal_analysis.png",
     secondaryAlt: "바램 식사 기록 후 영양 분석 화면",
   },
+  {
+    step: "05",
+    title: "잠금·백업",
+    body: "민감한 기록은 잠그고, 가끔 백업만 하세요. Face ID·지문·기기 암호와 로컬 백업을 프로필에서 설정합니다.",
+    src: "/screenshots/07_profile.png",
+    alt: "바램 프로필·잠금·백업 화면",
+  },
 ];
 
 const highlights = [
-  {
-    icon: Type,
-    title: "손쉬움 화면",
-    body: "큰 글씨·큰 버튼으로 홈·기록·검사·일정을 단순하게. 시스템 글씨가 크면 안내 팝업으로 알려 드립니다.",
-  },
   {
     icon: LayoutGrid,
     title: "맞춤 홈 화면",
     body: "치료·건강·보호자 목적에 맞춰 시작하고, 홈에 보일 항목을 켜고 끄며 순서까지 바꿀 수 있습니다.",
   },
   {
+    icon: Type,
+    title: "손쉬움 화면",
+    body: "큰 글씨·큰 버튼으로 오늘 기록만 단순하게. 어르신·큰 시스템 글씨에도 쓰기 편하고, 필요할 때 안내도 보여 드립니다.",
+  },
+  {
     icon: GitCompareArrows,
     title: "차수별 비교",
-    body: "항암 차수를 골라 검사·체중·식사를 나란히 비교합니다. 상담 참고용으로 변화를 모읍니다.",
+    body: "항암 차수를 골라 검사·체중·식사를 나란히 비교합니다. 투여일 기준 추이와 동시 변화 단서를 상담 참고용으로 모읍니다.",
   },
   {
     icon: Camera,
@@ -116,9 +110,9 @@ const highlights = [
     body: "혈압·혈당·체온·체중을 남기고, 7일·30일 추이와 직전 기간 비교로 변화를 파악합니다.",
   },
   {
-    icon: CalendarDays,
-    title: "일정·기록 알림",
-    body: "외래·채혈 일정과 오늘 기록 리마인더로 놓치지 않게 돕습니다. 서버 푸시 없이 기기에서만.",
+    icon: Target,
+    title: "건강 목표",
+    body: "목표 체중·혈당을 정해 두면 오늘 기록과 비교해 보여 줍니다. 치료 차수도 홈에서 바로 수정할 수 있습니다.",
   },
   {
     icon: Utensils,
@@ -126,9 +120,14 @@ const highlights = [
     body: "평소 말하듯 식사를 적으면 칼로리·단백질 참고값을 계산합니다. (선택 시 공공 식품 DB)",
   },
   {
+    icon: CalendarDays,
+    title: "일정·로컬 알림",
+    body: "항암·외래·채혈 일정을 관리하고, 원하면 기기 캘린더와 일정 미리 알림을 사용합니다.",
+  },
+  {
     icon: FileSpreadsheet,
     title: "PDF·백업",
-    body: "진료 브리핑 등 케어 리포트와 데이터 백업을 기기 안에서 처리합니다. 서버 업로드 없음.",
+    body: "로컬 PDF 리포트와 데이터 백업·삭제를 기기 안에서 처리합니다. 서버 업로드 없음.",
   },
   {
     icon: Lock,
@@ -139,21 +138,6 @@ const highlights = [
 
 const deepFeatures = [
   {
-    eyebrow: "손쉬움",
-    title: "어르신도 누르기 쉬운 큰 버튼",
-    body: "손쉬움 화면을 켜면 글씨와 버튼이 커지고, 홈에는 오늘 할 일만 남습니다. 체온·체중·혈당·식사를 큰 버튼으로 바로 남기고, 길게 스크롤한 뒤에는 맨 위로 버튼으로 돌아옵니다.",
-    points: [
-      "큰 글씨·큰 터치 영역",
-      "홈·기록·검사·일정 단순 레이아웃",
-      "시스템 글씨가 크면 손쉬움 안내",
-      "맨 위로 스크롤 버튼(한손 조작)",
-    ],
-    src: "/screenshots/01_home.png",
-    alt: "바램 손쉬움 홈 — 큰 기록 버튼",
-    secondarySrc: "/screenshots/05_today.png",
-    secondaryAlt: "바램 손쉬움 오늘 기록",
-  },
-  {
     eyebrow: "홈",
     title: "오늘 해야 할 건강 기록이 한눈에",
     body: "케어 목적에 맞는 홈으로 시작하고, 보고 싶은 블록만 골라 순서를 바꿉니다. 목표 대비 체중·혈당과 미니 추이까지 한 화면에서 확인합니다.",
@@ -162,19 +146,36 @@ const deepFeatures = [
       "케어 목적에 맞춘 기본 홈 구성",
       "건강 목표와 오늘 기록 비교·미니 추이",
       "치료 진행·항암 차수 빠른 수정",
+      "보호자 모드로 가족 기록도 정리 가능",
     ],
     src: "/screenshots/01_home.png",
     alt: "바램 홈 화면",
   },
   {
+    eyebrow: "손쉬움",
+    title: "큰 글씨·큰 버튼으로 오늘 기록만",
+    body: "손쉬움 화면을 켜면 글씨와 버튼이 커지고, 홈·기록·검사·일정이 단순해집니다. 시스템 글씨가 크면 안내 팝업으로 알려 드리며, 길게 스크롤한 뒤에는 맨 위로 버튼으로 돌아옵니다.",
+    points: [
+      "큰 글씨·큰 터치로 체온·체중·혈당·식사 기록",
+      "어르신·큰 시스템 글씨에 맞춘 단순 레이아웃",
+      "시스템 글씨가 크면 손쉬움 안내",
+      "맨 위로 스크롤 버튼(한손 조작)",
+    ],
+    src: "/screenshots/10_easy_home.png",
+    alt: "바램 손쉬움 홈 — 큰 기록 버튼",
+    secondarySrc: "/screenshots/11_easy_today.png",
+    secondaryAlt: "바램 손쉬움 오늘 기록",
+  },
+  {
     eyebrow: "검사 · 랩",
     title: "수치를 저장하고, 정상 구간과 함께 추이·기간 비교",
-    body: "결과지 촬영 후 기기 안에서 읽고, 사용자가 검토한 뒤 저장합니다. 항목별 추이와 기간 비교로 상담 준비를 돕습니다.",
+    body: "ANC, WBC, Hb, PLT, 간·신장 수치 등을 기록하고 차트에서 변화를 봅니다. 케어 목적에 맞춰 검사 칩 색·짧은 이름으로 읽고, 탭해 항목을 걸러 볼 수 있어요. 7일·30일을 골라 직전 기간과 겹쳐 비교하고, 결과지 OCR로 입력 부담을 줄입니다.",
     points: [
       "기기 안 OCR → 사용자가 검토 후 저장",
       "랩 목록과 항목별 추이 차트",
-      "케어 목적별 칩 색·짧은 이름",
-      "7일·30일 이전 기간 비교",
+      "케어 목적별 칩 색·짧은 이름·탭 필터",
+      "7일·30일 이전 기간 비교와 평균 변화",
+      "의료진 상담 시 보여주기 쉬운 화면 구성",
     ],
     src: "/screenshots/03_labs.png",
     alt: "바램 검사 결과 목록",
@@ -184,23 +185,38 @@ const deepFeatures = [
   {
     eyebrow: "바이탈",
     title: "추이를 보고, 이전 기간과 비교",
-    body: "측정값을 남기면 추이 그래프로 이어집니다. 최근 7일·30일을 고르고 직전 구간과 겹쳐 보며 평균 변화까지 확인합니다.",
+    body: "측정값을 남기면 추이 그래프로 이어집니다. 최근 7일·30일을 고르고 「이전 기간과 비교」로 직전 구간을 점선으로 겹쳐 보며, 평균 변화까지 확인합니다.",
     points: [
       "혈압·혈당·체온·체중·걸음 추이",
       "7일 / 30일 / 전체 기간 선택",
-      "이전 기간 비교와 평균 변화 요약",
+      "이전 기간 비교(점선 오버레이)와 평균 변화 요약",
     ],
     src: "/screenshots/02_vital_trend.png",
     alt: "바램 바이탈 추이 화면",
   },
   {
+    eyebrow: "차수별 비교",
+    title: "항암 차수를 골라 수치·체중·식사를 나란히",
+    body: "투여일을 기준으로 차수 구간을 나누고, 비교할 차수를 직접 고릅니다. 검사·체중·칼로리·단백질 추이를 겹쳐 보고, 같은 구간에 함께 변한 기록만 상담 참고용으로 모아 둡니다. 원인 진단이 아닙니다.",
+    points: [
+      "차수 A·B 선택 비교",
+      "투여일(D0) 기준 체중·식사 오버레이",
+      "검사·컨디션 동시 변화 단서(참고용)",
+      "케어 리포트 PDF에도 차수 인사이트 반영",
+    ],
+    src: "/screenshots/07_profile.png",
+    alt: "바램 프로필 — 항암 차수·비교 진입",
+    secondarySrc: "/screenshots/04_lab_chart.png",
+    secondaryAlt: "바램 검사 수치 추이 차트",
+  },
+  {
     eyebrow: "투데이",
-    title: "컨디션·식단을 큰 터치로",
-    body: "체온·체중·수분·증상·식사를 큰 터치로 남깁니다. 식단은 자연어로 적어도 칼로리·단백질 참고값이 분석됩니다.",
+    title: "컨디션·식단을 빠르게",
+    body: "체온·체중·수분·증상·식사를 큰 터치로 남깁니다. 식단은 자연어로 적으면 칼로리·단백질이 분석되고, 목표는 참고용으로 둡니다.",
     points: [
       "하루 컨디션을 빠르게 체크",
       "자연어 식단 기록과 영양 분석",
-      "기록·진료 전 로컬 알림(선택)",
+      "Apple Health·Health Connect 걸음·활동(선택)",
     ],
     src: "/screenshots/05_today.png",
     alt: "바램 투데이·컨디션 화면",
@@ -210,21 +226,20 @@ const deepFeatures = [
   {
     eyebrow: "일정",
     title: "항암·외래·채혈 일정을 놓치지 않게",
-    body: "치료·진료 일정을 앱에서 관리하고, 필요하면 기기 캘린더와 로컬 미리 알림을 켭니다.",
+    body: "치료·진료 일정을 앱에서 관리하고, 필요하면 기기 캘린더와 로컬 미리 알림을 켭니다. 서버 푸시 없이 기기에서만 알려 드립니다.",
     points: [
       "치료·외래·채혈 일정 관리",
       "기기 캘린더 연동(선택)",
-      "일정·기록 로컬 알림(선택)",
+      "일정 1시간 전 로컬 알림(선택)",
     ],
     src: "/screenshots/06_schedule.png",
     alt: "바램 일정 화면",
   },
   {
     eyebrow: "내 정보",
-    title: "손쉬움·잠금·내보내기를 한곳에서",
-    body: "손쉬움 화면 스위치, 건강 목표, 보안·백업을 프로필에서 다룹니다. 계정 로그인 없이 기기 안의 기록만 사용합니다.",
+    title: "프로필·목표·잠금·내보내기를 한곳에서",
+    body: "케어 경로·건강 목표·보안·백업을 프로필에서 다룹니다. 계정 로그인 없이 기기 안의 기록만 사용합니다.",
     points: [
-      "손쉬움 화면 켜기/끄기",
       "건강 목표·치료 경로 설정",
       "Face ID / 생체 / 기기 암호 잠금",
       "로컬 PDF·백업·데이터 삭제",
@@ -286,21 +301,21 @@ export default function HomePage() {
               </div>
             </div>
             <h1 className="mt-8 max-w-xl text-2xl font-semibold leading-snug tracking-tight text-ink sm:text-3xl">
-              큰 글씨로, 오늘 기록만
+              치료 기록을, 혼자 안 맡기도록
             </h1>
             <p className="mt-4 max-w-lg text-base leading-relaxed text-muted sm:text-lg">
-              암 치료·회복을 위한 건강 기록 앱. 손쉬움 화면으로 어르신도 누르기
-              쉽게, 검사·일정·컨디션은 서버가 아니라 내 기기에만 암호화해 둡니다.
+              암 치료·회복을 위해 만든 건강 기록 앱. 검사·일정·컨디션을 서버가
+              아니라 내 기기에만 암호화해 둡니다.
             </p>
             <div id="download" className="mt-8 scroll-mt-24">
               <StoreButtons />
             </div>
             <p className="mt-5 text-sm text-muted">
               <Link
-                href="/#easy"
+                href="/#for-whom"
                 className="font-medium text-green underline-offset-4 transition hover:text-green-deep hover:underline"
               >
-                손쉬움 화면 보기 →
+                이런 분께 →
               </Link>
             </p>
           </div>
@@ -314,83 +329,23 @@ export default function HomePage() {
               <div className="hidden w-[38%] translate-y-8 opacity-90 sm:block">
                 <PhoneShot
                   src="/screenshots/05_today.png"
-                  alt="바램 손쉬움 오늘 기록"
+                  alt="바램 투데이 화면"
                 />
               </div>
               <div className="z-10 w-[58%] sm:w-[48%]">
                 <PhoneShot
                   src="/screenshots/01_home.png"
-                  alt="바램 손쉬움 홈 — 큰 기록 버튼"
+                  alt="바램 홈 화면"
                   priority
                 />
               </div>
               <div className="hidden w-[38%] translate-y-8 opacity-90 sm:block">
                 <PhoneShot
-                  src="/screenshots/06_schedule.png"
-                  alt="바램 손쉬움 일정"
+                  src="/screenshots/02_vital_trend.png"
+                  alt="바램 바이탈 추이"
                 />
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="easy" className="scroll-mt-20 border-t border-line bg-surface">
-        <div className="mx-auto max-w-5xl px-5 py-16 sm:px-8 sm:py-20">
-          <p className="text-xs font-semibold tracking-[0.18em] text-green uppercase">
-            손쉬움 화면
-          </p>
-          <h2 className="mt-3 max-w-2xl text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
-            어르신도, 보호자도
-            <br className="hidden sm:block" />
-            크게 보고 바로 남깁니다
-          </h2>
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
-            시스템 글씨를 크게 쓰는 분께는 손쉬움 안내가 뜹니다. 켜면 홈·기록·검사·일정이
-            큰 버튼 중심으로 바뀌고, 오늘 할 일만 남습니다.
-          </p>
-
-          <div className="mt-12 grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14">
-            <div className="flex justify-center lg:justify-start">
-              <div className="w-[min(100%,300px)] animate-[fade-rise_0.7s_ease-out_both]">
-                <PhoneShot
-                  src="/screenshots/01_home.png"
-                  alt="바램 손쉬움 홈 — 체온·체중·혈당·식사 큰 버튼"
-                  priority
-                />
-              </div>
-            </div>
-            <ul className="space-y-6">
-              {[
-                {
-                  icon: Type,
-                  title: "큰 글씨 · 큰 버튼",
-                  body: "앱 전체 글씨와 터치 영역을 키우고, 홈에는 오늘 기록 버튼만 둡니다.",
-                },
-                {
-                  icon: HandHeart,
-                  title: "체온·체중·혈당·식사",
-                  body: "목적에 맞는 순서로 큰 CTA가 이어집니다. 누르면 바로 빠른 입력 시트가 열립니다.",
-                },
-                {
-                  icon: Target,
-                  title: "알림으로 놓치지 않게",
-                  body: "매일 기록·공백·진료 전 안내로, 혼자 쓰기 어려울 때도 습관을 이어 갑니다.",
-                },
-              ].map(({ icon: Icon, title, body }) => (
-                <li key={title} className="flex gap-4">
-                  <span className="mt-0.5 inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-green-soft text-green">
-                    <Icon size={20} aria-hidden />
-                  </span>
-                  <div>
-                    <p className="text-base font-semibold text-ink">{title}</p>
-                    <p className="mt-1 text-sm leading-relaxed text-muted sm:text-base">
-                      {body}
-                    </p>
-                  </div>
-                </li>
-              ))}
-            </ul>
           </div>
         </div>
       </section>
@@ -406,9 +361,8 @@ export default function HomePage() {
             차수·검사·컨디션을 한곳에
           </h2>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
-            바램은 암 치료·회복 중 스스로, 또는 가족과 함께 기록을 정리하려고
-            만들었습니다. 민감한 데이터는 서버로 보내지 않고, 쓰는 사람 기기에만
-            둡니다.
+            바램은 암 치료·회복 중 스스로 기록을 정리하려고 만들었습니다.
+            민감한 데이터는 서버로 보내지 않고, 쓰는 사람 기기에만 둡니다.
           </p>
 
           <div className="mt-12 grid items-center gap-10 lg:grid-cols-[1fr_0.85fr] lg:gap-14">
@@ -459,7 +413,7 @@ export default function HomePage() {
               <div className="w-[min(100%,280px)] animate-[fade-rise_0.7s_ease-out_both]">
                 <PhoneShot
                   src="/screenshots/01_home.png"
-                  alt="바램 손쉬움 홈 — 치료 중 큰 버튼 화면"
+                  alt="바램 홈 — 치료 중 맞춤 화면"
                   priority
                 />
               </div>
@@ -474,7 +428,7 @@ export default function HomePage() {
             첫 주에 이것만
           </h2>
           <p className="mt-3 max-w-2xl text-muted">
-            손쉬움으로 시작해도, 일반 화면으로 바꿔도 같은 기록이 이어집니다.
+            설치만 하면, 목적 고르기부터 바로 시작할 수 있습니다.
           </p>
 
           <div className="mt-14 space-y-16 sm:space-y-20">
@@ -546,7 +500,7 @@ export default function HomePage() {
           <p className="mt-3 max-w-2xl text-muted">
             설치 후에 쓰는 기능들입니다. 필요한 것만 보면 됩니다.
           </p>
-          <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {highlights.map(({ icon: Icon, title, body }) => (
               <li key={title} className="space-y-3 rounded-2xl border border-line/80 p-5">
                 <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-green-soft text-green">
