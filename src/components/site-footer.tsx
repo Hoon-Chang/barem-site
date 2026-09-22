@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { siteConfig } from "../../site.config";
+import { sitePages } from "../content/marketing";
 import { SiteImage } from "./site-image";
 
 export function SiteFooter() {
@@ -11,7 +12,7 @@ export function SiteFooter() {
       : null;
 
   return (
-    <footer id="contact" className="border-t border-line bg-green-deep text-white">
+    <footer className="border-t border-line bg-green-deep text-white">
       <div className="mx-auto flex max-w-5xl flex-col gap-6 px-5 py-10 sm:px-8">
         <div className="flex flex-wrap items-center gap-3">
           <SiteImage
@@ -45,12 +46,11 @@ export function SiteFooter() {
         <div className="flex flex-col gap-3 border-t border-white/10 pt-5 text-xs text-white/55 sm:flex-row sm:items-center sm:justify-between">
           <p>© 2026 {brand.legalNameEn}</p>
           <div className="flex flex-wrap gap-4">
-            <Link href="/#for-whom" className="hover:text-white">
-              이런 분께
-            </Link>
-            <Link href="/#guide" className="hover:text-white">
-              시작 가이드
-            </Link>
+            {sitePages.slice(0, 3).map((page) => (
+              <Link key={page.href} href={page.href} className="hover:text-white">
+                {page.label}
+              </Link>
+            ))}
             <Link href="/privacy/" className="hover:text-white">
               개인정보처리방침
             </Link>

@@ -1,21 +1,15 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { BrandLogo } from "./brand-logo";
-
-const nav = [
-  { href: "/#for-whom", label: "이런 분께" },
-  { href: "/#guide", label: "시작 가이드" },
-  { href: "/#features", label: "기능 소개" },
-  { href: "/#tour", label: "앱 둘러보기" },
-  { href: "/#security", label: "데이터 보안" },
-  { href: "/#contact", label: "고객 문의" },
-];
+import { sitePages } from "../content/marketing";
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <header className="sticky top-0 z-40 border-b border-line/80 bg-cream/90 backdrop-blur-md">
@@ -24,16 +18,22 @@ export function SiteHeader() {
           <BrandLogo size={32} wordmarkClassName="text-base sm:text-lg" />
         </Link>
 
-        <nav className="hidden items-center gap-3.5 text-sm text-muted xl:gap-5 lg:flex">
-          {nav.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="transition-colors hover:text-green"
-            >
-              {item.label}
-            </Link>
-          ))}
+        <nav className="hidden items-center gap-3 text-sm text-muted xl:gap-4 lg:flex">
+          {sitePages.map((item) => {
+            const active =
+              pathname === item.href || pathname === item.href.replace(/\/$/, "");
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`transition-colors hover:text-green ${
+                  active ? "font-semibold text-green" : ""
+                }`}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
         </nav>
 
         <div className="flex items-center gap-2">
@@ -57,7 +57,7 @@ export function SiteHeader() {
       {open ? (
         <nav className="border-t border-line bg-cream px-5 py-3 lg:hidden">
           <ul className="flex flex-col gap-1">
-            {nav.map((item) => (
+            {sitePages.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
