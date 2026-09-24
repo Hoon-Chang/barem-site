@@ -6,7 +6,7 @@ import { absoluteUrl } from "../../../site.config";
 export const metadata: Metadata = {
   title: "기능 소개",
   description:
-    "맞춤 홈·손쉬움·차수 비교·검사 OCR·바이탈·식단·일정·PDF·잠금 등 바램 핵심 기능.",
+    "맞춤 홈·손쉬움·차수 비교·케어 리포트·검사 OCR·바이탈·식단·일정·PDF·잠금 등 바램 핵심 기능.",
   alternates: { canonical: absoluteUrl("/features/") },
 };
 

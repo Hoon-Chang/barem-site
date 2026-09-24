@@ -3,7 +3,7 @@ import { PhoneShot } from "../components/phone-shot";
 import { SiteImage } from "../components/site-image";
 import { StoreButtons } from "../components/store-buttons";
 import { DownloadBand } from "../components/page-chrome";
-import { sitePages } from "../content/marketing";
+import { homeCareReport, sitePages } from "../content/marketing";
 import { siteConfig } from "../../site.config";
 
 export default function HomePage() {
@@ -85,6 +85,60 @@ export default function HomePage() {
       </section>
 
       <section className="border-t border-line bg-surface">
+        <div className="mx-auto grid max-w-5xl items-center gap-10 px-5 py-14 sm:px-8 sm:py-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
+          <div>
+            <p className="text-xs font-semibold tracking-[0.16em] text-green uppercase">
+              {homeCareReport.eyebrow}
+            </p>
+            <h2 className="mt-2 text-xl font-semibold tracking-tight text-ink sm:text-2xl">
+              {homeCareReport.title}
+            </h2>
+            <p className="mt-3 max-w-xl text-base leading-relaxed text-muted">
+              {homeCareReport.body}
+            </p>
+            <ul className="mt-6 space-y-3">
+              {homeCareReport.reports.map((report) => (
+                <li key={report.name} className="flex gap-3">
+                  <span
+                    aria-hidden
+                    className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-green"
+                  />
+                  <span>
+                    <span className="font-semibold text-ink">{report.name}</span>
+                    <span className="mt-0.5 block text-sm text-muted">
+                      {report.detail}
+                    </span>
+                  </span>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-6 text-sm">
+              <Link
+                href={homeCareReport.ctaHref}
+                className="font-medium text-green underline-offset-4 transition hover:text-green-deep hover:underline"
+              >
+                {homeCareReport.ctaLabel} →
+              </Link>
+            </p>
+          </div>
+          <div className="flex flex-wrap items-end justify-center gap-2 sm:gap-3">
+            <div className="w-[min(46%,220px)]">
+              <PhoneShot
+                src={homeCareReport.src}
+                alt={homeCareReport.alt}
+              />
+            </div>
+            <div className="hidden w-[min(46%,220px)] sm:block">
+              <PhoneShot
+                src={homeCareReport.secondarySrc}
+                alt={homeCareReport.secondaryAlt}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-t border-line">
         <div className="mx-auto max-w-5xl px-5 py-14 sm:px-8 sm:py-16">
           <h2 className="text-xl font-semibold tracking-tight text-ink sm:text-2xl">
             더 알아보기

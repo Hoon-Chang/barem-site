@@ -2,6 +2,7 @@ import {
   Activity,
   CalendarDays,
   Camera,
+  ClipboardList,
   FileSpreadsheet,
   GitCompareArrows,
   LayoutGrid,
@@ -95,11 +96,27 @@ export const usageScenarios = [
     body: "항암 투여일을 기준으로 치료 구간이 자동으로 정리됩니다. 진료 상담 전 비교하고 싶은 두 차수를 선택하면 검사 수치, 체중, 식사 상태를 겹쳐 볼 수 있어 집에서의 컨디션 변화를 말로만 설명하지 않아도 됩니다. (※ 자가 관찰 및 진료 참고용 자료입니다.)",
     steps: [
       "일정 확인: 각 차수별 투여일이 캘린더 및 치료 플랜에 맞게 등록되어 있는지 확인합니다.",
-      "차수별 비교 진입: [홈] 또는 [내 정보]에서 [차수별 비교] 메뉴로 들어갑니다.",
+      "차수별 비교 진입: [홈] 치료 진행 카드의 [차수별 비교]로 들어갑니다.",
       "비교 분석: 비교할 두 차수를 고른 뒤, 컨디션이나 검사 수치가 달라진 구간을 확인합니다.",
     ],
     src: "/screenshots/s03_cycle_compare.png",
     alt: "바램 차수별 비교 화면",
+  },
+  {
+    situation: "외래 진료 전 · 케어 리포트",
+    title: "발열·체중·질문·영양을 한곳에 모아 상담 준비를 하세요",
+    body: "기록이 쌓이면 홈에서 케어 리포트를 바로 열 수 있습니다. 진료 브리핑으로 재택 기간의 발열·체중·물어볼 질문을 한 페이지로 보고, 회복 타임라인·누적 독성·영양 방어 탭으로 차수 흐름과 식사·단백질까지 이어서 확인하세요. (※ 자가 관찰·상담 참고용이며 진단이 아닙니다.)",
+    steps: [
+      "진입: 홈의 다음 항암 안내에서 [진료 브리핑 보기]를 누르거나, 치료 진행 카드의 [케어 리포트]를 엽니다.",
+      "브리핑 먼저: 발열 이력·체중 변화·의료진에게 물어볼 질문을 확인합니다.",
+      "이어서 보기: 회복 타임라인·누적 독성·영양 방어 탭으로 차수별 흐름과 영양 상태를 살펴봅니다.",
+    ],
+    src: "/screenshots/13_care_report_briefing.png",
+    alt: "바램 케어 리포트 — 진료 브리핑",
+    secondarySrc: "/screenshots/14_care_report_timeline.png",
+    secondaryAlt: "바램 케어 리포트 — 회복 타임라인",
+    tertiarySrc: "/screenshots/16_care_report_nutrition.png",
+    tertiaryAlt: "바램 케어 리포트 — 영양 방어",
   },
   {
     situation: "컨디션이 저하되었을 때 · 보호자 이용 시",
@@ -130,6 +147,39 @@ export const usageScenarios = [
     secondaryAlt: "바램 기록 — 건강 관리 오늘의 컨디션",
   },
 ] as const;
+
+/** 홈 히어로 아래 — 케어 리포트 한 줄 소개. */
+export const homeCareReport = {
+  eyebrow: "케어 리포트",
+  title: "외래 전에, 재택 기록을 네 장으로 정리합니다",
+  body: "홈에서 바로 여는 케어 리포트입니다. 진료 브리핑으로 발열·체중·질문을 모으고, 회복·독성·영양까지 이어서 볼 수 있어요. 상담 참고용이며 진단이 아닙니다.",
+  reports: [
+    {
+      name: "진료 브리핑",
+      detail: "발열·체중 변화·의료진에게 물어볼 질문",
+    },
+    {
+      name: "회복 타임라인",
+      detail: "투여일(D0) 기준 차수별 회복 흐름",
+    },
+    {
+      name: "누적 독성",
+      detail: "차수별 당일 피검사 추이",
+    },
+    {
+      name: "영양 방어",
+      detail: "칼로리·단백질·알부민 참고",
+    },
+  ],
+  src: "/screenshots/13_care_report_briefing.png",
+  alt: "바램 케어 리포트 — 진료 브리핑",
+  secondarySrc: "/screenshots/14_care_report_timeline.png",
+  secondaryAlt: "바램 케어 리포트 — 회복 타임라인",
+  tertiarySrc: "/screenshots/15_care_report_toxicity.png",
+  tertiaryAlt: "바램 케어 리포트 — 누적 독성",
+  ctaHref: "/scenarios/",
+  ctaLabel: "사용 예시에서 흐름 보기",
+} as const;
 
 export const guideSteps: GuideStep[] = [
   {
@@ -188,6 +238,11 @@ export const highlights: IconBlurb[] = [
     icon: GitCompareArrows,
     title: "차수별 비교",
     body: "항암 차수를 골라 검사·체중·식사를 나란히 비교합니다. 투여일 기준 추이와 동시 변화 단서를 상담 참고용으로 모읍니다.",
+  },
+  {
+    icon: ClipboardList,
+    title: "케어 리포트",
+    body: "진료 브리핑·회복 타임라인·누적 독성·영양 방어로 재택 기록을 외래 전에 정리합니다. 홈에서 바로 열 수 있어요.",
   },
   {
     icon: Camera,
@@ -300,6 +355,22 @@ export const deepFeatures: DeepFeature[] = [
     secondaryAlt: "바램 검사 수치 추이 차트",
   },
   {
+    eyebrow: "케어 리포트",
+    title: "외래 전, 재택 기록을 네 가지 관점으로",
+    body: "홈의 케어 리포트에서 진료 브리핑·회복 타임라인·누적 독성·영양 방어를 한곳에서 봅니다. 다음 항암·외래가 다가오면 진료 브리핑으로 발열·체중·질문을 먼저 모으고, 필요하면 차수 흐름과 영양까지 이어서 확인합니다. 진단이 아닙니다.",
+    points: [
+      "진료 브리핑 — 발열·체중·의료진 질문 한 페이지",
+      "회복 타임라인 — 투여일(D0) 기준 차수 흐름",
+      "누적 독성 — 차수별 당일 피검사 추이",
+      "영양 방어 — 칼로리·단백질·알부민 참고",
+      "홈·내 정보에서 바로 진입",
+    ],
+    src: "/screenshots/13_care_report_briefing.png",
+    alt: "바램 케어 리포트 — 진료 브리핑",
+    secondarySrc: "/screenshots/14_care_report_timeline.png",
+    secondaryAlt: "바램 케어 리포트 — 회복 타임라인",
+  },
+  {
     eyebrow: "투데이",
     title: "컨디션·식단을 빠르게",
     body: "체온·체중·수분·증상·식사를 큰 터치로 남깁니다. 식단은 자연어로 적으면 칼로리·단백질이 분석되고, 목표는 참고용으로 둡니다.",
@@ -372,7 +443,7 @@ export const sitePages = [
   {
     href: "/scenarios/",
     label: "사용 예시",
-    blurb: "항암 주간·외래·차수 비교, 이럴 때 이렇게",
+    blurb: "항암 주간·외래·차수 비교·케어 리포트, 이럴 때 이렇게",
   },
   {
     href: "/guide/",
