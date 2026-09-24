@@ -89,7 +89,10 @@ export function withBase(path: string): string {
 
 export function absoluteUrl(path = "/"): string {
   const origin = siteConfig.siteUrl.replace(/\/$/, "");
-  if (!path || path === "/") return origin;
+  // trailingSlash: true — page URLs end with /; keep file paths (images etc.) as-is.
+  if (!path || path === "/") return `${origin}/`;
   const p = path.startsWith("/") ? path : `/${path}`;
-  return `${origin}${p}`;
+  if (/\.[a-z0-9]+$/i.test(p)) return `${origin}${p}`;
+  const withSlash = p.endsWith("/") ? p : `${p}/`;
+  return `${origin}${withSlash}`;
 }

@@ -2,6 +2,7 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 npm run build
+node scripts/write-seo-files.mjs
 rm -rf docs
 mkdir docs
 cp -R out/. docs/
