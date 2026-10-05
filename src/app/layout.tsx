@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Noto_Sans_KR, Outfit } from "next/font/google";
+import { SiteAnalytics } from "../components/site-analytics";
 import { SiteFooter } from "../components/site-footer";
 import { SiteHeader } from "../components/site-header";
 import { absoluteUrl, siteConfig, withBase } from "../../site.config";
@@ -89,6 +90,7 @@ export default function RootLayout({
         <SiteHeader />
         <main>{children}</main>
         <SiteFooter />
+        <SiteAnalytics />
       </body>
     </html>
   );

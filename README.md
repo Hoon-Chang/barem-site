@@ -15,11 +15,23 @@ Google Play 조직 인증·App Store/Play 개인정보처리방침 URL·랜딩 �
 |------|------|
 | 사이트 URL / basePath | `siteUrl`, `basePath` |
 | Google Search Console | `googleSiteVerification` |
+| 방문 통계 (GoatCounter) | `analytics.goatCounterCode` |
 | 대표자·사업자번호 | `business.*` |
 | 이메일 | `contact.email` |
 | 스토어 링크 | `stores.appStoreUrl`, `stores.playStoreUrl` |
 
 사업자등록번호 등 플레이스홀더(`000-00-00000`)는 실제 값으로 교체하세요.
+
+### 방문 통계 (GoatCounter)
+
+쿠키·개인 식별 없이 방문자 수를 봅니다.
+
+1. [goatcounter.com](https://www.goatcounter.com/)에서 계정·사이트 생성  
+2. 사이트 코드를 `site.config.ts`의 `analytics.goatCounterCode`에 넣기 (기본값 `barem`)  
+3. 대시보드: `https://{code}.goatcounter.com`  
+4. `npm run deploy` 후 사이트에 접속하면 집계가 시작됩니다  
+
+코드가 비어 있으면 스크립트를 넣지 않습니다.
 
 ---
 

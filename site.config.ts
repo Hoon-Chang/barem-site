@@ -18,6 +18,16 @@ export const siteConfig = {
   /** Google Search Console HTML 태그 인증값. 없으면 빈 문자열 */
   googleSiteVerification: "",
 
+  /**
+   * 웹사이트 방문 집계 (GoatCounter — 쿠키·개인 식별 없음).
+   * https://www.goatcounter.com 에서 사이트 코드 생성 후 아래에 넣으세요.
+   * 대시보드: https://{code}.goatcounter.com
+   * 빈 문자열이면 스크립트를 넣지 않습니다.
+   */
+  analytics: {
+    goatCounterCode: "barem",
+  },
+
   brand: {
     /** 영문 상호 (푸터·조직 인증용 — 반드시 영문 BAREM 노출) */
     legalNameEn: "BAREM",

@@ -90,6 +90,15 @@ export default function PrivacyPage() {
               기록을 축적하지 않습니다.
             </li>
           </ul>
+          <h3>2.4 공식 웹사이트 방문 통계</h3>
+          <p>
+            앱과 별도로, 공식 소개 웹사이트(
+            <a href={siteConfig.siteUrl}>{siteConfig.siteUrl}</a>
+            )에는 방문 페이지·대략적 지역·브라우저 종류 등{" "}
+            <strong>집계성 통계</strong>만 수집하는 GoatCounter를 쓸 수 있습니다.
+            쿠키·광고 ID·지문(fingerprint)으로 개인을 추적하지 않으며, 앱 안의
+            건강·복약 기록과는 무관합니다.
+          </p>
         </section>
 
         <section>
