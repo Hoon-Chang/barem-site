@@ -90,6 +90,116 @@ export const forWhomBeforeAfter = {
   },
 } as const;
 
+/** /scenarios — 탭형 플레이북 (환자 주기 + 원격 부모님). */
+export const scenarioPlaybooks = [
+  {
+    id: "chemo-cycle",
+    tabLabel: "항암 3주 주기",
+    emoji: "🩺",
+    title: "항암 3주 주기 환자 활용 예시",
+    lead: "투여일부터 외래까지, 오늘 필요한 기록만 순서대로 남기면 됩니다.",
+    steps: [
+      {
+        label: "D0 · 항암 투여일",
+        title: "차수 등록 · 일정 자동 세팅",
+        body: "항암 차수와 투여일을 등록하면 캘린더에 일정이 잡히고, 홈에서 다음 항암·외래를 바로 확인할 수 있습니다.",
+        src: "/screenshots/s01_schedule.png",
+        alt: "바램 일정 — 항암·외래",
+      },
+      {
+        label: "D+3 · 부작용 피크",
+        title: "원터치 바이탈 · 부작용 칩",
+        body: "체온·체중을 빠르게 남기고 증상 칩을 선택합니다. 37.8℃ 이상이면 안심 가이드를 바로 보여 드립니다.",
+        src: "/screenshots/s01_daily.png",
+        alt: "바램 기록 — 체온·체중",
+      },
+      {
+        label: "D+7 · 회복기",
+        title: "식사·걸음으로 회복 흐름",
+        body: "칼로리·단백질 섭취와 일일 걸음을 남겨 두면, 차수별 회복을 나중에 나란히 볼 수 있습니다.",
+        src: "/screenshots/09_meal_analysis.png",
+        alt: "바램 식사·영양 기록",
+      },
+      {
+        label: "D+21 · 외래 진료일",
+        title: "피검사 OCR + 진료 브리핑",
+        body: "결과지 캡처로 수치를 넣고, A4 1장 진료 브리핑 리포트로 발열·체중·질문을 정리해 상담에 가져갑니다.",
+        src: "/screenshots/13_care_report_briefing.png",
+        alt: "바램 케어 리포트 — 진료 브리핑",
+      },
+    ],
+  },
+  {
+    id: "family",
+    tabLabel: "원격 부모님 연동",
+    emoji: "👨‍👩‍👧",
+    title: "멀리 계신 부모님 안심 연동 활용 예시",
+    lead: "QR로 연결하면, 자녀는 떨어져 있어도 오늘의 안심 상태를 확인할 수 있습니다.",
+    steps: [
+      {
+        label: "1단계 · QR 1초 연결",
+        title: "부모님 앱 QR을 자녀 폰으로 스캔",
+        body: "부모님 스마트폰의 바램 QR을 자녀 폰으로 스캔하면, 원하는 가족과만 안전하게 연결됩니다.",
+        src: "/screenshots/07_profile.png",
+        alt: "바램 내 정보 — 가족 안심 연동",
+      },
+      {
+        label: "2단계 · 원격 안심 확인",
+        title: "오늘 체온·식사·컨디션을 확인",
+        body: "자녀는 부모님의 오늘 체온, 식사 여부, 37.8℃ 발열 여부와 일상 컨디션을 홈에서 바로 봅니다.",
+        src: "/screenshots/02_family.png",
+        alt: "바램 홈 — 가족 기록 읽기 전용",
+      },
+      {
+        label: "3단계 · 프라이버시 보장",
+        title: "오늘의 안심 상태 중심 공유",
+        body: "민감한 피검사 수치를 전면에 두지 않고, 오늘 챙길 상태 중심으로 보여 부모님 부담을 줄입니다.",
+        src: "/screenshots/01_home.png",
+        alt: "바램 홈 — 나와 가족 프로필 전환",
+      },
+      {
+        label: "4단계 · 보안 안심",
+        title: "암호화 전달 · 평문 미보관",
+        body: "기록은 암호화되어 보호자 기기로 전달되고, 운영자 서버에 수치·평문을 쌓지 않습니다.",
+        src: "/screenshots/02_family.png",
+        alt: "바램 — 암호화 가족 연동",
+      },
+    ],
+  },
+] as const;
+
+/** /scenarios — 케어 리포트 4종 미리보기 */
+export const careReportPreviews = [
+  {
+    id: "briefing",
+    title: "진료 브리핑 리포트",
+    summary: "발열·체중 변화·사전 질문을 A4 1장으로",
+    src: "/screenshots/13_care_report_briefing.png",
+    alt: "진료 브리핑 리포트 샘플",
+  },
+  {
+    id: "timeline",
+    title: "회복 타임라인 리포트",
+    summary: "투여일(D0) 기준 차수별 회복 흐름",
+    src: "/screenshots/14_care_report_timeline.png",
+    alt: "회복 타임라인 리포트 샘플",
+  },
+  {
+    id: "toxicity",
+    title: "누적 독성 분석 리포트",
+    summary: "차수별 피검사 추이 참고 정리",
+    src: "/screenshots/15_care_report_toxicity.png",
+    alt: "누적 독성 분석 리포트 샘플",
+  },
+  {
+    id: "nutrition",
+    title: "영양 방어 리포트",
+    summary: "식사·단백질·칼로리 방어선 요약",
+    src: "/screenshots/16_care_report_nutrition.png",
+    alt: "영양 방어 리포트 샘플",
+  },
+] as const;
+
 /** 암 치료·회복 중 상황별 사용 예. */
 export const usageScenarios = [
   {
