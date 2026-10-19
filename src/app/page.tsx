@@ -5,6 +5,7 @@ import { StoreButtons } from "../components/store-buttons";
 import { DownloadBand } from "../components/page-chrome";
 import {
   homeCareReport,
+  homeFamilyCare,
   homeTodayMission,
   sitePages,
 } from "../content/marketing";
@@ -89,6 +90,57 @@ export default function HomePage() {
       </section>
 
       <section className="border-t border-line bg-surface">
+        <div className="mx-auto grid max-w-5xl items-center gap-10 px-5 py-14 sm:px-8 sm:py-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
+          <div>
+            <p className="text-xs font-semibold tracking-[0.16em] text-green uppercase">
+              {homeFamilyCare.eyebrow}
+            </p>
+            <h2 className="mt-2 text-xl font-semibold tracking-tight text-ink sm:text-2xl">
+              {homeFamilyCare.title}
+            </h2>
+            <p className="mt-3 max-w-xl text-base leading-relaxed text-muted">
+              {homeFamilyCare.body}
+            </p>
+            <ul className="mt-6 space-y-3">
+              {homeFamilyCare.points.map((point) => (
+                <li key={point.name} className="flex gap-3">
+                  <span
+                    aria-hidden
+                    className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-green"
+                  />
+                  <span>
+                    <span className="font-semibold text-ink">{point.name}</span>
+                    <span className="mt-0.5 block text-sm text-muted">
+                      {point.detail}
+                    </span>
+                  </span>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-6 text-sm">
+              <Link
+                href={homeFamilyCare.ctaHref}
+                className="font-medium text-green underline-offset-4 transition hover:text-green-deep hover:underline"
+              >
+                {homeFamilyCare.ctaLabel} →
+              </Link>
+            </p>
+          </div>
+          <div className="flex flex-wrap items-end justify-center gap-2 sm:gap-3">
+            <div className="w-[min(46%,220px)]">
+              <PhoneShot src={homeFamilyCare.src} alt={homeFamilyCare.alt} />
+            </div>
+            <div className="hidden w-[min(46%,220px)] sm:block">
+              <PhoneShot
+                src={homeFamilyCare.secondarySrc}
+                alt={homeFamilyCare.secondaryAlt}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-t border-line">
         <div className="mx-auto grid max-w-5xl items-center gap-10 px-5 py-14 sm:px-8 sm:py-16 lg:grid-cols-[0.95fr_1.05fr] lg:gap-12">
           <div className="flex flex-wrap items-end justify-center gap-2 sm:gap-3 lg:order-1">
             <div className="w-[min(46%,220px)]">
