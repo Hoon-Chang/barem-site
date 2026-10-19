@@ -49,19 +49,46 @@ export type IconBlurb = {
   body: string;
 };
 
-export const forWhomAlso: { icon: LucideIcon; label: string; body: string }[] =
-  [
-    {
-      icon: Users,
-      label: "멀리 있는 가족·보호자",
-      body: "QR로 가족 안심 연동하면 기록이 암호화되어 보호자 기기에만 읽기 전용으로 보입니다. 알림에는 가족 이름과 기록 종류만 넣고 수치는 넣지 않습니다.",
-    },
-    {
-      icon: Activity,
-      label: "회복·일상",
-      body: "치료 이후에도, 만성·평소 건강 관리에도 같은 습관으로 이어 갑니다.",
-    },
-  ];
+/** /for-whom — 3대 타깃 페르소나 */
+export const forWhomPersonas = [
+  {
+    emoji: "🩺",
+    title: "항암 치료 중인 환자",
+    body: "병원 앱의 빽빽한 수치 표가 어렵고, 37.8℃ 발열이 올까 불안하신 분",
+  },
+  {
+    emoji: "👨‍👩‍👧",
+    title: "원격 자녀 & 보호자",
+    body: "멀리 계신 부모님의 항암 피검사 수치와 일상 컨디션을 안전하게 챙겨드리고 싶은 분",
+  },
+  {
+    emoji: "🌱",
+    title: "회복기 & 생존자",
+    body: "치료 종료 후에도 정기 검사 수치와 일상 체력을 꾸준히 기록·통합 관리하고 싶은 분",
+  },
+] as const;
+
+/** /for-whom — Before vs After */
+export const forWhomBeforeAfter = {
+  before: {
+    label: "Before · 기존 방식",
+    title: "흩어진 기록, 짧아지는 진료",
+    points: [
+      "병원 앱 스크린샷 수십 장",
+      "지난달 수치 찾기 불편함",
+      "짧은 진료실에서 깜빡하는 증상들",
+    ],
+  },
+  after: {
+    label: "After · 바램 사용 후",
+    title: "한눈에, 안심으로",
+    points: [
+      "캡처 1장에 자동 그래프화",
+      "A4 1장 진료 브리핑 리포트 출력",
+      "서버 전송 없는 안심 보관",
+    ],
+  },
+} as const;
 
 /** 암 치료·회복 중 상황별 사용 예. */
 export const usageScenarios = [
