@@ -145,10 +145,10 @@ export const scenarioPlaybooks = [
       },
       {
         label: "2단계 · 부모님 간편사용",
-        title: "큰 버튼으로 오늘 기록만 남기기",
-        body: "부모님 폰에서는 [내 정보]에서 간편사용을 켜면 글씨·버튼이 커지고, 체온·체중·식사처럼 오늘 필요한 기록만 크게 남길 수 있습니다. 기력이 없을 때도 부담이 적습니다.",
+        title: "오늘·약·더보기만 보이는 큰 글씨 화면",
+        body: "부모님 폰에서는 [내 정보]에서 간편사용을 켜면 하단이 오늘·약·더보기 세 탭으로 바뀌고, 큰 글씨로 오늘 남길 기록만 체크할 수 있습니다. 기력이 없을 때도 부담이 적습니다.",
         src: "/screenshots/10_easy_home.png",
-        alt: "바램 간편사용 — 큰 버튼 오늘 기록",
+        alt: "바램 간편사용 — 오늘 탭 체크리스트",
       },
       {
         label: "3단계 · 원격 안심 확인",
@@ -247,7 +247,7 @@ export const usageScenarios = [
     src: "/screenshots/02_family.png",
     alt: "바램 홈 — 가족 기록 읽기 전용",
     secondarySrc: "/screenshots/10_easy_home.png",
-    secondaryAlt: "바램 간편사용 — 부모님용 큰 버튼 기록",
+    secondaryAlt: "바램 간편사용 — 오늘·약·더보기",
   },
   {
     id: "care-report",

@@ -6,7 +6,7 @@ type SiteImageProps = Omit<ImageProps, "src"> & {
 };
 
 /** Bump when replacing same-named screenshot PNGs so CDN/browser caches refresh. */
-const SCREENSHOT_CACHE_BUST = "20261019c";
+const SCREENSHOT_CACHE_BUST = "20261019d";
 
 /** Public asset paths that include GitHub Pages basePath. */
 export function SiteImage({ src, alt, ...rest }: SiteImageProps) {
