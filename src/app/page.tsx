@@ -5,7 +5,6 @@ import { StoreButtons } from "../components/store-buttons";
 import { DownloadBand } from "../components/page-chrome";
 import {
   homeCareReport,
-  homeFamilyCare,
   homeTodayMission,
   sitePages,
 } from "../content/marketing";
@@ -40,12 +39,11 @@ export default function HomePage() {
               </div>
             </div>
             <h1 className="mt-8 max-w-xl text-2xl font-semibold leading-snug tracking-tight text-ink sm:text-3xl">
-              가족과 함께 보는 오늘
+              오늘 기록, 한 화면에
             </h1>
             <p className="mt-4 max-w-lg text-base leading-relaxed text-muted sm:text-lg">
-              암 치료·회복을 위해 만든 건강 기록 앱. 홈에서 바로 전환하고,
-              보호자 기기에만 암호화해 전달합니다. 기본 기록은 내 기기에만
-              둡니다.
+              검사 · 컨디션 · 일정을 한눈에. 치료 중이든 일상 건강 관리든,
+              기본 기록은 내 기기에만 둡니다.
             </p>
             <div id="download" className="mt-8 scroll-mt-24">
               <StoreButtons />
@@ -81,8 +79,8 @@ export default function HomePage() {
               </div>
               <div className="hidden w-[38%] translate-y-8 opacity-90 sm:block">
                 <PhoneShot
-                  src="/screenshots/02_family.png"
-                  alt="바램 가족 기록 화면"
+                  src="/screenshots/03_labs.png"
+                  alt="바램 검사 화면"
                 />
               </div>
             </div>
@@ -91,57 +89,6 @@ export default function HomePage() {
       </section>
 
       <section className="border-t border-line bg-surface">
-        <div className="mx-auto grid max-w-5xl items-center gap-10 px-5 py-14 sm:px-8 sm:py-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
-          <div>
-            <p className="text-xs font-semibold tracking-[0.16em] text-green uppercase">
-              {homeFamilyCare.eyebrow}
-            </p>
-            <h2 className="mt-2 text-xl font-semibold tracking-tight text-ink sm:text-2xl">
-              {homeFamilyCare.title}
-            </h2>
-            <p className="mt-3 max-w-xl text-base leading-relaxed text-muted">
-              {homeFamilyCare.body}
-            </p>
-            <ul className="mt-6 space-y-3">
-              {homeFamilyCare.points.map((point) => (
-                <li key={point.name} className="flex gap-3">
-                  <span
-                    aria-hidden
-                    className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-green"
-                  />
-                  <span>
-                    <span className="font-semibold text-ink">{point.name}</span>
-                    <span className="mt-0.5 block text-sm text-muted">
-                      {point.detail}
-                    </span>
-                  </span>
-                </li>
-              ))}
-            </ul>
-            <p className="mt-6 text-sm">
-              <Link
-                href={homeFamilyCare.ctaHref}
-                className="font-medium text-green underline-offset-4 transition hover:text-green-deep hover:underline"
-              >
-                {homeFamilyCare.ctaLabel} →
-              </Link>
-            </p>
-          </div>
-          <div className="flex flex-wrap items-end justify-center gap-2 sm:gap-3">
-            <div className="w-[min(46%,220px)]">
-              <PhoneShot src={homeFamilyCare.src} alt={homeFamilyCare.alt} />
-            </div>
-            <div className="hidden w-[min(46%,220px)] sm:block">
-              <PhoneShot
-                src={homeFamilyCare.secondarySrc}
-                alt={homeFamilyCare.secondaryAlt}
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="border-t border-line">
         <div className="mx-auto grid max-w-5xl items-center gap-10 px-5 py-14 sm:px-8 sm:py-16 lg:grid-cols-[0.95fr_1.05fr] lg:gap-12">
           <div className="flex flex-wrap items-end justify-center gap-2 sm:gap-3 lg:order-1">
             <div className="w-[min(46%,220px)]">

@@ -80,9 +80,9 @@ export const siteConfig = {
   seo: {
     titleKo: "바램 - 건강 기록 | BAREM",
     descriptionKo:
-      "암 치료·회복의 오늘을 한 화면에. 가족 안심 연동으로 보호자 기기에만 암호화 전달. 맞춤 홈·검사 OCR·케어 리포트까지 기본은 내 기기에만.",
+      "오늘 기록, 한 화면에. 검사·컨디션·일정을 한눈에 모으고, 맞춤 홈·검사 OCR·케어 리포트까지. 기본 기록은 내 기기에만.",
     descriptionEn:
-      "On-device health journal for cancer treatment and recovery — today’s home view, optional E2EE family sync, lab OCR, and care reports. Data stays on your device by default.",
+      "Today’s health records in one view — labs, vitals, and schedules. Custom home, lab OCR, and care reports. Data stays on your device by default.",
     ogLocale: "ko_KR",
   },
 } as const;
