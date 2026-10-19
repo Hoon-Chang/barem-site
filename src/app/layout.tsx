@@ -32,6 +32,10 @@ export const metadata: Metadata = {
   keywords: [
     "바램",
     "BAREM",
+    "항암일지",
+    "항암일기",
+    "항암 일지",
+    "항암 일기",
     "암 환자",
     "항암",
     "피검사",

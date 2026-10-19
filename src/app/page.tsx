@@ -173,9 +173,30 @@ export default function HomePage() {
             더 알아보기
           </h2>
           <p className="mt-2 max-w-xl text-muted">
-            네 가지 안내만 골라 보시면 됩니다.
+            항암일지 가이드와 네 가지 안내를 골라 보시면 됩니다.
           </p>
           <ul className="mt-8 divide-y divide-line border-y border-line">
+            <li>
+              <Link
+                href="/chemo-diary/"
+                className="group flex items-baseline justify-between gap-4 py-4 transition"
+              >
+                <span>
+                  <span className="text-base font-semibold text-ink group-hover:text-green">
+                    항암일지·항암일기 가이드
+                  </span>
+                  <span className="mt-1 block text-sm text-muted">
+                    종이 일지 대신 앱으로 남기는 법 · 첫 주 기록 순서
+                  </span>
+                </span>
+                <span
+                  aria-hidden
+                  className="shrink-0 text-green transition group-hover:translate-x-0.5"
+                >
+                  →
+                </span>
+              </Link>
+            </li>
             {sitePages.map((page) => (
               <li key={page.href}>
                 <Link

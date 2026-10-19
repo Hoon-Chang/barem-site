@@ -24,6 +24,16 @@ export default function HelpPage() {
         lead="설치 후 목적만 고르면 바로 쓸 수 있어요. 막히는 부분은 FAQ와 이메일 문의로 이어집니다."
       >
         <div className="space-y-16 sm:space-y-20">
+          <p className="rounded-2xl border border-line bg-surface px-5 py-4 text-sm leading-relaxed text-muted">
+            항암일지·항암일기를 앱으로 남기는 방법이 궁금하시면{" "}
+            <Link
+              href="/chemo-diary/"
+              className="font-semibold text-green underline-offset-4 hover:underline"
+            >
+              항암일지 가이드
+            </Link>
+            를 먼저 보세요.
+          </p>
           <GuideContent />
 
           <div className="border-t border-line pt-14 sm:pt-16">

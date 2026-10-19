@@ -13,6 +13,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 1,
     },
+    {
+      url: absoluteUrl("/chemo-diary/"),
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.95,
+    },
     ...sitePages.map((page) => ({
       url: absoluteUrl(page.href),
       lastModified,

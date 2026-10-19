@@ -488,6 +488,12 @@ export const homeCareSystemTabs = [
 /** 홈·가이드 FAQ */
 export const siteFaqs = [
   {
+    id: "chemo-diary",
+    question: "항암일지·항암일기도 바램으로 쓸 수 있나요?",
+    answer:
+      "네. 바램은 항암일지·항암일기처럼 투여일(D0)·차수·피검사·체온·식사·일정을 한곳에 남기는 앱입니다. 기록이 기기에만 암호화되어 보관되며, 외래 전 진료 브리핑으로 정리할 수 있습니다.",
+  },
+  {
     id: "hospital-ocr",
     question: "다른 대학병원 앱(서울대, 아산, 삼성 등) 스크린샷도 인식되나요?",
     answer:

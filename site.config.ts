@@ -79,11 +79,11 @@ export const siteConfig = {
 
   seo: {
     titleKo:
-      "바램 - 암 환자를 위한 안심 검사결과 노트 | 항암 피검사 & 체력 관리",
+      "바램 - 항암일지·항암일기 앱 | 암 환자 검사결과·피검사 안심 노트",
     descriptionKo:
-      "서버 전송 없는 100% 온디바이스 안심 건강노트. 항암 피검사(ANC) 수치 그래프, 37.8℃ 발열 체크, 1페이지 외래 진료 브리핑 리포트까지 바램으로 한눈에 관리하세요.",
+      "항암일지·항암일기를 기기에만 안전하게. 항암 피검사(ANC) 그래프, 37.8℃ 발열 체크, 차수 비교, 1페이지 진료 브리핑까지 바램 온디바이스 건강노트로 모으세요.",
     descriptionEn:
-      "100% on-device health notebook—no cloud upload of your records by default. Track ANC labs, fever checks, and a one-page clinic briefing with Barem.",
+      "Chemo diary on-device—no cloud upload of your records by default. Track ANC labs, fever checks, cycle compare, and a one-page clinic briefing with Barem.",
     ogLocale: "ko_KR",
   },
 } as const;

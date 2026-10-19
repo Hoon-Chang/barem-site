@@ -13,12 +13,15 @@ const origin = "https://hoon-chang.github.io/barem-site";
 
 const pages = [
   { path: "/", priority: "1.0", changefreq: "monthly" },
+  { path: "/chemo-diary/", priority: "0.95", changefreq: "weekly" },
   { path: "/for-whom/", priority: "0.8", changefreq: "monthly" },
   { path: "/scenarios/", priority: "0.8", changefreq: "monthly" },
   { path: "/guide/", priority: "0.8", changefreq: "monthly" },
   { path: "/features/", priority: "0.8", changefreq: "monthly" },
   { path: "/tour/", priority: "0.8", changefreq: "monthly" },
   { path: "/security/", priority: "0.8", changefreq: "monthly" },
+  { path: "/about/", priority: "0.8", changefreq: "monthly" },
+  { path: "/help/", priority: "0.7", changefreq: "monthly" },
   { path: "/contact/", priority: "0.8", changefreq: "monthly" },
   { path: "/privacy/", priority: "0.5", changefreq: "yearly" },
   { path: "/terms/", priority: "0.5", changefreq: "yearly" },
