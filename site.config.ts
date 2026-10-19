@@ -59,8 +59,8 @@ export const siteConfig = {
 
   privacy: {
     /** 개인정보처리방침 시행일 */
-    effectiveDateKo: "2026년 9월 10일",
-    effectiveDateEn: "September 10, 2026",
+    effectiveDateKo: "2026년 10월 19일",
+    effectiveDateEn: "October 19, 2026",
   },
 
   stores: {
