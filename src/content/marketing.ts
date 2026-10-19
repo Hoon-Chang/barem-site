@@ -22,6 +22,8 @@ import {
 
 export type GuideStep = {
   step: string;
+  /** Optional deep-link id for /guide/#… */
+  id?: string;
   title: string;
   body: string;
   src: string;
@@ -64,6 +66,7 @@ export const forWhomAlso: { icon: LucideIcon; label: string; body: string }[] =
 /** 암 치료·회복 중 상황별 사용 예. */
 export const usageScenarios = [
   {
+    id: "chemo-week",
     situation: "항암 투여 주간",
     title: "투여 일정과 당일 컨디션만 남겨도 충분합니다",
     body: "다음 항암일과 외래 일정을 먼저 등록해 두고, 평소에는 체온·증상·식사만 챙겨 적어보세요. 빈칸을 모두 채우는 것보다 매일 한 줄이라도 꾸준히 남기는 것이 외래 진료 시 의료진과 소통하는 데 훨씬 큰 도움이 됩니다.",
@@ -80,6 +83,7 @@ export const usageScenarios = [
     tertiaryAlt: "바램 기록 — 당일 컨디션(증상)",
   },
   {
+    id: "lab-ocr",
     situation: "채혈 및 외래 직후",
     title: "결과지를 찍고, 숫자만 확인해 바로 저장하세요",
     body: "병원 결과지나 병원 앱 화면을 촬영(또는 캡처)하면 바램이 글자를 자동으로 읽어냅니다. 수치에 이상이 없는지만 가볍게 확인한 뒤 저장해 두면, 누적된 검사 추이를 이전 차수와 한눈에 비교할 수 있습니다.",
@@ -94,6 +98,7 @@ export const usageScenarios = [
     secondaryAlt: "바램 검사 — 수치 추이 차트",
   },
   {
+    id: "family",
     situation: "멀리 있는 가족과 함께 볼 때",
     title: "QR로 연결하면, 보호자 폰에서만 읽기 전용으로 보입니다",
     body: "환자 기기에서 남긴 기록은 암호화되어 보호자 기기로만 전달됩니다. 홈 위에서 「나」와 가족을 바로 전환하고, 체온·혈압·복약 변화가 있으면 이름과 기록 종류만 알려 드립니다. 같은 기기에서 대신 남길 때는 보호자 목적·간편사용을 쓸 수 있습니다.",
@@ -108,6 +113,7 @@ export const usageScenarios = [
     secondaryAlt: "바램 홈 — 나와 가족 프로필 전환",
   },
   {
+    id: "care-report",
     situation: "외래 진료 전 · 케어 리포트",
     title: "발열·체중·질문·영양을 한곳에 모아 상담 준비를 하세요",
     body: "기록이 쌓이면 홈에서 케어 리포트를 바로 열 수 있습니다. 진료 브리핑으로 재택 기간의 발열·체중·물어볼 질문을 한 페이지로 보고, 회복 타임라인·누적 독성·영양 방어 탭으로 차수 흐름과 식사·단백질까지 이어서 확인하세요. (※ 자가 관찰·상담 참고용이며 진단이 아닙니다.)",
@@ -124,6 +130,7 @@ export const usageScenarios = [
     tertiaryAlt: "바램 케어 리포트 — 영양 방어",
   },
   {
+    id: "cycle-compare",
     situation: "치료 차수가 2~3회 쌓였을 때",
     title: "지난 차수와 이번 차수의 회복 흐름을 나란히 비교해 보세요",
     body: "항암 투여일을 기준으로 치료 구간이 자동으로 정리됩니다. 진료 상담 전 비교하고 싶은 두 차수를 선택하면 검사 수치, 체중, 식사 상태를 겹쳐 볼 수 있어 집에서의 컨디션 변화를 말로만 설명하지 않아도 됩니다. (※ 자가 관찰 및 진료 참고용 자료입니다.)",
@@ -136,6 +143,7 @@ export const usageScenarios = [
     alt: "바램 차수별 비교 화면",
   },
   {
+    id: "easy-mode",
     situation: "컨디션이 저하되었을 때 · 간편사용",
     title: "큰 버튼으로 오늘 기록만 편하게 남기세요",
     body: "작은 글씨가 읽기 불편할 때는 [내 정보]에서 간편사용을 켜 보세요. 하단이 오늘·약·더보기 세 탭으로 바뀌고, 큰 글씨로 오늘 미션·복약만 먼저 챙길 수 있습니다. 같은 기기에서 가족이 대신 남길 때는 사용 목적을 '보호자'로 둘 수 있습니다.",
@@ -150,6 +158,7 @@ export const usageScenarios = [
     secondaryAlt: "바램 내 정보 — 간편사용 켜기",
   },
   {
+    id: "health-focus",
     situation: "추적 관찰 및 일상 건강 관리",
     title: "치료가 끝난 후에도 건강 기록 습관을 이어가세요",
     body: "항암 치료가 끝난 뒤에도 정기 외래 채혈 수치와 일상 컨디션을 계속 관리할 수 있습니다. 관리 목적을 '일반 건강 관리'로 전환하면, 일상 건강 상태에 맞춘 맞춤형 항목으로 기록을 유지할 수 있습니다.",
@@ -192,7 +201,7 @@ export const homeFamilyCare = {
   alt: "바램 홈 — 가족 기록 읽기 전용",
   secondarySrc: "/screenshots/01_home.png",
   secondaryAlt: "바램 홈 — 나와 가족 프로필 전환",
-  ctaHref: "/scenarios/",
+  ctaHref: "/scenarios/#family",
   ctaLabel: "사용 예시에서 연동 흐름 보기",
 } as const;
 
@@ -219,7 +228,7 @@ export const homeTodayMission = {
   alt: "바램 홈 — 오늘 미션",
   secondarySrc: "/screenshots/05_today.png",
   secondaryAlt: "바램 기록 — 오늘 컨디션",
-  ctaHref: "/guide/",
+  ctaHref: "/guide/#today-mission",
   ctaLabel: "시작 가이드 보기",
 } as const;
 
@@ -252,7 +261,7 @@ export const homeCareReport = {
   secondaryAlt: "바램 케어 리포트 — 회복 타임라인",
   tertiarySrc: "/screenshots/15_care_report_toxicity.png",
   tertiaryAlt: "바램 케어 리포트 — 누적 독성",
-  ctaHref: "/scenarios/",
+  ctaHref: "/scenarios/#care-report",
   ctaLabel: "사용 예시에서 흐름 보기",
 } as const;
 
@@ -282,6 +291,7 @@ export const guideSteps: GuideStep[] = [
   },
   {
     step: "04",
+    id: "today-mission",
     title: "오늘 미션·복약",
     body: "홈 오늘 미션에서 오늘 남길 한 가지를 먼저 챙기고, [기록]에서 체온·증상을 이어 가세요. 식사는 문장으로 적어도 됩니다. 복약이 있으면 알림과 「먹었어요」로 확인하세요.",
     src: "/screenshots/01_home.png",

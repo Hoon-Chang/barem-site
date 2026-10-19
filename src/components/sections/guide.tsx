@@ -12,7 +12,8 @@ export function GuideContent() {
           return (
             <div
               key={item.step}
-              className={`grid items-center gap-10 lg:grid-cols-2 lg:gap-14 ${
+              id={item.id}
+              className={`scroll-mt-20 grid items-center gap-10 sm:scroll-mt-24 lg:grid-cols-2 lg:gap-14 ${
                 reverse ? "lg:[&>*:first-child]:order-2" : ""
               }`}
             >

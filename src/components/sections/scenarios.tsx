@@ -41,8 +41,9 @@ export function ScenariosContent() {
 
           return (
             <article
-              key={item.situation}
-              className="grid gap-8 py-12 first:pt-0 last:pb-0 lg:grid-cols-[1fr_0.95fr] lg:gap-12"
+              key={item.id}
+              id={item.id}
+              className="scroll-mt-20 grid gap-8 py-12 first:pt-0 last:pb-0 lg:grid-cols-[1fr_0.95fr] lg:gap-12 sm:scroll-mt-24"
             >
               <div>
                 <p className="text-xs font-semibold tracking-[0.16em] text-green uppercase">

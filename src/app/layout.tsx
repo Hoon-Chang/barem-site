@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Noto_Sans_KR, Outfit } from "next/font/google";
+import { HashScroll } from "../components/hash-scroll";
 import { SiteAnalytics } from "../components/site-analytics";
 import { SiteFooter } from "../components/site-footer";
 import { SiteHeader } from "../components/site-header";
@@ -90,6 +91,7 @@ export default function RootLayout({
         className={`${outfit.variable} ${notoSansKr.variable} min-h-screen antialiased`}
       >
         <SiteHeader />
+        <HashScroll />
         <main>{children}</main>
         <SiteFooter />
         <SiteAnalytics />
