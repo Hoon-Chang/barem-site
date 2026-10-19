@@ -6,7 +6,7 @@ import { absoluteUrl } from "../../../site.config";
 export const metadata: Metadata = {
   title: "사용 예시",
   description:
-    "항암 투여 주간, 채혈·외래, 차수 비교, 케어 리포트, 보호자, 추적 관찰 — 이럴 때 바램을 쓰는 방법.",
+    "항암 투여 주간, 가족 안심 연동, 채혈·외래, 차수 비교, 케어 리포트, 손쉬움, 추적 관찰 — 이럴 때 바램을 쓰는 방법.",
   alternates: { canonical: absoluteUrl("/scenarios/") },
 };
 

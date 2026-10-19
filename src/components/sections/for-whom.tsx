@@ -14,8 +14,9 @@ export function ForWhomContent() {
             오늘 해야 할 기록이 홈에 모여 있습니다
           </p>
           <p className="mt-2 text-base leading-relaxed text-muted">
-            치료 진행·검사 수치·일정·컨디션을 목적에 맞게 구성하고, 차수별
-            비교로 변화를 정리합니다.
+            치료 진행·검사 수치·일정·컨디션을 목적에 맞게 구성하고, 홈에서
+            「나」와 연동 가족을 바로 전환합니다. 외래 전에는 케어 리포트로
+            정리할 수 있습니다.
           </p>
         </div>
 
