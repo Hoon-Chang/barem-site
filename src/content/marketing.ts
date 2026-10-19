@@ -63,7 +63,7 @@ export const forWhomPersonas = [
   },
   {
     emoji: "🌱",
-    title: "회복기 & 생존자",
+    title: "회복기·일상 관리",
     body: "치료 종료 후에도 정기 검사 수치와 일상 체력을 꾸준히 기록·통합 관리하고 싶은 분",
   },
 ] as const;

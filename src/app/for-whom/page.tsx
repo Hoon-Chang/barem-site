@@ -6,7 +6,7 @@ import { absoluteUrl } from "../../../site.config";
 export const metadata: Metadata = {
   title: "이런 분께",
   description:
-    "항암 치료 중인 환자, 원격 보호자, 회복기·생존자를 위한 바램. Before/After로 흩어진 기록과 안심 검사노트를 비교해 보세요.",
+    "항암 치료 중인 환자, 원격 보호자, 회복기·일상 관리를 위한 바램. Before/After로 흩어진 기록과 안심 검사노트를 비교해 보세요.",
   alternates: { canonical: absoluteUrl("/for-whom/") },
 };
 
