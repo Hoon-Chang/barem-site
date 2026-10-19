@@ -57,8 +57,8 @@ export function SiteFooter() {
             <Link href="/terms/" className="hover:text-white">
               이용약관
             </Link>
-            <Link href="/contact/" className="hover:text-white">
-              개발자 문의
+            <Link href="/help/#contact" className="hover:text-white">
+              고객 문의
             </Link>
           </div>
         </div>

@@ -7,9 +7,11 @@ import {
   featureExperienceTabs,
   featureMoreHighlights,
 } from "../../content/marketing";
+import { TourContent } from "./tour";
 
 function tabIdFromHash(hash: string): string | null {
   const id = hash.replace(/^#/, "");
+  if (id === "tour") return null;
   if (featureExperienceTabs.some((t) => t.id === id)) return id;
   if (id === "family") return "family-sync";
   if (id === "labs" || id === "ocr") return "labs-ocr";
@@ -152,6 +154,24 @@ export function FeaturesContent() {
             </li>
           ))}
         </ul>
+      </section>
+
+      <section
+        id="tour"
+        className="scroll-mt-24 space-y-6 border-t border-line pt-14 sm:pt-16"
+      >
+        <div>
+          <p className="text-xs font-semibold tracking-[0.16em] text-green uppercase">
+            앱 둘러보기
+          </p>
+          <h2 className="mt-2 max-w-2xl text-xl font-semibold tracking-tight text-ink sm:text-2xl">
+            실제 화면으로 이어서 보기
+          </h2>
+          <p className="mt-2 max-w-2xl text-base leading-relaxed text-muted">
+            홈·가족 연동·간편사용·복약·검사·기록·일정까지 흐름을 따라가 보세요.
+          </p>
+        </div>
+        <TourContent />
       </section>
     </div>
   );

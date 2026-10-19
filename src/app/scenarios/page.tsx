@@ -1,33 +1,36 @@
-import type { Metadata } from "next";
-import { DownloadBand, PageShell } from "../../components/page-chrome";
-import { ScenariosContent } from "../../components/sections/scenarios";
-import { absoluteUrl } from "../../../site.config";
+"use client";
 
-export const metadata: Metadata = {
-  title: "사용 예시",
-  description:
-    "항암 3주 주기 환자 타임라인과 멀리 계신 부모님 안심 연동, 케어 리포트 4종 미리보기까지 — 이럴 때 바램을 쓰는 방법.",
-  alternates: { canonical: absoluteUrl("/scenarios/") },
-};
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
-export default function ScenariosPage() {
+/** Legacy /scenarios → /about (preserve scenario hashes). */
+export default function ScenariosRedirectPage() {
+  const router = useRouter();
+
+  useEffect(() => {
+    const hash = window.location.hash.replace(/^#/, "");
+    if (hash === "family") {
+      router.replace("/about/#family");
+      return;
+    }
+    if (hash === "chemo-cycle" || hash === "chemo-week") {
+      router.replace("/about/#chemo-cycle");
+      return;
+    }
+    router.replace("/about/#scenarios");
+  }, [router]);
+
   return (
-    <>
-      <PageShell
-        surface
-        eyebrow="사용 예시"
-        title={
-          <>
-            항암 주기와 원격 부모님,
-            <br className="hidden sm:block" />
-            두 가지 흐름으로 보세요
-          </>
-        }
-        lead="환자 본인의 3주 주기 기록부터, 멀리 계신 부모님을 챙기는 안심 연동까지. 필요한 시나리오 탭만 골라 보시면 됩니다."
-      >
-        <ScenariosContent />
-      </PageShell>
-      <DownloadBand />
-    </>
+    <main className="mx-auto max-w-lg px-5 py-24 text-center">
+      <p className="text-base text-muted">서비스 소개 페이지로 이동합니다.</p>
+      <p className="mt-3">
+        <a
+          href="/about/#scenarios"
+          className="font-semibold text-green underline-offset-4 hover:underline"
+        >
+          /about/ 로 이동 →
+        </a>
+      </p>
+    </main>
   );
 }

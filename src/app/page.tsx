@@ -5,11 +5,12 @@ import { HeroTrustBadges } from "../components/hero-trust-badges";
 import { SiteImage } from "../components/site-image";
 import { StoreButtons } from "../components/store-buttons";
 import { DownloadBand } from "../components/page-chrome";
+import { HomeCareSystem } from "../components/home-care-system";
+import { CareReportGallery } from "../components/care-report-gallery";
+import { FaqAccordion } from "../components/faq-accordion";
 import {
-  homeCareReport,
   homeCoreFeatures,
-  homeFamilyCare,
-  homeTodayMission,
+  homeTestimonials,
   sitePages,
 } from "../content/marketing";
 import { siteConfig } from "../../site.config";
@@ -63,10 +64,10 @@ export default function HomePage() {
             </p>
             <p className="mt-5 text-sm text-muted">
               <Link
-                href="/for-whom/"
+                href="/about/"
                 className="font-medium text-green underline-offset-4 transition hover:text-green-deep hover:underline"
               >
-                이런 분께 →
+                서비스 소개 보기 →
               </Link>
             </p>
           </div>
@@ -103,7 +104,7 @@ export default function HomePage() {
       <section className="border-t border-line bg-surface">
         <div className="mx-auto max-w-5xl px-5 py-14 sm:px-8 sm:py-16">
           <p className="text-xs font-semibold tracking-[0.16em] text-green uppercase">
-            핵심 기능
+            핵심 가치
           </p>
           <h2 className="mt-2 max-w-2xl text-xl font-semibold tracking-tight text-ink sm:text-2xl">
             안심하고 남기고, 외래 전에 한눈에
@@ -126,169 +127,53 @@ export default function HomePage() {
         </div>
       </section>
 
+      <HomeCareSystem />
+
       <section className="border-t border-line">
-        <div className="mx-auto grid max-w-5xl items-center gap-10 px-5 py-14 sm:px-8 sm:py-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
-          <div>
-            <p className="text-xs font-semibold tracking-[0.16em] text-green uppercase">
-              {homeFamilyCare.eyebrow}
-            </p>
-            <h2 className="mt-2 text-xl font-semibold tracking-tight text-ink sm:text-2xl">
-              {homeFamilyCare.title}
-            </h2>
-            <p className="mt-3 max-w-xl text-base leading-relaxed text-muted">
-              {homeFamilyCare.body}
-            </p>
-            <ul className="mt-6 space-y-3">
-              {homeFamilyCare.points.map((point) => (
-                <li key={point.name} className="flex gap-3">
-                  <span
-                    aria-hidden
-                    className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-green"
-                  />
-                  <span>
-                    <span className="font-semibold text-ink">{point.name}</span>
-                    <span className="mt-0.5 block text-sm text-muted">
-                      {point.detail}
-                    </span>
-                  </span>
-                </li>
-              ))}
-            </ul>
-            <p className="mt-6 text-sm">
-              <Link
-                href={homeFamilyCare.ctaHref}
-                className="font-medium text-green underline-offset-4 transition hover:text-green-deep hover:underline"
-              >
-                {homeFamilyCare.ctaLabel} →
-              </Link>
-            </p>
-          </div>
-          <div className="flex flex-wrap items-end justify-center gap-2 sm:gap-3">
-            <div className="w-[min(46%,220px)]">
-              <PhoneShot src={homeFamilyCare.src} alt={homeFamilyCare.alt} />
-            </div>
-            <div className="hidden w-[min(46%,220px)] sm:block">
-              <PhoneShot
-                src={homeFamilyCare.secondarySrc}
-                alt={homeFamilyCare.secondaryAlt}
-              />
-            </div>
-          </div>
+        <div className="mx-auto max-w-5xl px-5 py-14 sm:px-8 sm:py-16">
+          <CareReportGallery />
         </div>
       </section>
 
       <section className="border-t border-line bg-surface">
-        <div className="mx-auto grid max-w-5xl items-center gap-10 px-5 py-14 sm:px-8 sm:py-16 lg:grid-cols-[0.95fr_1.05fr] lg:gap-12">
-          <div className="flex flex-wrap items-end justify-center gap-2 sm:gap-3 lg:order-1">
-            <div className="w-[min(46%,220px)]">
-              <PhoneShot
-                src={homeTodayMission.src}
-                alt={homeTodayMission.alt}
-              />
-            </div>
-            <div className="hidden w-[min(46%,220px)] sm:block">
-              <PhoneShot
-                src={homeTodayMission.secondarySrc}
-                alt={homeTodayMission.secondaryAlt}
-              />
-            </div>
-          </div>
-          <div className="lg:order-2">
-            <p className="text-xs font-semibold tracking-[0.16em] text-green uppercase">
-              {homeTodayMission.eyebrow}
-            </p>
-            <h2 className="mt-2 text-xl font-semibold tracking-tight text-ink sm:text-2xl">
-              {homeTodayMission.title}
-            </h2>
-            <p className="mt-3 max-w-xl text-base leading-relaxed text-muted">
-              {homeTodayMission.body}
-            </p>
-            <ul className="mt-6 space-y-3">
-              {homeTodayMission.points.map((point) => (
-                <li key={point.name} className="flex gap-3">
-                  <span
-                    aria-hidden
-                    className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-green"
-                  />
-                  <span>
-                    <span className="font-semibold text-ink">{point.name}</span>
-                    <span className="mt-0.5 block text-sm text-muted">
-                      {point.detail}
-                    </span>
-                  </span>
-                </li>
-              ))}
-            </ul>
-            <p className="mt-6 text-sm">
-              <Link
-                href={homeTodayMission.ctaHref}
-                className="font-medium text-green underline-offset-4 transition hover:text-green-deep hover:underline"
+        <div className="mx-auto max-w-5xl px-5 py-14 sm:px-8 sm:py-16">
+          <p className="text-xs font-semibold tracking-[0.16em] text-green uppercase">
+            안심 후기
+          </p>
+          <h2 className="mt-2 max-w-2xl text-xl font-semibold tracking-tight text-ink sm:text-2xl">
+            환자와 보호자가 느끼는 변화
+          </h2>
+          <ul className="mt-8 grid gap-4 sm:grid-cols-2">
+            {homeTestimonials.map((item) => (
+              <li
+                key={item.role}
+                className="border-t border-line pt-5 sm:border-t-0 sm:border-l sm:pl-6 sm:pt-0 first:sm:border-l-0 first:sm:pl-0"
               >
-                {homeTodayMission.ctaLabel} →
-              </Link>
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="border-t border-line">
-        <div className="mx-auto grid max-w-5xl items-center gap-10 px-5 py-14 sm:px-8 sm:py-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
-          <div>
-            <p className="text-xs font-semibold tracking-[0.16em] text-green uppercase">
-              {homeCareReport.eyebrow}
-            </p>
-            <h2 className="mt-2 text-xl font-semibold tracking-tight text-ink sm:text-2xl">
-              {homeCareReport.title}
-            </h2>
-            <p className="mt-3 max-w-xl text-base leading-relaxed text-muted">
-              {homeCareReport.body}
-            </p>
-            <ul className="mt-6 space-y-3">
-              {homeCareReport.reports.map((report) => (
-                <li key={report.name} className="flex gap-3">
-                  <span
-                    aria-hidden
-                    className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-green"
-                  />
-                  <span>
-                    <span className="font-semibold text-ink">{report.name}</span>
-                    <span className="mt-0.5 block text-sm text-muted">
-                      {report.detail}
-                    </span>
-                  </span>
-                </li>
-              ))}
-            </ul>
-            <p className="mt-6 text-sm">
-              <Link
-                href={homeCareReport.ctaHref}
-                className="font-medium text-green underline-offset-4 transition hover:text-green-deep hover:underline"
-              >
-                {homeCareReport.ctaLabel} →
-              </Link>
-            </p>
-          </div>
-          <div className="flex flex-wrap items-end justify-center gap-2 sm:gap-3">
-            <div className="w-[min(46%,220px)]">
-              <PhoneShot src={homeCareReport.src} alt={homeCareReport.alt} />
-            </div>
-            <div className="hidden w-[min(46%,220px)] sm:block">
-              <PhoneShot
-                src={homeCareReport.secondarySrc}
-                alt={homeCareReport.secondaryAlt}
-              />
-            </div>
-          </div>
+                <p className="text-xs font-semibold tracking-[0.14em] text-green uppercase">
+                  {item.role}
+                </p>
+                <p className="mt-3 text-base leading-relaxed text-ink">
+                  “{item.quote}”
+                </p>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
       <section className="border-t border-line">
         <div className="mx-auto max-w-5xl px-5 py-14 sm:px-8 sm:py-16">
+          <FaqAccordion />
+        </div>
+      </section>
+
+      <section className="border-t border-line bg-surface">
+        <div className="mx-auto max-w-5xl px-5 py-14 sm:px-8 sm:py-16">
           <h2 className="text-xl font-semibold tracking-tight text-ink sm:text-2xl">
             더 알아보기
           </h2>
           <p className="mt-2 max-w-xl text-muted">
-            필요한 안내만 골라 보시면 됩니다.
+            네 가지 안내만 골라 보시면 됩니다.
           </p>
           <ul className="mt-8 divide-y divide-line border-y border-line">
             {sitePages.map((page) => (

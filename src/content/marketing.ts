@@ -339,40 +339,47 @@ export const homeCoreFeatures = [
     body: "재택 관리 기간의 최고 체온, 부작용 피크, 체중 변화, 사전 질문을 A4 1장으로 요약해 진료실에서 교수님께 바로 보여드리거나 PDF로 공유하세요.",
   },
   {
-    title: "원터치 바이탈 기록 & 암호화 가족 연동",
-    body: "37.8℃ 이상 발열 시 안심 가이드를 제공하며, QR 코드 하나로 멀리 있는 가족에게 내 기록을 암호화하여 안전하게 전달합니다.",
+    title: "QR 1회 암호화 가족 연동",
+    body: "QR 1회 암호화 연결 — 환자 수치는 비밀 보장, 원격 가족에겐 안심 일상 전달. 37.8℃ 발열 가이드와 원터치 바이탈 기록도 함께 씁니다.",
   },
 ] as const;
+
+/** 사이트 전역 — 가족 연동 표준 카피 */
+export const familySyncCopy = {
+  tagline:
+    "QR 1회 암호화 연결 — 환자 수치는 비밀 보장, 원격 가족에겐 안심 일상 전달",
+  short: "QR 1회 암호화 연결로 원격 가족과 안심 일상을 나눕니다",
+} as const;
 
 /** 홈 히어로 아래 — 가족 안심 연동 (1순위 스포트라이트). */
 export const homeFamilyCare = {
   eyebrow: "가족 안심 연동",
-  title: "멀리 있어도, 같은 오늘을 함께 봅니다",
-  body: "QR로 연결하면 기록이 암호화되어 보호자 기기에만 읽기 전용으로 전달됩니다. 홈에서 「나」와 가족을 바로 바꾸고, 체온·혈압·복약 변화는 이름과 기록 종류만 알려 드립니다.",
+  title: "멀리 있어도, 안심 일상을 함께",
+  body: `${familySyncCopy.tagline}. 자녀가 QR을 만들면 부모님이 스캔해 연결되고, 알림에는 수치 없이 이름·기록 종류만 들어갑니다.`,
   points: [
     {
-      name: "QR 한 번으로 연결",
+      name: "QR 1회 연결",
       detail: "원하는 가족과만 연결 · 환자→보호자 단방향",
     },
     {
-      name: "보호자 기기에서만 열람",
+      name: "E2EE · 평문 미보관",
       detail: "암호문만 잠시 중계 · 수신 후 전달용 사본 삭제",
     },
     {
-      name: "홈에서 바로 전환",
-      detail: "「나」와 연동 가족을 탭 한 번으로 전환 · 연동을 지워도 「나」는 남음",
+      name: "읽기 전용 원격 확인",
+      detail: "홈에서 「나」와 가족을 바꿔 오늘 상태를 확인",
     },
     {
       name: "수치 없는 알림",
-      detail: "가족 이름·체온·혈압처럼 무엇을 챙길지만 · 수치는 앱에서",
+      detail: "무엇을 챙길지만 알리고 · 상세는 보호자 앱에서",
     },
   ],
   src: "/screenshots/02_family.png",
   alt: "바램 홈 — 가족 기록 읽기 전용",
-  secondarySrc: "/screenshots/01_home.png",
-  secondaryAlt: "바램 홈 — 나와 가족 프로필 전환",
-  ctaHref: "/scenarios/#family",
-  ctaLabel: "사용 예시에서 연동 흐름 보기",
+  secondarySrc: "/screenshots/s_family_qr.png",
+  secondaryAlt: "바램 — 보호자 QR 초대",
+  ctaHref: "/about/#family",
+  ctaLabel: "서비스 소개에서 연동 흐름 보기",
 } as const;
 
 /** 홈 — 오늘 미션 (일상 기록 습관). */
@@ -398,8 +405,8 @@ export const homeTodayMission = {
   alt: "바램 홈 — 오늘 미션",
   secondarySrc: "/screenshots/05_today.png",
   secondaryAlt: "바램 기록 — 오늘 컨디션",
-  ctaHref: "/guide/#today-mission",
-  ctaLabel: "시작 가이드 보기",
+  ctaHref: "/help/#today-mission",
+  ctaLabel: "가이드에서 시작하기",
 } as const;
 
 /** 홈 — 케어 리포트 (치료 맥락 2순위). */
@@ -431,9 +438,94 @@ export const homeCareReport = {
   secondaryAlt: "바램 케어 리포트 — 회복 타임라인",
   tertiarySrc: "/screenshots/15_care_report_toxicity.png",
   tertiaryAlt: "바램 케어 리포트 — 누적 독성",
-  ctaHref: "/scenarios/#care-report",
-  ctaLabel: "사용 예시에서 흐름 보기",
+  ctaHref: "/about/#scenarios",
+  ctaLabel: "서비스 소개에서 흐름 보기",
 } as const;
+
+/** 홈 — 바램 핵심 케어 시스템 탭 */
+export const homeCareSystemTabs = [
+  {
+    id: "family",
+    tabLabel: "가족 연동",
+    emoji: "🔗",
+    ...homeFamilyCare,
+  },
+  {
+    id: "mission",
+    tabLabel: "오늘 미션",
+    emoji: "✅",
+    eyebrow: homeTodayMission.eyebrow,
+    title: homeTodayMission.title,
+    body: homeTodayMission.body,
+    points: homeTodayMission.points,
+    src: homeTodayMission.src,
+    alt: homeTodayMission.alt,
+    secondarySrc: homeTodayMission.secondarySrc,
+    secondaryAlt: homeTodayMission.secondaryAlt,
+    ctaHref: homeTodayMission.ctaHref,
+    ctaLabel: homeTodayMission.ctaLabel,
+  },
+  {
+    id: "report",
+    tabLabel: "케어 리포트",
+    emoji: "📄",
+    eyebrow: homeCareReport.eyebrow,
+    title: homeCareReport.title,
+    body: homeCareReport.body,
+    points: homeCareReport.reports.map((r) => ({
+      name: r.name,
+      detail: r.detail,
+    })),
+    src: homeCareReport.src,
+    alt: homeCareReport.alt,
+    secondarySrc: homeCareReport.secondarySrc,
+    secondaryAlt: homeCareReport.secondaryAlt,
+    ctaHref: homeCareReport.ctaHref,
+    ctaLabel: homeCareReport.ctaLabel,
+  },
+] as const;
+
+/** 홈·가이드 FAQ */
+export const siteFaqs = [
+  {
+    id: "hospital-ocr",
+    question: "다른 대학병원 앱(서울대, 아산, 삼성 등) 스크린샷도 인식되나요?",
+    answer:
+      "네. 주요 대학병원 앱의 검사 결과 화면 캡처와 종이 결과지 사진 모두 기기 안(온디바이스) OCR로 읽어, 검토 후 저장할 수 있습니다. 인식 결과는 항상 직접 확인한 뒤 반영하세요.",
+  },
+  {
+    id: "family-labs",
+    question: "가족 연동을 하면 제 구체적인 피검사 수치가 가족에게 다 보이나요?",
+    answer:
+      "알림에는 수치 없이 이름·기록 종류만 들어갑니다. 보호자 앱에서는 연동된 오늘 기록을 읽기 전용으로 확인할 수 있으며, 전달은 E2EE로 이뤄지고 서버에 평문을 쌓지 않습니다.",
+  },
+  {
+    id: "offline",
+    question: "인터넷이 안 되는 환경(비행기 모드 등)에서도 사용할 수 있나요?",
+    answer:
+      "네. 기본 기록·검사 OCR·그래프·PDF 리포트는 기기 안에서 동작하므로 오프라인에서도 사용할 수 있습니다. 가족 연동 전송·수신만 네트워크가 필요합니다.",
+  },
+  {
+    id: "backup",
+    question: "휴대폰을 교체하면 데이터는 어떻게 옮기나요?",
+    answer:
+      "서버에 계정을 두지 않으므로, 앱 안의 암호화 백업·복원으로 개인 파일 형태로 안전하게 이관할 수 있습니다. 새 기기에서 복원하면 기록을 이어갈 수 있습니다.",
+  },
+] as const;
+
+/** 홈 — 환자·보호자 안심 후기 */
+export const homeTestimonials = [
+  {
+    role: "환자",
+    quote:
+      "대학병원 외래 때 교수님께 A4 리포트를 보여드렸더니, 3분 진료 시간이 훨씬 알차졌어요.",
+  },
+  {
+    role: "보호자",
+    quote:
+      "타지에 계신 부모님을 QR로 연결해 두고, 체온·식사와 오늘 상태를 읽기 전용으로 확인할 수 있어 마음이 놓입니다.",
+  },
+] as const;
 
 export const guideSteps: GuideStep[] = [
   {
@@ -531,12 +623,12 @@ export const featureExperienceTabs: FeatureExperienceTab[] = [
     id: "family-sync",
     emoji: "🔗",
     tabLabel: "P2P 암호화 가족 연동",
-    title: "QR로 연결하고, 암호화해 함께 봅니다",
-    lead: "자녀가 QR을 만들면 부모님이 스캔해 연결됩니다. 기록은 암호화되어 보호자 기기로만 전달되고, 서버에는 평문을 쌓지 않습니다.",
+    title: "QR 1회 암호화 연결로 안심 일상 전달",
+    lead: "QR 1회 암호화 연결 — 환자 수치는 비밀 보장, 원격 가족에겐 안심 일상 전달. 자녀가 QR을 만들면 부모님이 스캔해 연결됩니다.",
     benefits: [
-      "QR 한 번으로 원하는 가족과만 안전하게 연결합니다",
-      "알림·공유는 개인 피검사 수치 없이 컨디션·기록 종류 중심으로",
-      "E2EE로 보호자 기기에만 전달 · 서버에 평문 미보관",
+      "서버에 평문을 쌓지 않고 QR로 원하는 가족과만 1회 연결합니다",
+      "알림에는 수치 없이 컨디션·기록 종류만 전달합니다",
+      "E2EE로 보호자 기기에만 전달 · 읽기 전용으로 확인합니다",
     ],
     badges: ["QR 1회 연결", "E2EE", "읽기 전용"],
     src: "/screenshots/02_family.png",
@@ -848,41 +940,26 @@ export const securityPoints: IconBlurb[] = [
   },
 ];
 
-/** 상단 내비 · 사이트맵용 공개 페이지. */
+/** 상단 내비 · 사이트맵용 공개 페이지 (4대 메뉴). */
 export const sitePages = [
   {
-    href: "/for-whom/",
-    label: "이런 분께",
-    blurb: "치료·가족 연동·회복에 맞춰 쓰는 이유",
-  },
-  {
-    href: "/scenarios/",
-    label: "사용 예시",
-    blurb: "항암 주간·가족 연동·외래·케어 리포트, 이럴 때 이렇게",
-  },
-  {
-    href: "/guide/",
-    label: "시작 가이드",
-    blurb: "첫 주에 이것만 하면 됩니다",
+    href: "/about/",
+    label: "서비스 소개",
+    blurb: "이런 분께 + 환자·보호자 활용 시나리오",
   },
   {
     href: "/features/",
-    label: "기능 소개",
-    blurb: "오늘 미션·가족 연동·간편사용·복약·케어 리포트·검사 OCR",
-  },
-  {
-    href: "/tour/",
-    label: "앱 둘러보기",
-    blurb: "홈·가족·간편사용·복약·검사·기록 실제 화면",
+    label: "주요 기능",
+    blurb: "4대 핵심 기능 체험 + 실제 화면 둘러보기",
   },
   {
     href: "/security/",
     label: "데이터 보안",
-    blurb: "기기 안 암호화·선택적 가족 연동",
+    blurb: "온디바이스 보관 · E2EE 가족 연동",
   },
   {
-    href: "/contact/",
-    label: "고객 문의",
-    blurb: "이메일로 문의하기",
+    href: "/help/",
+    label: "가이드 & FAQ",
+    blurb: "퀵스타트 · 자주 묻는 질문 · 고객 문의",
   },
 ] as const;
