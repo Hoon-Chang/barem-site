@@ -43,6 +43,19 @@ export type DeepFeature = {
   secondaryAlt?: string;
 };
 
+/** /features — 탭 기반 핵심 기능 체험 */
+export type FeatureExperienceTab = {
+  id: string;
+  emoji: string;
+  tabLabel: string;
+  title: string;
+  lead: string;
+  benefits: string[];
+  badges: string[];
+  src: string;
+  alt: string;
+};
+
 export type IconBlurb = {
   icon: LucideIcon;
   title: string;
@@ -464,6 +477,104 @@ export const guideSteps: GuideStep[] = [
     alt: "바램 프로필·가족 연동·잠금 화면",
     secondarySrc: "/screenshots/02_family.png",
     secondaryAlt: "바램 홈 — 가족 기록 읽기 전용",
+  },
+];
+
+/** /features — 4대 핵심 기능 체험 탭 */
+export const featureExperienceTabs: FeatureExperienceTab[] = [
+  {
+    id: "labs-ocr",
+    emoji: "📊",
+    tabLabel: "검사결과 OCR & 그래프",
+    title: "캡처 한 장이면 수치·그래프까지",
+    lead: "병원 앱·종이 결과지를 찍으면 기기 안에서 OCR이 수치를 읽고, 정상 범위 밴드와 함께 추이를 보여 줍니다.",
+    benefits: [
+      "결과지·캡처 한 장으로 입력 부담을 줄입니다",
+      "ANC·WBC·Hb·PLT 등 핵심 수치를 정상 구간과 함께 봅니다",
+      "7일·30일·차수별 비교로 외래 전 변화를 미리 정리합니다",
+    ],
+    badges: ["기기 안 OCR", "정상 범위 밴드", "차수·기간 비교"],
+    src: "/screenshots/04_lab_chart.png",
+    alt: "바램 검사 — 수치 추이 차트",
+  },
+  {
+    id: "fever-guide",
+    emoji: "🌡️",
+    tabLabel: "37.8℃ 발열 안심 가이드",
+    title: "원터치 체온 기록과 발열 가이드",
+    lead: "체온을 빠르게 남기고, 37.8℃ 이상이면 바로 안심 가이드를 보여 드려 재택 중 불안을 줄입니다.",
+    benefits: [
+      "홈·기록에서 체온을 원터치로 남깁니다",
+      "37.8℃ 이상이면 안심 가이드를 바로 안내합니다",
+      "발열·바이탈 추이로 외래 전 흐름을 한눈에 봅니다",
+    ],
+    badges: ["37.8℃ 기준", "원터치 기록", "안심 가이드"],
+    src: "/screenshots/s01_daily.png",
+    alt: "바램 기록 — 체온·바이탈",
+  },
+  {
+    id: "care-briefing",
+    emoji: "📄",
+    tabLabel: "1페이지 진료 브리핑",
+    title: "3분 외래를 위한 A4 1장 브리핑",
+    lead: "재택 기간의 최고 체온·체중 변화·사전 질문을 한 페이지로 모아 진료실에서 바로 보여 드리거나 PDF로 챙깁니다.",
+    benefits: [
+      "발열·체중·물어볼 질문을 A4 1장으로 요약합니다",
+      "홈에서 케어 리포트로 바로 열어 외래 전에 점검합니다",
+      "회복 타임라인·독성·영양 탭으로 이어서 볼 수 있습니다",
+    ],
+    badges: ["A4 1장", "발열·체중·질문", "PDF 준비"],
+    src: "/screenshots/13_care_report_briefing.png",
+    alt: "바램 케어 리포트 — 진료 브리핑",
+  },
+  {
+    id: "family-sync",
+    emoji: "🔗",
+    tabLabel: "P2P 암호화 가족 연동",
+    title: "QR로 연결하고, 암호화해 함께 봅니다",
+    lead: "자녀가 QR을 만들면 부모님이 스캔해 연결됩니다. 기록은 암호화되어 보호자 기기로만 전달되고, 서버에는 평문을 쌓지 않습니다.",
+    benefits: [
+      "QR 한 번으로 원하는 가족과만 안전하게 연결합니다",
+      "알림·공유는 개인 피검사 수치 없이 컨디션·기록 종류 중심으로",
+      "E2EE로 보호자 기기에만 전달 · 서버에 평문 미보관",
+    ],
+    badges: ["QR 1회 연결", "E2EE", "읽기 전용"],
+    src: "/screenshots/02_family.png",
+    alt: "바램 홈 — 가족 기록 읽기 전용",
+  },
+] as const;
+
+/** /features — 체험 탭 외 보조 기능 (기존 highlights에서 핵심만) */
+export const featureMoreHighlights: IconBlurb[] = [
+  {
+    icon: ClipboardCheck,
+    title: "오늘 미션",
+    body: "오늘 챙길 한 가지를 홈에서 바로 안내합니다. 식사는 아침·점심·저녁을 모두 남겨야 완료로 표시됩니다.",
+  },
+  {
+    icon: Type,
+    title: "간편사용",
+    body: "오늘·약·더보기 세 탭과 큰 글씨로, 기력이 없을 때도 기록만 먼저 남길 수 있습니다.",
+  },
+  {
+    icon: Bell,
+    title: "복약 알림",
+    body: "약 이름과 시각만 넣으면 알려 드리고, 「먹었어요」로 확인합니다. 가족 연동 시 미복용은 수치 없이 알려 드립니다.",
+  },
+  {
+    icon: GitCompareArrows,
+    title: "차수별 비교",
+    body: "항암 차수를 골라 검사·체중·식사를 나란히 비교하고, 상담 참고용으로 모아 둡니다.",
+  },
+  {
+    icon: Utensils,
+    title: "자연어 식단",
+    body: "평소 말하듯 식사를 적으면 칼로리·단백질 참고값을 계산합니다.",
+  },
+  {
+    icon: Lock,
+    title: "잠금·프라이버시",
+    body: "Face ID·지문·기기 암호 잠금과 앱 전환 시 화면 가림으로 민감한 기록을 지킵니다.",
   },
 ];
 
