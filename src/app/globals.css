@@ -55,6 +55,85 @@ body {
   .animate-\[fade-rise_0\.7s_ease-out_both\] {
     animation: none !important;
   }
+
+  .hero-ocr-paper,
+  .hero-ocr-chart,
+  .hero-ocr-scan {
+    animation: none !important;
+  }
+
+  .hero-ocr-paper {
+    opacity: 0 !important;
+  }
+
+  .hero-ocr-chart {
+    opacity: 1 !important;
+  }
+}
+
+/* Hero: lab capture → ANC chart loop (~6.5s) */
+@keyframes hero-ocr-paper {
+  0%,
+  38% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  48%,
+  92% {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes hero-ocr-chart {
+  0%,
+  40% {
+    opacity: 0;
+  }
+  50%,
+  88% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes hero-ocr-scan {
+  0%,
+  8% {
+    top: 14%;
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  40% {
+    top: 78%;
+    opacity: 1;
+  }
+  45%,
+  100% {
+    top: 78%;
+    opacity: 0;
+  }
+}
+
+.hero-ocr-paper {
+  animation: hero-ocr-paper 6.5s ease-in-out infinite;
+}
+
+.hero-ocr-chart {
+  opacity: 0;
+  animation: hero-ocr-chart 6.5s ease-in-out infinite;
+}
+
+.hero-ocr-scan {
+  animation: hero-ocr-scan 6.5s ease-in-out infinite;
 }
 
 .prose-legal h2 {

@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { PhoneShot } from "../components/phone-shot";
+import { HeroOcrDemo } from "../components/hero-ocr-demo";
+import { HeroTrustBadges } from "../components/hero-trust-badges";
 import { SiteImage } from "../components/site-image";
 import { StoreButtons } from "../components/store-buttons";
 import { DownloadBand } from "../components/page-chrome";
@@ -40,7 +42,10 @@ export default function HomePage() {
                 </p>
               </div>
             </div>
-            <h1 className="mt-8 max-w-xl text-[1.65rem] font-semibold leading-snug tracking-tight text-ink sm:text-3xl">
+
+            <HeroTrustBadges />
+
+            <h1 className="mt-5 max-w-xl text-[1.65rem] font-semibold leading-snug tracking-tight text-ink sm:text-3xl">
               완치를 향한 매일의 발걸음,
               <br />
               서버 전송 없는 100% 안심 검사노트
@@ -52,12 +57,9 @@ export default function HomePage() {
             <div id="download" className="mt-8 scroll-mt-24">
               <StoreButtons />
             </div>
-            <p className="mt-5 inline-flex max-w-lg flex-col gap-1 rounded-xl border border-green/20 bg-white/70 px-3.5 py-2.5 text-sm font-medium leading-snug text-green-deep sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-3 sm:gap-y-1">
-              <span>✓ 회원가입 없이 즉시 사용</span>
-              <span className="hidden text-green/40 sm:inline" aria-hidden>
-                ·
-              </span>
-              <span>✓ 100% 스마트폰 내부 암호화 보관</span>
+            <p className="mt-3 max-w-lg text-[13px] font-medium leading-relaxed text-green-deep sm:text-sm">
+              ※ 어떠한 개인정보도 외부 서버로 전송되지 않으며, 비행기
+              모드에서도 100% 정상 작동합니다.
             </p>
             <p className="mt-5 text-sm text-muted">
               <Link
@@ -75,23 +77,22 @@ export default function HomePage() {
               className="absolute left-1/2 top-1/2 h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full bg-green/15 blur-3xl"
             />
             <div className="relative flex items-end justify-center gap-3 sm:gap-4">
-              <div className="hidden w-[38%] translate-y-8 opacity-90 sm:block">
+              <div className="hidden w-[34%] translate-y-10 opacity-85 sm:block">
                 <PhoneShot
-                  src="/screenshots/05_today.png"
-                  alt="바램 기록 화면"
+                  src="/screenshots/03_labs.png"
+                  alt="바램 검사 목록"
                 />
               </div>
-              <div className="z-10 w-[58%] sm:w-[48%]">
+              <div className="z-10 w-[72%] sm:w-[58%]">
+                <HeroOcrDemo />
+                <p className="mt-3 text-center text-[12px] font-medium text-muted">
+                  캡처 → ANC(호중구) 추이 그래프
+                </p>
+              </div>
+              <div className="hidden w-[34%] translate-y-10 opacity-85 sm:block">
                 <PhoneShot
                   src="/screenshots/01_home.png"
                   alt="바램 홈 화면"
-                  priority
-                />
-              </div>
-              <div className="hidden w-[38%] translate-y-8 opacity-90 sm:block">
-                <PhoneShot
-                  src="/screenshots/03_labs.png"
-                  alt="바램 검사 화면"
                 />
               </div>
             </div>
