@@ -32,11 +32,11 @@ export const siteConfig = {
     /** 영문 상호 (푸터·조직 인증용 — 반드시 영문 BAREM 노출) */
     legalNameEn: "BAREM",
     /** 국문 상호 / 앱 표시명 */
-    appNameKo: "바램 - 건강 기록",
-    appNameEn: "BAREM - Health Tracker",
+    appNameKo: "바램 - 안심 검사결과 노트",
+    appNameEn: "BAREM - On-device Lab Notebook",
     shortNameKo: "바램",
     shortNameEn: "BAREM",
-    taglineKo: "완치를 향한 매일의 발걸음",
+    taglineKo: "완치를 향한 매일의 발걸음, 서버 전송 없는 100% 안심 검사노트",
   },
 
   business: {
@@ -78,11 +78,12 @@ export const siteConfig = {
   },
 
   seo: {
-    titleKo: "바램 - 건강 기록 | BAREM",
+    titleKo:
+      "바램 - 암 환자를 위한 안심 검사결과 노트 | 항암 피검사 & 체력 관리",
     descriptionKo:
-      "오늘 기록, 한 화면에. 검사·컨디션·일정을 한눈에 모으고, 맞춤 홈·검사 OCR·케어 리포트까지. 기본 기록은 내 기기에만.",
+      "서버 전송 없는 100% 온디바이스 안심 건강노트. 항암 피검사(ANC) 수치 그래프, 37.8℃ 발열 체크, 1페이지 외래 진료 브리핑 리포트까지 바램으로 한눈에 관리하세요.",
     descriptionEn:
-      "Today’s health records in one view — labs, vitals, and schedules. Custom home, lab OCR, and care reports. Data stays on your device by default.",
+      "100% on-device health notebook—no cloud upload of your records by default. Track ANC labs, fever checks, and a one-page clinic briefing with Barem.",
     ogLocale: "ko_KR",
   },
 } as const;

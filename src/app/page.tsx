@@ -5,6 +5,7 @@ import { StoreButtons } from "../components/store-buttons";
 import { DownloadBand } from "../components/page-chrome";
 import {
   homeCareReport,
+  homeCoreFeatures,
   homeFamilyCare,
   homeTodayMission,
   sitePages,
@@ -39,16 +40,25 @@ export default function HomePage() {
                 </p>
               </div>
             </div>
-            <h1 className="mt-8 max-w-xl text-2xl font-semibold leading-snug tracking-tight text-ink sm:text-3xl">
-              오늘 기록, 한 화면에
+            <h1 className="mt-8 max-w-xl text-[1.65rem] font-semibold leading-snug tracking-tight text-ink sm:text-3xl">
+              완치를 향한 매일의 발걸음,
+              <br />
+              서버 전송 없는 100% 안심 검사노트
             </h1>
             <p className="mt-4 max-w-lg text-base leading-relaxed text-muted sm:text-lg">
-              검사 · 컨디션 · 일정을 한눈에. 치료 중이든 일상 건강 관리든,
-              기본 기록은 내 기기에만 둡니다.
+              불안한 피검사 수치 추이부터 매일의 체온·식사, 3분 외래 진료
+              준비까지 — 바램이 곁에서 함께합니다.
             </p>
             <div id="download" className="mt-8 scroll-mt-24">
               <StoreButtons />
             </div>
+            <p className="mt-5 inline-flex max-w-lg flex-col gap-1 rounded-xl border border-green/20 bg-white/70 px-3.5 py-2.5 text-sm font-medium leading-snug text-green-deep sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-3 sm:gap-y-1">
+              <span>✓ 회원가입 없이 즉시 사용</span>
+              <span className="hidden text-green/40 sm:inline" aria-hidden>
+                ·
+              </span>
+              <span>✓ 100% 스마트폰 내부 암호화 보관</span>
+            </p>
             <p className="mt-5 text-sm text-muted">
               <Link
                 href="/for-whom/"
@@ -90,6 +100,32 @@ export default function HomePage() {
       </section>
 
       <section className="border-t border-line bg-surface">
+        <div className="mx-auto max-w-5xl px-5 py-14 sm:px-8 sm:py-16">
+          <p className="text-xs font-semibold tracking-[0.16em] text-green uppercase">
+            핵심 기능
+          </p>
+          <h2 className="mt-2 max-w-2xl text-xl font-semibold tracking-tight text-ink sm:text-2xl">
+            안심하고 남기고, 외래 전에 한눈에
+          </h2>
+          <ul className="mt-8 grid gap-4 sm:grid-cols-2">
+            {homeCoreFeatures.map((feature) => (
+              <li
+                key={feature.title}
+                className="rounded-2xl border border-line bg-cream px-5 py-5 sm:px-6 sm:py-6"
+              >
+                <h3 className="text-base font-semibold leading-snug tracking-tight text-ink sm:text-lg">
+                  {feature.title}
+                </h3>
+                <p className="mt-2.5 text-sm leading-relaxed text-muted sm:text-[0.95rem]">
+                  {feature.body}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="border-t border-line">
         <div className="mx-auto grid max-w-5xl items-center gap-10 px-5 py-14 sm:px-8 sm:py-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
           <div>
             <p className="text-xs font-semibold tracking-[0.16em] text-green uppercase">
@@ -140,7 +176,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="border-t border-line">
+      <section className="border-t border-line bg-surface">
         <div className="mx-auto grid max-w-5xl items-center gap-10 px-5 py-14 sm:px-8 sm:py-16 lg:grid-cols-[0.95fr_1.05fr] lg:gap-12">
           <div className="flex flex-wrap items-end justify-center gap-2 sm:gap-3 lg:order-1">
             <div className="w-[min(46%,220px)]">
@@ -194,7 +230,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="border-t border-line bg-surface">
+      <section className="border-t border-line">
         <div className="mx-auto grid max-w-5xl items-center gap-10 px-5 py-14 sm:px-8 sm:py-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
           <div>
             <p className="text-xs font-semibold tracking-[0.16em] text-green uppercase">

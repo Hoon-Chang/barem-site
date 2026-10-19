@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { siteConfig } from "../../site.config";
-import { sitePages } from "../content/marketing";
 import { SiteImage } from "./site-image";
 
 export function SiteFooter() {
@@ -43,19 +42,23 @@ export function SiteFooter() {
           </a>
         </p>
 
+        <p className="max-w-3xl text-xs leading-relaxed text-white/55">
+          ※ 바램(Barem)은 의료기기가 아니며 의학적 진단, 치료, 또는 처방을
+          제공하지 않습니다. 앱에서 제공되는 정보는 참고용이며, 모든 의학적
+          결정은 반드시 담당 전문의와 상담하십시오.
+        </p>
+
         <div className="flex flex-col gap-3 border-t border-white/10 pt-5 text-xs text-white/55 sm:flex-row sm:items-center sm:justify-between">
-          <p>© 2026 {brand.legalNameEn}</p>
+          <p>© {brand.legalNameEn === "BAREM" ? "Barem" : brand.legalNameEn}. All rights reserved.</p>
           <div className="flex flex-wrap gap-4">
-            {sitePages.slice(0, 3).map((page) => (
-              <Link key={page.href} href={page.href} className="hover:text-white">
-                {page.label}
-              </Link>
-            ))}
             <Link href="/privacy/" className="hover:text-white">
-              개인정보처리방침
+              개인정보 처리방침
             </Link>
             <Link href="/terms/" className="hover:text-white">
               이용약관
+            </Link>
+            <Link href="/contact/" className="hover:text-white">
+              개발자 문의
             </Link>
           </div>
         </div>

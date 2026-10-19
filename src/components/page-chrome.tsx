@@ -16,11 +16,12 @@ export function DownloadBand() {
             className="rounded-[22%]"
           />
           <div>
-            <h2 className="text-2xl font-semibold tracking-tight text-ink">
-              지금 바로 시작하세요
+            <h2 className="text-2xl font-semibold tracking-tight text-ink sm:text-[1.65rem]">
+              완치를 향한 매일의 안심 기록, 지금 시작하세요
             </h2>
-            <p className="mt-2 text-muted">
-              App Store와 Google Play에서 바로 다운로드할 수 있어요.
+            <p className="mt-2 max-w-xl text-base leading-relaxed text-muted">
+              가입 절차와 데이터 유출 걱정 없이, 설치 즉시 내 폰 안에서 안전하게
+              시작하실 수 있습니다.
             </p>
           </div>
         </div>

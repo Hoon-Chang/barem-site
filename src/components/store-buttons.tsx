@@ -12,7 +12,7 @@ function StoreButton({
   disabled?: boolean;
 }) {
   const className =
-    "inline-flex min-w-[11.5rem] flex-col rounded-xl border px-4 py-3 text-left transition " +
+    "inline-flex min-w-[13.5rem] flex-col rounded-xl border px-4 py-3 text-left transition " +
     (disabled
       ? "cursor-default border-line bg-white/60 text-muted"
       : "border-green/30 bg-green text-white hover:bg-green-deep");
@@ -50,13 +50,15 @@ export function StoreButtons({ className = "" }: { className?: string }) {
         href={stores.appStoreUrl || undefined}
         disabled={!appReady}
         subtitle={appReady ? "Download on the" : "Coming soon on the"}
-        title="App Store"
+        title={appReady ? "App Store에서 다운로드" : "App Store"}
       />
       <StoreButton
         href={stores.playStoreUrl || undefined}
         disabled={!playReady}
         subtitle={playReady ? "Get it on" : stores.playComingSoonLabelEn}
-        title={playReady ? "Google Play" : stores.playComingSoonLabelKo}
+        title={
+          playReady ? "Google Play에서 다운로드" : stores.playComingSoonLabelKo
+        }
       />
     </div>
   );
