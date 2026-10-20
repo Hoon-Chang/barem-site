@@ -109,8 +109,8 @@ export const scenarioPlaybooks = [
     id: "chemo-cycle",
     tabLabel: "항암 3주 주기",
     emoji: "🩺",
-    title: "항암 3주 주기 환자 활용 예시",
-    lead: "투여일부터 외래까지, 오늘 필요한 기록만 순서대로 남기면 됩니다.",
+    title: "항암 3주 주기로 항암일지 남기기",
+    lead: "투여일(D0)부터 외래까지, 항암일기·항암일지에 오늘 필요한 기록만 순서대로 남기면 됩니다.",
     steps: [
       {
         label: "D0 · 항암 투여일",

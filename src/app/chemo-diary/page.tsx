@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { DownloadBand, PageShell, TextLink } from "../../components/page-chrome";
+import { ScenarioPlaybookSteps } from "../../components/scenario-playbook-steps";
+import { scenarioPlaybooks } from "../../content/marketing";
 import { absoluteUrl, siteConfig } from "../../../site.config";
 
 const pageDescription =
   "항암일지·항암일기를 종이 대신 앱으로. 바램은 항암 차수·피검사·체온·식사·일정을 기기에만 모아, 외래 전 진료 브리핑까지 정리합니다.";
+
+const chemoCycle =
+  scenarioPlaybooks.find((p) => p.id === "chemo-cycle") ?? scenarioPlaybooks[0];
 
 export const metadata: Metadata = {
   title: "항암일지·항암일기 앱 | 바램",
@@ -27,25 +32,6 @@ export const metadata: Metadata = {
     url: absoluteUrl("/chemo-diary/"),
   },
 };
-
-const steps = [
-  {
-    title: "투여일(D0)과 차수를 먼저 남깁니다",
-    body: "항암일지의 기준은 날짜순보다 주기입니다. 바램에 항암 투여일과 차수를 등록하면 이후 기록이 D+N으로 묶입니다.",
-  },
-  {
-    title: "체온·증상·식사를 하루 한 줄이라도",
-    body: "힘든 날에는 빈칸을 다 채우지 않아도 됩니다. 발열·컨디션·식사만 남겨도 외래에서 말할 근거가 됩니다.",
-  },
-  {
-    title: "피검사 결과지를 찍어 추이로 봅니다",
-    body: "병원 앱 캡처나 종이 결과지를 OCR로 읽고, ANC·WBC 등 수치를 차수별로 비교할 수 있습니다.",
-  },
-  {
-    title: "외래 전에 1페이지로 모읍니다",
-    body: "진료 브리핑 리포트로 최고 체온·체중·질문·영양을 A4 한 장에 모아 상담 준비를 합니다.",
-  },
-] as const;
 
 const faqs = [
   {
@@ -130,28 +116,18 @@ export default function ChemoDiaryPage() {
             </ul>
           </section>
 
-          <section>
-            <h2 className="text-xl font-semibold tracking-tight text-ink sm:text-2xl">
-              첫 주 항암일기 쓰는 법
-            </h2>
-            <ol className="mt-6 space-y-5">
-              {steps.map((step, i) => (
-                <li
-                  key={step.title}
-                  className="rounded-2xl border border-line bg-surface px-5 py-5"
-                >
-                  <p className="text-xs font-semibold tracking-[0.14em] text-green uppercase">
-                    STEP {i + 1}
-                  </p>
-                  <h3 className="mt-2 text-base font-semibold text-ink sm:text-lg">
-                    {step.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted sm:text-[0.95rem]">
-                    {step.body}
-                  </p>
-                </li>
-              ))}
-            </ol>
+          <section id="chemo-cycle" className="scroll-mt-24">
+            <ScenarioPlaybookSteps
+              playbook={chemoCycle}
+              eyebrow="항암 3주 주기"
+              title="항암 3주 주기로 항암일지 남기기"
+              lead="투여일(D0)부터 외래까지, 항암일기·항암일지에 오늘 필요한 기록만 순서대로 남기면 됩니다. 서비스 소개와 같은 활용 흐름입니다."
+            />
+            <p className="mt-6 text-sm text-muted">
+              원격 가족 연동 시나리오는{" "}
+              <TextLink href="/about/#family">서비스 소개</TextLink>
+              에서 이어서 볼 수 있습니다.
+            </p>
           </section>
 
           <section>
@@ -172,7 +148,7 @@ export default function ChemoDiaryPage() {
 
           <p className="text-sm text-muted">
             더 알아보기:{" "}
-            <TextLink href="/about/">서비스 소개</TextLink>
+            <TextLink href="/about/#chemo-cycle">서비스 소개</TextLink>
             <span className="mx-2 text-line">·</span>
             <TextLink href="/features/">주요 기능</TextLink>
             <span className="mx-2 text-line">·</span>
