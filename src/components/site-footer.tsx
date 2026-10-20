@@ -15,7 +15,7 @@ export function SiteFooter() {
       <div className="mx-auto flex max-w-5xl flex-col gap-6 px-5 py-10 sm:px-8">
         <div className="flex flex-wrap items-center gap-3">
           <SiteImage
-            src="/brand/barem_icon.png"
+            src="/brand/logo.png"
             alt=""
             width={36}
             height={36}

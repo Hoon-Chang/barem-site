@@ -71,8 +71,11 @@ export const metadata: Metadata = {
     images: [absoluteUrl("/brand/barem_icon_lg.png")],
   },
   icons: {
-    icon: withBase("/brand/barem_icon.png"),
-    apple: withBase("/brand/barem_icon.png"),
+    icon: [
+      { url: withBase("/favicon.ico"), sizes: "48x48", type: "image/x-icon" },
+      { url: withBase("/brand/logo.png"), sizes: "512x512", type: "image/png" },
+    ],
+    apple: withBase("/brand/logo.png"),
   },
   robots: { index: true, follow: true },
   ...(siteConfig.googleSiteVerification

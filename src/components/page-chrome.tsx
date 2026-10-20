@@ -9,7 +9,7 @@ export function DownloadBand() {
       <div className="mx-auto flex max-w-5xl flex-col items-start gap-6 px-5 py-16 sm:px-8 sm:py-20 md:flex-row md:items-center md:justify-between">
         <div className="flex items-start gap-4">
           <SiteImage
-            src="/brand/barem_icon.png"
+            src="/brand/logo.png"
             alt=""
             width={48}
             height={48}

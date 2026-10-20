@@ -19,7 +19,7 @@ export function BrandLogo({
   return (
     <span className={`inline-flex items-center gap-2.5 ${className}`}>
       <SiteImage
-        src="/brand/barem_icon.png"
+        src="/brand/logo.png"
         alt=""
         width={size}
         height={size}
