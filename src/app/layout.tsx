@@ -73,9 +73,9 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: withBase("/favicon.ico"), sizes: "48x48", type: "image/x-icon" },
-      { url: withBase("/brand/logo.png"), sizes: "512x512", type: "image/png" },
+      { url: withBase("/icon.png"), type: "image/png" },
     ],
-    apple: withBase("/brand/logo.png"),
+    apple: withBase("/apple-icon.png"),
   },
   robots: { index: true, follow: true },
   ...(siteConfig.googleSiteVerification
