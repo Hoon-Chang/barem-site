@@ -17,7 +17,7 @@ export default function FeaturesPage() {
         surface
         eyebrow="주요 기능"
         title="핵심 기능을 탭으로 체험하세요"
-        lead="검사 OCR, 발열 가이드, 진료 브리핑, 가족 연동 — 네 가지를 고른 뒤, 아래에서 실제 화면까지 이어서 보세요."
+        lead="항암일기, 검사 OCR, 발열 가이드, 진료 브리핑, 가족 연동 — 골라 본 뒤, 아래에서 실제 화면까지 이어서 보세요."
       >
         <FeaturesContent />
       </PageShell>

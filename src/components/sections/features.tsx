@@ -17,6 +17,9 @@ function tabIdFromHash(hash: string): string | null {
   if (id === "labs" || id === "ocr") return "labs-ocr";
   if (id === "fever") return "fever-guide";
   if (id === "briefing" || id === "report") return "care-briefing";
+  if (id === "chemo" || id === "diary" || id === "chemo-diary") {
+    return "chemo-diary";
+  }
   return null;
 }
 
@@ -137,7 +140,7 @@ export function FeaturesContent() {
           일상 기록까지 같은 앱에서
         </h2>
         <p className="mt-2 max-w-2xl text-base leading-relaxed text-muted">
-          핵심 네 가지 외에, 오늘 미션·간편사용·복약·잠금도 이어서 쓸 수
+          핵심 기능 외에, 오늘 미션·간편사용·복약·잠금도 이어서 쓸 수
           있습니다.
         </p>
 

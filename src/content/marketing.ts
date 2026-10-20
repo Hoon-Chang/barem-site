@@ -442,8 +442,41 @@ export const homeCareReport = {
   ctaLabel: "서비스 소개에서 흐름 보기",
 } as const;
 
+/** 홈 — 항암일기·항암일지 */
+export const homeChemoDiary = {
+  eyebrow: "항암일기 · 항암일지",
+  title: "종이 일지 대신, 투여일 기준으로 남깁니다",
+  body: "항암일기·항암일지를 쓰는 분들이 피검사 추이, 발열 체크, 차수 비교, 외래 전 요약을 한 앱에서 이어갈 수 있습니다.",
+  points: [
+    {
+      name: "투여일(D0)·차수",
+      detail: "날짜순이 아니라 주기 기준으로 기록을 묶습니다",
+    },
+    {
+      name: "피검사·체온·식사",
+      detail: "결과지 OCR과 매일의 컨디션을 한곳에 모읍니다",
+    },
+    {
+      name: "외래 전 요약",
+      detail: "진료 브리핑으로 짧은 상담 시간을 준비합니다",
+    },
+  ],
+  src: "/screenshots/06_schedule.png",
+  alt: "바램 일정 — 항암 차수·투여일",
+  secondarySrc: "/screenshots/04_lab_chart.png",
+  secondaryAlt: "바램 검사 — 수치 추이 차트",
+  ctaHref: "/chemo-diary/",
+  ctaLabel: "항암일지·항암일기 가이드 보기",
+} as const;
+
 /** 홈 — 바램 핵심 케어 시스템 탭 */
 export const homeCareSystemTabs = [
+  {
+    id: "chemo-diary",
+    tabLabel: "항암일기",
+    emoji: "📔",
+    ...homeChemoDiary,
+  },
   {
     id: "family",
     tabLabel: "가족 연동",
@@ -578,8 +611,23 @@ export const guideSteps: GuideStep[] = [
   },
 ];
 
-/** /features — 4대 핵심 기능 체험 탭 */
+/** /features — 핵심 기능 체험 탭 */
 export const featureExperienceTabs: FeatureExperienceTab[] = [
+  {
+    id: "chemo-diary",
+    emoji: "📔",
+    tabLabel: "항암일기",
+    title: "항암일기·항암일지를 앱으로 이어갑니다",
+    lead: "투여일(D0)과 차수를 기준으로 피검사·체온·식사를 모으고, 외래 전에는 진료 브리핑으로 정리합니다. 기록은 기기에만 암호화해 둡니다.",
+    benefits: [
+      "항암일기·항암일지를 찾는 분들이 한 앱에서 기록을 이어갈 수 있습니다",
+      "투여일과 차수로 묶어 날짜순 나열보다 진료에 쓰기 쉽게 정리합니다",
+      "피검사 추이·발열 체크·가족 연동까지 같은 흐름으로 이어집니다",
+    ],
+    badges: ["차수 기준", "온디바이스", "외래 준비"],
+    src: "/screenshots/06_schedule.png",
+    alt: "바램 일정 — 항암 차수·투여일",
+  },
   {
     id: "labs-ocr",
     emoji: "📊",
@@ -956,7 +1004,7 @@ export const sitePages = [
   {
     href: "/features/",
     label: "주요 기능",
-    blurb: "4대 핵심 기능 체험 + 실제 화면 둘러보기",
+    blurb: "항암일기·검사·발열·브리핑·가족 연동 체험 + 화면 둘러보기",
   },
   {
     href: "/security/",

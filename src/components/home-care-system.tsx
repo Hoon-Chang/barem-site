@@ -17,7 +17,7 @@ export function HomeCareSystem() {
           바램 핵심 케어 시스템
         </p>
         <h2 className="mt-2 max-w-2xl text-xl font-semibold tracking-tight text-ink sm:text-2xl">
-          가족 연동 · 오늘 미션 · 케어 리포트를 한곳에서
+          항암일기 · 가족 연동 · 오늘 미션 · 케어 리포트를 한곳에서
         </h2>
         <p className="mt-2 max-w-2xl text-base leading-relaxed text-muted">
           탭을 바꿔 가며 핵심 흐름만 빠르게 확인하세요.
