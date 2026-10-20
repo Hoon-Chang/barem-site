@@ -71,11 +71,26 @@ export const metadata: Metadata = {
     images: [absoluteUrl("/brand/barem_icon_lg.png")],
   },
   icons: {
+    // Do not link /favicon.ico — Cloudflare still serves a stale Next.js
+    // default triangle at that path. Use versioned logo assets instead.
     icon: [
-      { url: withBase("/favicon.ico"), sizes: "48x48", type: "image/x-icon" },
-      { url: withBase("/icon.png"), type: "image/png" },
+      {
+        url: `${withBase("/icon.png")}?v=20261020c`,
+        type: "image/png",
+        sizes: "32x32",
+      },
+      {
+        url: `${withBase("/brand/favicon-32.png")}?v=20261020c`,
+        type: "image/png",
+        sizes: "32x32",
+      },
+      {
+        url: `${withBase("/brand/barem-favicon.ico")}?v=20261020c`,
+        type: "image/x-icon",
+        sizes: "48x48",
+      },
     ],
-    apple: withBase("/apple-icon.png"),
+    apple: `${withBase("/apple-icon.png")}?v=20261020c`,
   },
   robots: { index: true, follow: true },
   ...(siteConfig.googleSiteVerification
