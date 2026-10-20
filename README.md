@@ -137,4 +137,4 @@ git add docs && git commit -m "Deploy site" && git push origin main
 | `/robots.txt` | 크롤러 허용 |
 | `/sitemap.xml` | 사이트맵 |
 
-문의: skywing090809@gmail.com
+문의: barem.health@gmail.com

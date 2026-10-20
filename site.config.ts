@@ -43,8 +43,8 @@ export const siteConfig = {
     /** 개인사업자 | 법인 등 */
     typeKo: "개인사업자",
     typeEn: "Sole Proprietorship",
-    /** 대표자명 */
-    representative: "장훈",
+    /** 대표자명 (비우면 푸터·약관에 표시하지 않음) */
+    representative: "",
     /** 사업자등록번호 (하이픈 포함 권장) */
     registrationNumber: "000-00-00000",
     /** 사업장 주소 (선택 — 필요 시 푸터에 표시) */
@@ -52,9 +52,9 @@ export const siteConfig = {
   },
 
   contact: {
-    email: "skywing090809@gmail.com",
+    email: "barem.health@gmail.com",
     /** 고객 지원용 추가 이메일 (같으면 위와 동일하게) */
-    supportEmail: "skywing090809@gmail.com",
+    supportEmail: "barem.health@gmail.com",
   },
 
   privacy: {

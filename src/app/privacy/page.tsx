@@ -244,7 +244,9 @@ export default function PrivacyPage() {
           <ul>
             <li>상호 / Legal name: {brand.legalNameEn}</li>
             <li>사업자 유형: {business.typeKo} ({business.typeEn})</li>
-            <li>대표: {business.representative}</li>
+            {business.representative ? (
+              <li>대표: {business.representative}</li>
+            ) : null}
             <li>이메일: {contact.supportEmail}</li>
             <li>시행일: {privacy.effectiveDateKo}</li>
           </ul>
