@@ -115,7 +115,7 @@ export default function ChemoDiaryPage() {
             </h2>
             <ul className="mt-6 space-y-4 text-base leading-relaxed text-muted">
               <li>
-                <span className="font-semibold text-ink">검색어와의 연결:</span>{" "}
+                <span className="font-semibold text-ink">일지에서 진료까지:</span>{" "}
                 항암일기·항암일지를 찾는 분들이 피검사 추이, 발열 체크, 차수
                 비교, 가족 연동까지 한 앱에서 이어갈 수 있습니다.
               </li>
