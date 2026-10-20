@@ -9,7 +9,7 @@ import { fileURLToPath } from "node:url";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const outDir = join(root, "out");
-const origin = "https://hoon-chang.github.io/barem-site";
+const origin = "https://www.baremapp.com";
 
 const pages = [
   { path: "/", priority: "1.0", changefreq: "monthly" },

@@ -11,6 +11,10 @@ touch docs/.nojekyll
 if [[ -f public/google589bc93cf8963c31.html ]]; then
   cp public/google589bc93cf8963c31.html docs/google589bc93cf8963c31.html
 fi
+# Custom domain (also copied from public/ via Next export when present)
+if [[ -f public/CNAME ]]; then
+  cp public/CNAME docs/CNAME
+fi
 git add docs
 git status -sb
 echo "docs/ updated. Commit + push main to publish (Pages source: main /docs)."

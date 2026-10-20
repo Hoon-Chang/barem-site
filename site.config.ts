@@ -7,13 +7,13 @@
 
 export const siteConfig = {
   /** 사이트 공개 URL (끝 슬래시 없이). sitemap·OG·canonical에 사용 */
-  siteUrl: "https://hoon-chang.github.io/barem-site",
+  siteUrl: "https://www.baremapp.com",
 
   /**
-   * GitHub Pages 프로젝트 사이트면 "/barem-site"
-   * 커스텀 도메인·Vercel 루트면 "" (빈 문자열)
+   * GitHub Pages 프로젝트 경로(`/barem-site`)일 때만 basePath 설정.
+   * 커스텀 도메인(루트)에서는 "" — 이미지·JS가 /barem-site/… 로 깨지지 않게 함.
    */
-  basePath: "/barem-site",
+  basePath: "",
 
   /** Google Search Console HTML 태그 인증값. 없으면 빈 문자열 */
   googleSiteVerification: "",

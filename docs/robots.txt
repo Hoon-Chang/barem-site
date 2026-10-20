@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow:
 
-Sitemap: https://hoon-chang.github.io/barem-site/sitemap.xml
+Sitemap: https://www.baremapp.com/sitemap.xml

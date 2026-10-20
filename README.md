@@ -3,7 +3,7 @@
 Next.js 15 (App Router) + Tailwind CSS 정적 사이트입니다.  
 Google Play 조직 인증·App Store/Play 개인정보처리방침 URL·랜딩 페이지로 사용합니다.
 
-**공개 URL (배포 후):** https://hoon-chang.github.io/barem-site/
+**공개 URL (배포 후):** https://www.baremapp.com/
 
 ---
 
@@ -53,7 +53,7 @@ npm run build
 
 ## 스크린샷 (홈페이지 기준 포맷 · 2026-09)
 
-기능이 바뀌어 스크린샷을 갈아끼울 때도 **이 포맷을 기준**으로 유지합니다. (라이브: https://hoon-chang.github.io/barem-site/)
+기능이 바뀌어 스크린샷을 갈아끼울 때도 **이 포맷을 기준**으로 유지합니다. (라이브: https://www.baremapp.com/)
 
 | 항목 | 규칙 |
 |------|------|
@@ -105,9 +105,9 @@ git add docs && git commit -m "Deploy site" && git push origin main
 
 1. 저장소 **Settings → Pages → Deploy from a branch**
 2. Branch: `main` / folder: `/docs`
-3. 프로젝트 사이트이므로 `site.config.ts`의 `basePath`는 `"/barem-site"` 입니다.
+3. 커스텀 도메인: `public/CNAME` → `www.baremapp.com` (`siteUrl` 동일, `basePath`는 `""`)
 4. Google Search Console HTML 파일 인증: `public/google*.html` → 빌드 시 `docs/`에 복사됩니다.
-5. 커스텀 도메인을 쓰면 `basePath`를 `""`로 바꾸고 `siteUrl`을 도메인으로 맞춘 뒤 다시 배포하세요.
+5. DNS에서 `www` → GitHub Pages, apex(`baremapp.com`)는 www로 리다이렉트하는 구성을 권장합니다.
 
 ---
 
